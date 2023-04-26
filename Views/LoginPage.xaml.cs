@@ -1,4 +1,5 @@
 ﻿using MauiAuth0App.Auth0;
+using System.Text.Json;
 
 namespace MauiAuth0App.Views;
 
@@ -24,6 +25,15 @@ public partial class LoginPage : ContentPage {
                 TokenHolder.AccessToken = loginResult.AccessToken;
                 TokenHolder.RefreshToken = loginResult.RefreshToken;
 
+                TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
+                TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(5000);
+                TokenHolder.Timer.Tick += (s, e) => {
+                    MainThread.InvokeOnMainThreadAsync(async () => {
+                        await RefreshAuth();
+                    });
+                };
+                TokenHolder.Timer.Start();
+
                 await Navigation.PushAsync(new OrganizationsPage(client));
             } else {
                 await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
@@ -33,6 +43,24 @@ public partial class LoginPage : ContentPage {
         } finally {
             LoginBtn.IsVisible = true;
         }
+    }
+
+    private async Task RefreshAuth() {
+        List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>> {
+            new KeyValuePair<string, string>("grant_type", "refresh_token"),
+            new KeyValuePair<string, string>("refresh_token", TokenHolder.RefreshToken),
+            new KeyValuePair<string, string>("client_id", "nextel-mobile-app")
+        };
+        var content = new FormUrlEncodedContent(postData);
+        var response = await client.PostAsync("https://auth.corvina.io/auth/realms/exor/protocol/openid-connect/token", content);
+
+        Token result = await JsonSerializer.DeserializeAsync<Token>(await response.Content.ReadAsStreamAsync());
+        TokenHolder.AccessToken = result.AccessToken;
+        TokenHolder.RefreshToken = result.RefreshToken;
+
+        var random = new Random();
+        Background = new Color(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
+        await App.Current.MainPage.DisplayAlert("Hey", "refresh", "ok");
     }
 
 }
