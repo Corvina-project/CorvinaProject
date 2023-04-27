@@ -4,31 +4,63 @@
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              x:Class="MauiAuth0App.Views.OrganizationsPage"
-             Title="OrganizationsPage">
+             Title="OrganizationsPage"
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <viewmodels:OrganizazionsPageViewModel x:Name="model" />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout>
+        <Label Text="Corvina Cloud" FontSize="30"/>
+        <Label Text="Organizations" FontSize="20" TextColor="Gray"/>
         <CollectionView ItemsSource="{Binding Organizations}"
-                        Margin="20">
+                        Margin="20"
+                        SelectionChanged="OrganizationsView_SelectionChanged"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedOrganization}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="10" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Organization">
-                    <Frame BackgroundColor="WhiteSmoke"
-                           CornerRadius="15"
+                    <Border BackgroundColor="WhiteSmoke"
                            HorizontalOptions="Center"
-                           VerticalOptions="Center">
+                           VerticalOptions="Center"
+                           Padding="15">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="25" />
+                        </Border.StrokeShape>
                         <VerticalStackLayout HorizontalOptions="Center" 
                                              VerticalOptions="Center">
                             <Label Text="{Binding Id, StringFormat='ID: {0}'}" />
                             <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
                             <Label Text="{Binding Label, StringFormat='Label: {0}'}" />
                             <Label Text="{Binding Status, StringFormat='Status: {0}'}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <CollectionView ItemsSource="{Binding Devices}"
+                        Margin="20"
+                        x:Name="DevicesView"
+                        SelectionChanged="DevicesView_SelectionChanged"          >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Device">
+                    <Frame BackgroundColor="WhiteSmoke"
+                           CornerRadius="15"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <VerticalStackLayout HorizontalOptions="Center" 
+                                             VerticalOptions="Center">
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                            <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" />
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

@@ -7,5 +7,11 @@ namespace MauiAuth0App.ViewModels {
         [ObservableProperty]
         private List<Organization> organizations;
 
+        [ObservableProperty]
+        private Organization selectedOrganization;
+
+        [ObservableProperty]
+        private List<Models.Device> devices = new();
+
     }
 }
