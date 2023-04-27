@@ -24,9 +24,8 @@ public partial class LoginPage : ContentPage {
             if (!loginResult.IsError) {
                 TokenHolder.AccessToken = loginResult.AccessToken;
                 TokenHolder.RefreshToken = loginResult.RefreshToken;
-
                 TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(5000);
+                TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700*1000);
                 TokenHolder.Timer.Tick += (s, e) => {
                     MainThread.InvokeOnMainThreadAsync(async () => {
                         await RefreshAuth();
@@ -60,7 +59,7 @@ public partial class LoginPage : ContentPage {
 
         var random = new Random();
         Background = new Color(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
-        await App.Current.MainPage.DisplayAlert("Hey", "refresh", "ok");
+        //await App.Current.MainPage.DisplayAlert("Hey", result.RefreshExpiresIn +  "", "ok");
     }
 
 }
