@@ -25,11 +25,22 @@ public partial class OrganizationsPage : ContentPage {
     private async void OrganizationsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         TokenHolder.ResourceId = model.SelectedOrganization.ResourceId;
-        var result = await TokenHandler.ExecuteWithPermissionToken(client,
+        var devices = await TokenHandler.ExecuteWithPermissionToken(client,
             () => client.GetFromJsonAsync<Devices>($"mappings/api/v1/devices?page=0&pageSize=25&orderBy=&orderDir=&append=false&search=&organization={TokenHolder.ResourceId}")
         );
 
-        model.Devices = result.Data;
+        model.Devices = devices.Data;
+
+        string richiesta = $"\"data\":\"(status != \\\"CLEARED\\\" and ( status == \\\"ACTIVE\\\" or ack == \\\"REQUIRED\\\" or reset == \\\"REQUIRED\\\" ) )\", \"orderDir\":\"asc\", \"page\":0, \"scopedOrganization\":\"{TokenHolder.ResourceId}\"";
+        richiesta = '{' + richiesta + '}';
+
+        var alarms = await TokenHandler.ExecuteWithPermissionToken(client,
+            async () => {
+                var result = await client.PostAsync("https://app.corvina.io/svc/platform/api/v1/alarms/search", new StringContent(richiesta, System.Text.Encoding.UTF8, "application/json"));
+                return await result.Content.ReadFromJsonAsync<Alarms>();
+            });
+
+        model.Alarms = alarms.Data;
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) {
