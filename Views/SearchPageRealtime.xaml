@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiAuth0App.Models"
+             xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
+             x:Class="MauiAuth0App.Views.SearchPageRealtime"
+             Title="SearchPageRealtime"
+             Padding="10">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:SearchPageRealtimeViewModel x:Name="model" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="White" Offset="0.6"/>
+            <GradientStop Color="CornflowerBlue" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <StackLayout>
+        <!--<SearchBar
+            Text="{Binding Text}"
+            HorizontalOptions="Fill"
+            VerticalOptions="CenterAndExpand"
+            Placeholder="Search..."
+            CancelButtonColor="CornflowerBlue"
+            PlaceholderColor="CornflowerBlue"
+            TextTransform="Lowercase"
+            HorizontalTextAlignment="Start"/>
+        <Label Text="Type in the searchbox to filter results in realtime."
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+        <ListView ItemSelected="SelectItem"
+                  HorizontalOptions="Fill" Margin="0,20,0,0"
+                  VerticalOptions="CenterAndExpand"/>-->
+        <Button
+            
+            />
+        <CollectionView
+            ItemsSource="{Binding Tags}">
+            <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Tag">
+                        <Frame>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:SearchPageRealtimeViewModel}}, Path=SelectItemCommand}"
+                                            CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

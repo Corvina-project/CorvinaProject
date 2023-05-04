@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiAuth0App.ViewModels"
+             x:Class="MauiAuth0App.Views.DevicePage"
+             x:DataType="vm:DeviceViewModel">
+    
+    <VerticalStackLayout>
+        <Label Text="{Binding DeviceType}"/>
+        <Label Text="{Binding DeviceModel.Label, StringFormat='Name: {0}'}"/>
+        <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}"/>
+        <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}"/>
+        <Label Text="{Binding DeviceModel.DeviceId, StringFormat='DeviceId: {0}'}"/>
+        <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}'}"/>
+        <Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>
+        <Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>
+        <Label Text="{Binding LastUpdate, StringFormat='Last Update: {0:dd/MM/yyyy}'}"/>
+    </VerticalStackLayout>
+</ContentPage>
