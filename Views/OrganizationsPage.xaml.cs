@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using DeviceType = MauiAuth0App.Enum.DeviceType;
 
 namespace MauiAuth0App.Views;
 
@@ -28,11 +29,12 @@ public partial class OrganizationsPage : ContentPage {
         var result = await TokenHandler.ExecuteWithPermissionToken(client,
             () => client.GetFromJsonAsync<Devices>($"mappings/api/v1/devices?page=0&pageSize=25&orderBy=&orderDir=&append=false&search=&organization={TokenHolder.ResourceId}")
         );
-
+        
         model.Devices = result.Data;
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) {
-        await DisplayAlert("paagina", "details page", "ok");
+        await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device));
+        //await DisplayAlert("paagina", "details page", "ok");
     }
 }

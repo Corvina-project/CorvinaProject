@@ -13,7 +13,7 @@ public partial class DeviceViewModel : ObservableObject
     [ObservableProperty] private DateTime creationDate;
     [ObservableProperty] private DateTime lastUpdate;
 
-    public DeviceViewModel(Device deviceModel, DeviceType deviceType, Token tokenHolder)
+    public DeviceViewModel(Device deviceModel, DeviceType deviceType)
     {
         this.deviceModel = deviceModel;
         this.deviceType = deviceType;

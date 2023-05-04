@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using System.Collections.ObjectModel;
+using System.Net.Http.Json;
 using Device = MauiAuth0App.Models.Device;
 using Encoding = System.Text.Encoding;
 
@@ -15,7 +16,7 @@ namespace MauiAuth0App.ViewModels
         private Device _device;
         private bool _execute;
         private int _organizationId;
-        public ObservableCollection<Tag> Tags;
+        public List<Tag> Tags;
         static HttpClient _client = new();
 
         public SearchPageRealtimeViewModel(Token tk, Device dv, int id)
@@ -36,47 +37,53 @@ namespace MauiAuth0App.ViewModels
         [RelayCommand]
         private async void SelectItem(Tag tag)
         {
+            string action = null;
             if (_execute && tag != null)
             {
-                string tagName = tag.name;
-                string action = await DisplayActionSheet("what do you want to do?", "Cancel", null, "add tag value", "view tag value");
+                string tagName = tag.deviceId.ToString();
+                action = await App.Current.MainPage.DisplayActionSheet("what do you want to do?", "Cancel", null, "add tag value", "view tag value");
                 if (action != null && action == "add tag value")
                 {
-                    string newTagValueString = await DisplayPromptAsync("Enter the value", "Enter the value that the tag should take");
-                    if (newTagValue != null)
+                    string newTagValueString = await App.Current.MainPage.DisplayPromptAsync("Enter the value", "Enter the value that the tag should take");
+                    if (newTagValueString != null)
                     {
                         try
                         {
-                            int newtagValue = int.Parse(newtagValueString);
+                            int newtagValue = int.Parse(newTagValueString);
                             if (tagName != null && newtagValue != null)
                             {
                                 bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
                                 if (response)
                                 {
-                                    await DisplayAlert("Confirmation", $"You have set the tag: {tagName} to the value: {newTagValueString}", "Ok");
+                                    await App.Current.MainPage.DisplayAlert("Confirmation", $"You have set the tag: {tagName} to the value: {newTagValueString}", "Ok");
                                 }
                                 else
                                 {
-                                    await DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
+                                    await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
                                 }
                             }
                             else
                             {
-                                await DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
+                                await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
                             }
                         }
 
                         catch
                         {
-                            await DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
+                            await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
                         }
                     }
                 }
-            }
-            else
-            {
-                _execute = false;
-                string action = await DisplayActionSheet("what do you want to see?", "Cancel", null, "Last Values", "Last 15 minutes", "Past day", "Past month", "Past year");
+                else
+                {
+                    action = await App.Current.MainPage.DisplayActionSheet("what do you want to see?", "Cancel", null, "Last Values", "Last 15 minutes", "Past day", "Past month", "Past year");
+                    if (action != "Cancel")
+                    {
+                        _execute = false;
+                        Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
+                        //DataService.general = strings;
+                    }
+                }
             }
         }
 
@@ -84,13 +91,50 @@ namespace MauiAuth0App.ViewModels
         {
             try
             {
-                await TokenHandler.ExecuteWithPermissionToken(_client, ()=> _client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
+                await TokenHandler.ExecuteWithPermissionToken(_client, async ()=> await _client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
                 return true;
             }
             catch
             {
                 return false;
             }
+        }
+
+        private async Task<List<Tag>> FoundValueTagDevice(string tagName, Device device, int orgId, string action)
+        {
+            try
+            {
+                DateTime now = DateTime.UtcNow;
+                DateTime date;
+                switch (action)
+                {
+                    case "Last 15 minutes":
+                        date = now.AddMinutes(-15);
+                        break;
+                    case "Past day":
+                        date = now.AddDays(-1);
+                        break;
+                    case "Past month":
+                        date = now.AddMonths(-1);
+                        break;
+                    case "Past year":
+                        date = now.AddYears(-1);
+                        break;
+                    default:
+                        date = now;
+                        break;
+                }
+                var final = $"since={date:s.fffZ}&to={now:s.fffZ}";
+                var url = $"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit={(action != "Last Values" ? 1000 : 1)}&{final}";
+                Tag tags = await TokenHandler.ExecuteWithPermissionToken(_client, async () => await _client.GetFromJsonAsync<Tag>(url));
+                
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return null;
         }
     }
 }
