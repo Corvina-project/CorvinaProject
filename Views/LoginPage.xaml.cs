@@ -56,10 +56,8 @@ public partial class LoginPage : ContentPage {
         Token result = await JsonSerializer.DeserializeAsync<Token>(await response.Content.ReadAsStreamAsync());
         TokenHolder.AccessToken = result.AccessToken;
         TokenHolder.RefreshToken = result.RefreshToken;
-
-        var random = new Random();
-        Background = new Color(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
-        //await App.Current.MainPage.DisplayAlert("Hey", result.RefreshExpiresIn +  "", "ok");
+        if (TokenHolder.ResourceId != null)
+            await TokenHandler.GetPermissionToken(client);
     }
 
 }

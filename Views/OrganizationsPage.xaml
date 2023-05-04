@@ -45,8 +45,7 @@
         </CollectionView>
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"
-                        x:Name="DevicesView"
-                        SelectionChanged="DevicesView_SelectionChanged"          >
+                        x:Name="DevicesView">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="10" />
@@ -59,9 +58,12 @@
                            VerticalOptions="Center">
                         <VerticalStackLayout HorizontalOptions="Center" 
                                              VerticalOptions="Center">
-                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                            <Label Text="{Binding Label, StringFormat='Label: {0}'}" />
                             <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" />
                         </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

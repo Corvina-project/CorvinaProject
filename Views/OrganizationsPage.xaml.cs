@@ -1,3 +1,4 @@
+using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -23,12 +24,15 @@ public partial class OrganizationsPage : ContentPage {
 
     private async void OrganizationsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var result = await client.GetFromJsonAsync<Devices>($"mappings/api/v1/devices?page=0&pageSize=25&orderBy=&orderDir=&append=false&search=&organization={model.SelectedOrganization.ResourceId}");
+        TokenHolder.ResourceId = model.SelectedOrganization.ResourceId;
+        var result = await TokenHandler.ExecuteWithPermissionToken(client,
+            () => client.GetFromJsonAsync<Devices>($"mappings/api/v1/devices?page=0&pageSize=25&orderBy=&orderDir=&append=false&search=&organization={TokenHolder.ResourceId}")
+        );
+
         model.Devices = result.Data;
     }
 
-    private void DevicesView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) {
+        await DisplayAlert("paagina", "details page", "ok");
     }
 }
