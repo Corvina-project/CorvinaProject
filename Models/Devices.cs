@@ -70,17 +70,11 @@ namespace MauiAuth0App.Models
         public string PresetId { get; set; }
     }
 
-    public class Alarms
+    public class DeviceAlarms
     {
         [JsonPropertyName("n_active_1")]
         public int NActive1 { get; set; }
     }
-
-    /// <summary>
-    /// ////
-    /// </summary>
-
-
 
     public class Attributes
     {

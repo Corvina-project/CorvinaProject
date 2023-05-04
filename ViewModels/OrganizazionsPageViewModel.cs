@@ -13,5 +13,8 @@ namespace MauiAuth0App.ViewModels {
         [ObservableProperty]
         private List<Models.Device> devices = new();
 
+        [ObservableProperty]
+        private List<Alarm> alarms = new();
+
     }
 }

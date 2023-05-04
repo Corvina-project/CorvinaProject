@@ -43,6 +43,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Label Text="Devices" />
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"
                         x:Name="DevicesView">
@@ -64,6 +65,30 @@
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                         </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Alarms" />
+        <CollectionView ItemsSource="{Binding Alarms}"
+                        Margin="20"
+                        x:Name="AlarmsView">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Alarm">
+                    <Frame BackgroundColor="WhiteSmoke"
+                           CornerRadius="15"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                            <Label Text="{Binding DeviceId, StringFormat='DeviceId: {0}'}" />
+                            <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                        </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
