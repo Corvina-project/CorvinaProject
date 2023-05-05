@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
-using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using Device = MauiAuth0App.Models.Device;
 using Encoding = System.Text.Encoding;
@@ -11,13 +10,14 @@ namespace MauiAuth0App.ViewModels
 {
     public partial class SearchPageRealtimeViewModel : ObservableObject
     {
-        //https://app.corvina.io/svc/platform/api/v1/organizations/28760/devices/lii2zwqdF6sOhXL_5zc04Q/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D
+        //https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{deviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D
         private Token _token;
         private Device _device;
         private bool _execute;
         private int _organizationId;
+        [ObservableProperty]
         public List<Tag> Tags;
-        static HttpClient _client = new();
+        static HttpClient client = new();
 
         public SearchPageRealtimeViewModel(Token tk, Device dv, int id)
         {
@@ -31,7 +31,7 @@ namespace MauiAuth0App.ViewModels
 
         private async void GetAllTags()
         {
-            //Tags =; prende i tag dal json
+            //TODO Tags =; prende i tag dal json
         }
 
         [RelayCommand]
@@ -91,7 +91,7 @@ namespace MauiAuth0App.ViewModels
         {
             try
             {
-                await TokenHandler.ExecuteWithPermissionToken(_client, async ()=> await _client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
+                await TokenHandler.ExecuteWithPermissionToken(client, async ()=> await client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
                 return true;
             }
             catch
@@ -126,7 +126,7 @@ namespace MauiAuth0App.ViewModels
                 }
                 var final = $"since={date:s.fffZ}&to={now:s.fffZ}";
                 var url = $"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit={(action != "Last Values" ? 1000 : 1)}&{final}";
-                Tag tags = await TokenHandler.ExecuteWithPermissionToken(_client, async () => await _client.GetFromJsonAsync<Tag>(url));
+                Tag tags = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetFromJsonAsync<Tag>(url));
                 
             }
             catch (Exception ex)

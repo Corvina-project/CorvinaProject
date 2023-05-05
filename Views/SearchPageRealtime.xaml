@@ -7,10 +7,6 @@
              Title="SearchPageRealtime"
              Padding="10">
     
-    <ContentPage.BindingContext>
-        <viewmodels:SearchPageRealtimeViewModel x:Name="model" />
-    </ContentPage.BindingContext>
-
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="White" Offset="0.6"/>
