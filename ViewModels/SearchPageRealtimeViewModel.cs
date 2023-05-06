@@ -1,8 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Device = MauiAuth0App.Models.Device;
 using Encoding = System.Text.Encoding;
 
@@ -10,18 +12,16 @@ namespace MauiAuth0App.ViewModels
 {
     public partial class SearchPageRealtimeViewModel : ObservableObject
     {
-        //https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{deviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D
-        private Token _token;
-        private Device _device;
+        //TODO: binding costruttore
+        private readonly Device _device;
         private bool _execute;
-        private int _organizationId;
+        private readonly int _organizationId;
         [ObservableProperty]
         public List<Tag> Tags;
         static HttpClient client = new();
 
-        public SearchPageRealtimeViewModel(Token tk, Device dv, int id)
+        public SearchPageRealtimeViewModel(Device dv, int id)
         {
-            _token = tk;
             _device = dv;
             _execute = true;
             _organizationId = id;
@@ -31,7 +31,7 @@ namespace MauiAuth0App.ViewModels
 
         private async void GetAllTags()
         {
-            //TODO Tags =; prende i tag dal json
+            Tags = await FindTagsDevice(_organizationId, _device);
         }
 
         [RelayCommand]
@@ -67,7 +67,6 @@ namespace MauiAuth0App.ViewModels
                                 await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
                             }
                         }
-
                         catch
                         {
                             await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
@@ -84,6 +83,25 @@ namespace MauiAuth0App.ViewModels
                         //DataService.general = strings;
                     }
                 }
+            }
+        }
+
+        private async Task<List<Tag>> FindTagsDevice(int orgId, Device device)
+        {
+            try
+            {
+                string json = await TokenHandler.ExecuteWithPermissionToken(client, async()=> await client.GetStringAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D"));
+                List<Tag> tags = new();
+                Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
+                foreach (var item in deviceTag)
+                {
+                    tags.Add(item);
+                }
+                return tags;
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -104,37 +122,72 @@ namespace MauiAuth0App.ViewModels
         {
             try
             {
-                DateTime now = DateTime.UtcNow;
-                DateTime date;
-                switch (action)
+                DateTime now = DateTime.UtcNow.ToUniversalTime();
+                DateTime date = new();
+                if (action != "Last Values")
                 {
-                    case "Last 15 minutes":
-                        date = now.AddMinutes(-15);
-                        break;
-                    case "Past day":
-                        date = now.AddDays(-1);
-                        break;
-                    case "Past month":
-                        date = now.AddMonths(-1);
-                        break;
-                    case "Past year":
-                        date = now.AddYears(-1);
-                        break;
-                    default:
-                        date = now;
-                        break;
+                    switch (action)
+                    {
+                        case "Last 15 minutes":
+                            date = now.AddMinutes(-15).ToUniversalTime();
+                            break;
+                        case "Past day":
+                            date = now.AddDays(-1).ToUniversalTime();
+                            break;
+                        case "Past month":
+                            date = now.AddMonths(-1).ToUniversalTime();
+                            break;
+                        case "Past year":
+                            date = now.AddYears(-1).ToUniversalTime();
+                            break;
+                        default:
+                            date = now;
+                            break;
+                    }
+                    string arrivo = now.ToString("s") + ".000Z";
+                    string inizio = date.ToString("s") + ".000Z";
+                    string final = "since=" + inizio + "&to=" + arrivo;
+                    var url = $"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit={(action != "Last Values" ? 1000 : 1)}&{final}";
+                    List<Tag> tags = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetFromJsonAsync<List<Tag>>(url));
+                    return tags;
                 }
-                var final = $"since={date:s.fffZ}&to={now:s.fffZ}";
-                var url = $"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit={(action != "Last Values" ? 1000 : 1)}&{final}";
-                Tag tags = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetFromJsonAsync<Tag>(url));
-                
+                else
+                {
+                    //TODO: non stringhe, ma tag
+                    /*
+                    var response = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit=1"));
+                    List<string> tags = new();
+                    string json = await response.Content.ReadAsStringAsync();
+                    Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
+                    foreach (var item in deviceTag[0].data)
+                    {
+                        tags.Add("Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1].ToString());
+                    }
+                    return tags; 
+                    */
+                    return null;
+                }
             }
             catch (Exception ex)
             {
                 return null;
             }
-
-            return null;
+        }
+        
+        private static string UnixTimeStampToDateTime(string unixTime)
+        {
+            string response = unixTime;
+            try
+            {
+                double c = double.Parse(unixTime);
+                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dateTime = dateTime.AddMilliseconds(c).ToLocalTime();
+                response = dateTime.ToString();
+            }
+            catch
+            {
+            }     
+            return response;
         }
     }
 }
