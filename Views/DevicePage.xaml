@@ -9,8 +9,6 @@
     <VerticalStackLayout Margin="20">
         <Frame BackgroundColor="LightGrey">
             <VerticalStackLayout>
-                <!--se non parte (errore object reference not set to an instance of an object)
-                commenta tutto all'interno di questo stack, decommentare una volta pertito se serve la pagina-->
                 <Label Text="{Binding DeviceType}" FontSize="20" FontAttributes="Bold" Margin="0,0,0,20"/>
                 <Label Text="{Binding DeviceModel.Label, StringFormat='Name: {0}'}"/>
                 <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}"/>
@@ -18,8 +16,22 @@
                 <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}"/>
                 <Label Text="{Binding DeviceModel.DeviceId, StringFormat='DeviceId: {0}'}"/>
                 <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}'}"/>
-                <Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>
-                <Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>
+                <!--collection view al posto di fare come sotto commentato perché altrimenti dava problemi all'avvio-->
+                <Label Text="Coordinates:"></Label>
+                <CollectionView Margin="10,0,0,0" 
+                    ItemsSource="{Binding DeviceModel.Attributes.GeoLocation}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding}"></Label>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
+                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
                 <Label Text="{Binding LastUpdate, StringFormat='Last Update: {0:dd/MM/yyyy}'}"/>
                 <Button Text="Tag" Command="{Binding GoToTagPageCommand}" HorizontalOptions="Center" WidthRequest="150" Margin="20"></Button>       
             </VerticalStackLayout>
