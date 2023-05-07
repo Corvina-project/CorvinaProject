@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using Device = MauiAuth0App.Models.Device;
@@ -23,6 +24,13 @@ public partial class DeviceViewModel : ObservableObject
     public DateTime UnixToDateTime(long unix)
     {
         DateTime date = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime();
-        return date.AddSeconds(unix);
+        DateTime dataC = date.AddMilliseconds((double)unix);
+        return dataC;
+    }
+
+    [RelayCommand]
+    public async Task GoToTagPage()
+    {
+        await App.Current.MainPage.DisplayAlert("Tag Page", "andare a tag page", "ok");
     }
 }

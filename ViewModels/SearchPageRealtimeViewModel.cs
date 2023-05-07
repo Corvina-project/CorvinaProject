@@ -17,7 +17,7 @@ namespace MauiAuth0App.ViewModels
         private bool _execute;
         private readonly int _organizationId;
         [ObservableProperty]
-        public List<Tag> Tags;
+        public List<Tag> _Tags;
         static HttpClient client = new();
 
         public SearchPageRealtimeViewModel(Device dv, int id)
@@ -25,13 +25,13 @@ namespace MauiAuth0App.ViewModels
             _device = dv;
             _execute = true;
             _organizationId = id;
-            Tags = new();
+            _Tags = new();
             GetAllTags();
         }
 
         private async void GetAllTags()
         {
-            Tags = await FindTagsDevice(_organizationId, _device);
+            _Tags = await FindTagsDevice(_organizationId, _device);
         }
 
         [RelayCommand]
@@ -79,7 +79,7 @@ namespace MauiAuth0App.ViewModels
                     if (action != "Cancel")
                     {
                         _execute = false;
-                        Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
+                        _Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
                         //DataService.general = strings;
                     }
                 }
