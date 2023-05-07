@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
@@ -17,7 +17,7 @@ namespace MauiAuth0App.ViewModels
         private bool _execute;
         private readonly int _organizationId;
         [ObservableProperty]
-        public List<Tag> _Tags;
+        public List<Tag> tags;
         static HttpClient client = new();
 
         public SearchPageRealtimeViewModel(Device dv, int id)
@@ -25,13 +25,13 @@ namespace MauiAuth0App.ViewModels
             _device = dv;
             _execute = true;
             _organizationId = id;
-            _Tags = new();
+            Tags = new();
             GetAllTags();
         }
 
         private async void GetAllTags()
         {
-            _Tags = await FindTagsDevice(_organizationId, _device);
+            Tags = await FindTagsDevice(_organizationId, _device);
         }
 
         [RelayCommand]
@@ -79,7 +79,7 @@ namespace MauiAuth0App.ViewModels
                     if (action != "Cancel")
                     {
                         _execute = false;
-                        _Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
+                        Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
                         //DataService.general = strings;
                     }
                 }

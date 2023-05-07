@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiAuth0App.ViewModels"
+             xmlns:model="clr-namespace:MauiAuth0App.Models"
+             xmlns:converter="clr-namespace:MauiAuth0App.Converter"
+             x:DataType="vm:DashBoardViewModel"
+             x:Class="MauiAuth0App.Views.DashBoardPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:UnixDateTimeConverter x:Key="UnixDateTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding DashBoards.Data}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:DashBoard">
+                    <Frame>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Id, StringFormat='Id: {0}'}"/>
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                            <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:DashBoardViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

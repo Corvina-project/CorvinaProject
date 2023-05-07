@@ -5,47 +5,50 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using MauiAuth0App.ViewModels;
 using DeviceType = MauiAuth0App.Enum.DeviceType;
 
 namespace MauiAuth0App.Views;
 
-public partial class OrganizationsPage : ContentPage {
+public partial class OrganizationsPage : ContentPage
+{
 
+    private OrganizazionsPageViewModel model;
 	private readonly HttpClient client;
 
 	public OrganizationsPage(HttpClient client) {
 		InitializeComponent();
 		this.client = client;
-	}
+
+        model = new OrganizazionsPageViewModel(client);
+        BindingContext = model;
+    }
 
     protected override async void OnAppearing() {
         base.OnAppearing();
-		model.Organizations = await client.GetFromJsonAsync<List<Organization>>("core/api/v1/organizations/mine");
+
+        await model.LoadOrganizations();
     }
 
     private async void OrganizationsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         TokenHolder.ResourceId = model.SelectedOrganization.ResourceId;
-        var devices = await TokenHandler.ExecuteWithPermissionToken(client,
-            () => client.GetFromJsonAsync<Devices>($"mappings/api/v1/devices?page=0&pageSize=25&orderBy=&orderDir=&append=false&search=&organization={TokenHolder.ResourceId}")
-        );
-
-        model.Devices = devices.Data;
-
-        string richiesta = $"\"data\":\"(status != \\\"CLEARED\\\" and ( status == \\\"ACTIVE\\\" or ack == \\\"REQUIRED\\\" or reset == \\\"REQUIRED\\\" ) )\", \"orderDir\":\"asc\", \"page\":0, \"scopedOrganization\":\"{TokenHolder.ResourceId}\"";
-        richiesta = '{' + richiesta + '}';
-
-        var alarms = await TokenHandler.ExecuteWithPermissionToken(client,
-            async () => {
-                var result = await client.PostAsync("https://app.corvina.io/svc/platform/api/v1/alarms/search", new StringContent(richiesta, System.Text.Encoding.UTF8, "application/json"));
-                return await result.Content.ReadFromJsonAsync<Alarms>();
-            });
-
-        model.Alarms = alarms.Data;
+        
+        await model.LoadDevices();
+        await model.LoadAlarms();
+        await model.LoadDashBoards();
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) {
-        await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device));
+        //TODO: Sta parte è inutile se visualizziamo tutto nella homepage
+        string action = await DisplayActionSheet("Cosa vuoi aprire", "Cancel", null, "Device", "Alarms", "Dashboard");
+        
+        switch (action)
+        {
+            case "Device": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device)); break;
+            case "Alarms": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device)); break;
+            case "Dashboard": await Navigation.PushAsync(new DashBoardPage(client, model.SelectedOrganization)); break;
+        }
         //await DisplayAlert("paagina", "details page", "ok");
     }
 }

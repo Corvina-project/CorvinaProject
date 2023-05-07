@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
+             xmlns:converter="clr-namespace:MauiAuth0App.Converter"
              x:Class="MauiAuth0App.Views.OrganizationsPage"
+             x:DataType="viewmodels:OrganizazionsPageViewModel"
              Title="OrganizationsPage"
              Shell.NavBarIsVisible="False">
-
-    <ContentPage.BindingContext>
-        <viewmodels:OrganizazionsPageViewModel x:Name="model" />
-    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:UnixDateTimeConverter x:Key="UnixDateTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <VerticalStackLayout>
         <Label Text="Corvina Cloud" FontSize="30"/>
@@ -89,6 +93,32 @@
                             <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
                             <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
                         </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="DashBoards" />
+        <CollectionView ItemsSource="{Binding DashBoards.Data}"
+                        Margin="20">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:DashBoard">
+                    <Frame BackgroundColor="WhiteSmoke"
+                           CornerRadius="15"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Id, StringFormat='Id: {0}'}"/>
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                            <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:OrganizazionsPageViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
