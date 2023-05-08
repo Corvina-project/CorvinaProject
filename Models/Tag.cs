@@ -7,4 +7,5 @@ public class Tag
     public string?[] types { get; set; }
     public string?[] header { get; set; }
     public object?[][] data { get; set; }
+    public string tagValue { get; set; }
 }

@@ -1,9 +1,7 @@
-using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
-using System.Net.Http.Json;
 using System.Text.Json;
 using Device = MauiAuth0App.Models.Device;
 using Encoding = System.Text.Encoding;
@@ -12,7 +10,6 @@ namespace MauiAuth0App.ViewModels
 {
     public partial class SearchPageRealtimeViewModel : ObservableObject
     {
-        //TODO: binding costruttore
         private readonly Device _device;
         private bool _execute;
         private readonly string _organizationId;
@@ -36,9 +33,10 @@ namespace MauiAuth0App.ViewModels
             get => text;
             set
             {
-                text = value;
+                text = value.ToLower() ?? "";
                 OnPropertyChanged();
                 //TODO: aggiorna lista
+                Tags = Tags.Where(t => t.modelPath.ToLower().Contains(text)).ToList();
             }
         }
         
@@ -50,11 +48,10 @@ namespace MauiAuth0App.ViewModels
         [RelayCommand]
         private async void SelectItem(Tag tag)
         {
-            string action = null;
             if (_execute && tag != null)
             {
-                string tagName = tag.deviceId.ToString();
-                action = await App.Current.MainPage.DisplayActionSheet("what do you want to do?", "Cancel", null, "add tag value", "view tag value");
+                string tagName = tag.modelPath;
+                string action = await App.Current.MainPage.DisplayActionSheet("what do you want to do?", "Cancel", null, "add tag value", "view tag value");
                 if (action != null && action == "add tag value")
                 {
                     string newTagValueString = await App.Current.MainPage.DisplayPromptAsync("Enter the value", "Enter the value that the tag should take");
@@ -93,7 +90,6 @@ namespace MauiAuth0App.ViewModels
                     {
                         _execute = false;
                         Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
-                        //DataService.general = strings;
                     }
                 }
             }
@@ -104,14 +100,14 @@ namespace MauiAuth0App.ViewModels
             try
             {
                 string json = await TokenHandler.ExecuteWithPermissionToken(client, 
-                    async()=> await client.GetStringAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.Id}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D"));
-                List<Tag> tags = new();
+                    async()=> await client.GetStringAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D"));
+                List<Tag> tagsList = new();
                 Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                 foreach (var item in deviceTag)
                 {
-                    tags.Add(item);
+                    tagsList.Add(item);
                 }
-                return tags;
+                return tagsList;
             }
             catch
             {
@@ -124,7 +120,7 @@ namespace MauiAuth0App.ViewModels
             try
             {
                 await TokenHandler.ExecuteWithPermissionToken(client, 
-                    async ()=> await client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.Id}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
+                    async ()=> await client.PostAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags", new StringContent("{\"data\": [{\"modelPath\": \"" + tagName + "\",\"v\": " + tagValue + "}] }", Encoding.UTF8, "application/json")));
                 return true;
             }
             catch
@@ -137,7 +133,8 @@ namespace MauiAuth0App.ViewModels
         {
             try
             {
-                DateTime now = DateTime.UtcNow.ToUniversalTime();
+                List<Tag> tagsList = new();
+                DateTime now = DateTime.Now.ToUniversalTime();
                 DateTime date = new();
                 if (action != "Last Values")
                 {
@@ -162,31 +159,49 @@ namespace MauiAuth0App.ViewModels
                     string arrivo = now.ToString("s") + ".000Z";
                     string inizio = date.ToString("s") + ".000Z";
                     string final = "since=" + inizio + "&to=" + arrivo;
-                    var url = $"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.Id}/tags?modelPath={tagName}&limit={(action != "Last Values" ? 1000 : 1)}&{final}";
-                    List<Tag> tags = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetFromJsonAsync<List<Tag>>(url));
-                    return tags;
-                }
-                else
-                {
-                    //TODO: non stringhe, ma tag
-                    /*
-                    var response = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{orgId}/devices/{device.Id}/tags?modelPath={tagName}&limit=1"));
-                    List<string> tags = new();
+                    var response = await TokenHandler.ExecuteWithPermissionToken(client, 
+                        async () => await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags?modelPath={tagName}&limit=1000&{final}"));
                     string json = await response.Content.ReadAsStringAsync();
                     Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                     foreach (var item in deviceTag[0].data)
                     {
-                        tags.Add("Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1].ToString());
+                        tagsList.Add(new Tag() { tagValue = "Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1] });
                     }
-                    return tags; 
-                    */
-                    return null;
+                    return tagsList;
+                }
+                else
+                {
+                    var response = await TokenHandler.ExecuteWithPermissionToken(client, async () => await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags?modelPath={tagName}&limit=1"));
+                    string json = await response.Content.ReadAsStringAsync();
+                    Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
+                    foreach (var item in deviceTag[0].data)
+                    {
+                        //TODO: cambiare convertitore
+                        tagsList.Add(new Tag() { tagValue = "Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1] });
+                    }
+                    return tagsList; 
                 }
             }
             catch (Exception ex)
             {
                 return null;
             }
+        }
+
+        private static string UnixTimeStampToDateTime(string unixTime)
+        {
+            string response = unixTime;
+            try
+            {
+                double c = double.Parse(unixTime);
+                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                dateTime = dateTime.AddMilliseconds(c).ToLocalTime();
+                response = dateTime.ToString();
+            }
+            catch
+            {
+            }
+            return response;
         }
     }
 }

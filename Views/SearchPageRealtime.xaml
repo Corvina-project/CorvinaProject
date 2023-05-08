@@ -17,11 +17,11 @@
     <StackLayout>
         <Label Text="Type in the searchbox to filter results in realtime."
                HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand"/>
+               VerticalOptions="Start"/>
         <SearchBar
             Text="{Binding Text}"
             HorizontalOptions="Fill"
-            VerticalOptions="CenterAndExpand"
+            VerticalOptions="Start"
             Placeholder="Search..."
             CancelButtonColor="CornflowerBlue"
             PlaceholderColor="CornflowerBlue"
@@ -39,7 +39,9 @@
                         </Frame.GestureRecognizers>
                         <StackLayout>
                             <Label
-                                Text="{Binding deviceId}"/>
+                                Text="{Binding modelPath}"/>
+                            <Label
+                                Text="{Binding tagValue}"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
