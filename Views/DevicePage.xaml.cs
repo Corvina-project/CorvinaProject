@@ -11,9 +11,9 @@ namespace MauiAuth0App.Views;
 
 public partial class DevicePage : ContentPage
 {
-    public DevicePage(Device deviceModel, DeviceType deviceType)
+    public DevicePage(Device deviceModel, DeviceType deviceType, HttpClient client)
     {
         InitializeComponent();
-        BindingContext = new DeviceViewModel(deviceModel, deviceType);
+        BindingContext = new DeviceViewModel(deviceModel, deviceType, client);
     }
 }

@@ -15,7 +15,10 @@
     </ContentPage.Background>
 
     <StackLayout>
-        <!--<SearchBar
+        <Label Text="Type in the searchbox to filter results in realtime."
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+        <SearchBar
             Text="{Binding Text}"
             HorizontalOptions="Fill"
             VerticalOptions="CenterAndExpand"
@@ -24,27 +27,22 @@
             PlaceholderColor="CornflowerBlue"
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
-        <Label Text="Type in the searchbox to filter results in realtime."
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand"/>
-        <ListView ItemSelected="SelectItem"
-                  HorizontalOptions="Fill" Margin="0,20,0,0"
-                  VerticalOptions="CenterAndExpand"/>-->
-        <Button
-            
-            />
         <CollectionView
             ItemsSource="{Binding Tags}">
             <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Tag">
-                        <Frame>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer 
+                    <Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:SearchPageRealtimeViewModel}}, Path=SelectItemCommand}"
                                             CommandParameter="{Binding .}"/>
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </DataTemplate>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding deviceId}"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
                 </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>

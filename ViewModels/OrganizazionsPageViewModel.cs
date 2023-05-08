@@ -23,8 +23,6 @@ namespace MauiAuth0App.ViewModels {
             this.client = client;
         }
         
-
-
         public async Task LoadOrganizations()
         {
             Organizations = await client.GetFromJsonAsync<List<Organization>>("core/api/v1/organizations/mine");

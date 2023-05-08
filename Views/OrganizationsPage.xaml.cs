@@ -26,7 +26,6 @@ public partial class OrganizationsPage : ContentPage
 
     protected override async void OnAppearing() {
         base.OnAppearing();
-
         await model.LoadOrganizations();
     }
 
@@ -45,8 +44,8 @@ public partial class OrganizationsPage : ContentPage
         
         switch (action)
         {
-            case "Device": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device)); break;
-            case "Alarms": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device)); break;
+            case "Device": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device, client)); break;
+            case "Alarms": await Navigation.PushAsync(new DevicePage(model.Devices[0], DeviceType.Device, client)); break;
             case "Dashboard": await Navigation.PushAsync(new DashBoardPage(client, model.SelectedOrganization)); break;
         }
         //await DisplayAlert("paagina", "details page", "ok");
