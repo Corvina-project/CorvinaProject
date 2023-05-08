@@ -8,7 +8,7 @@ using Encoding = System.Text.Encoding;
 
 namespace MauiAuth0App.ViewModels
 {
-    public partial class SearchPageRealtimeViewModel : ObservableObject
+    public partial class TagPageViewModel : ObservableObject
     {
         private readonly Device _device;
         private bool _execute;
@@ -18,7 +18,7 @@ namespace MauiAuth0App.ViewModels
         private HttpClient client;
         private string text;
 
-        public SearchPageRealtimeViewModel(Device dv, HttpClient client)
+        public TagPageViewModel(Device dv, HttpClient client)
         {
             _device = dv;
             _execute = true;
@@ -36,7 +36,7 @@ namespace MauiAuth0App.ViewModels
                 text = value.ToLower() ?? "";
                 OnPropertyChanged();
                 //TODO: aggiorna lista
-                Tags = Tags.Where(t => t.modelPath.ToLower().Contains(text)).ToList();
+                //Tags = Tags.Where(t => t.modelPath.ToLower().Contains(text)).ToList();
             }
         }
         

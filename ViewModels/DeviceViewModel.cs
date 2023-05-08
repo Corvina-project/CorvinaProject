@@ -24,7 +24,7 @@ public partial class DeviceViewModel : ObservableObject
     [RelayCommand]
     public async Task GoToTagPage()
     {
-        await App.Current.MainPage.Navigation.PushAsync(new SearchPageRealtime(DeviceModel, client));
+        await App.Current.MainPage.Navigation.PushAsync(new TagPage(DeviceModel, client));
         //await App.Current.MainPage.DisplayAlert("Tag Page", "andare a tag page", "ok");
     }
 }
