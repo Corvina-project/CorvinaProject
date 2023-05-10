@@ -25,7 +25,6 @@ namespace MauiAuth0App.ViewModels
             _organizationId = dv.OrgResourceId;
             this.client = client;
             Tags = new();
-            GetAllTags();
         }
 
         public string Text
@@ -40,57 +39,53 @@ namespace MauiAuth0App.ViewModels
             }
         }
         
-        private async void GetAllTags()
+        public async Task GetAllTags()
         {
             Tags = await FindTagsDevice(_organizationId, _device);
         }
 
         [RelayCommand]
-        private async void SelectItem(Tag tag)
-        {
-            if (_execute && tag != null)
-            {
-                string tagName = tag.modelPath;
-                string action = await App.Current.MainPage.DisplayActionSheet("what do you want to do?", "Cancel", null, "add tag value", "view tag value");
-                if (action != null && action == "add tag value")
-                {
-                    string newTagValueString = await App.Current.MainPage.DisplayPromptAsync("Enter the value", "Enter the value that the tag should take");
-                    if (newTagValueString != null)
-                    {
-                        try
-                        {
-                            int newtagValue = int.Parse(newTagValueString);
-                            if (tagName != null && newtagValue != null)
-                            {
-                                bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
-                                if (response)
-                                {
-                                    await App.Current.MainPage.DisplayAlert("Confirmation", $"You have set the tag: {tagName} to the value: {newTagValueString}", "Ok");
-                                }
-                                else
-                                {
-                                    await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
-                                }
-                            }
-                            else
-                            {
-                                await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
-                            }
-                        }
-                        catch
-                        {
-                            await App.Current.MainPage.DisplayAlert("Error", "the fields are invalid or you are not connected to the internet", "Ok");
-                        }
-                    }
+        private async void SelectItem(Tag tag) {
+            if (!_execute || tag == null)
+                return;
+
+            string tagName = tag.modelPath;
+            string action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi fare?", "Indietro", null, "Aggiungi un valore", "Visualizza i valori");
+
+            if (action == null)
+                return;
+
+            if (action == "Visualizza i valori") {
+                action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi vedere?", "Annulla", null, "Ultimi valori", "Ultimi 15 minuti", "Ultimo giorno", "Ultimo mese", "Past year");
+                if (action != "Cancel") {
+                    _execute = false;
+                    Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
                 }
-                else
-                {
-                    action = await App.Current.MainPage.DisplayActionSheet("what do you want to see?", "Cancel", null, "Last Values", "Last 15 minutes", "Past day", "Past month", "Past year");
-                    if (action != "Cancel")
-                    {
-                        _execute = false;
-                        Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
-                    }
+                return;
+            }
+
+            if (action == "Aggiungi un valore") {
+                string newTagValueString = await Application.Current.MainPage.DisplayPromptAsync("Inserisci il valore", "Inserisci il valore che il tag dovrebbe assumere");
+                if (newTagValueString == null)
+                    return;
+
+                var success = int.TryParse(newTagValueString, out int newtagValue);
+
+                if (!success) {
+                    await Application.Current.MainPage.DisplayAlert("Errore", "Il campo inserito non è valido", "Ok");
+                    return;
+                }
+
+                if (tagName == null) {
+                    await Application.Current.MainPage.DisplayAlert("Errore", "Potresti non essere connesso ", "Ok");
+                    return;
+                }
+
+                bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
+                if (response) {
+                    await Application.Current.MainPage.DisplayAlert("Confirmation", $"You have set the tag: {tagName} to the value: {newTagValueString}", "Ok");
+                } else {
+                    await Application.Current.MainPage.DisplayAlert("Errore", "Connessione a internet assente", "Ok");
                 }
             }
         }
@@ -140,16 +135,16 @@ namespace MauiAuth0App.ViewModels
                 {
                     switch (action)
                     {
-                        case "Last 15 minutes":
+                        case "Ultimi 15 minuti":
                             date = now.AddMinutes(-15).ToUniversalTime();
                             break;
-                        case "Past day":
+                        case "Ultimo giorno":
                             date = now.AddDays(-1).ToUniversalTime();
                             break;
-                        case "Past month":
+                        case "Ultimo mese":
                             date = now.AddMonths(-1).ToUniversalTime();
                             break;
-                        case "Past year":
+                        case "Ultimo anno":
                             date = now.AddYears(-1).ToUniversalTime();
                             break;
                         default:

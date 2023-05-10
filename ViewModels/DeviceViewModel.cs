@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MauiAuth0App.Auth0;
-using MauiAuth0App.Models;
 using MauiAuth0App.Views;
 using Device = MauiAuth0App.Models.Device;
 using DeviceType = MauiAuth0App.Enum.DeviceType;

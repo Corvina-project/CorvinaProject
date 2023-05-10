@@ -24,14 +24,19 @@ public partial class LoginPage : ContentPage {
             if (!loginResult.IsError) {
                 TokenHolder.AccessToken = loginResult.AccessToken;
                 TokenHolder.RefreshToken = loginResult.RefreshToken;
-                TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700*1000);
-                TokenHolder.Timer.Tick += (s, e) => {
-                    MainThread.InvokeOnMainThreadAsync(async () => {
-                        await RefreshAuth();
-                    });
-                };
-                TokenHolder.Timer.Start();
+                
+                if (TokenHolder.Timer == null) {
+                    TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
+                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700 * 1000);
+                    TokenHolder.Timer.Tick += (s, e) => {
+                        MainThread.InvokeOnMainThreadAsync(async () => {
+                            await RefreshAuth();
+                        });
+                    };
+                }
+
+                if (!TokenHolder.Timer.IsRunning)
+                    TokenHolder.Timer.Start();
 
                 await Navigation.PushAsync(new OrganizationsPage(client));
             } else {

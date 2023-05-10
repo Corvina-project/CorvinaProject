@@ -97,7 +97,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="DashBoards" />
+        <Label Text="Dashboards" />
         <CollectionView ItemsSource="{Binding DashBoards.Data}"
                         Margin="20">
             <CollectionView.ItemsLayout>

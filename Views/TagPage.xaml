@@ -28,7 +28,8 @@
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
         <CollectionView
-            ItemsSource="{Binding Tags}">
+            ItemsSource="{Binding Tags}"
+            HeightRequest="650">
             <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Tag">
                     <Frame>
