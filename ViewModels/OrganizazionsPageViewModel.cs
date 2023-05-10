@@ -11,7 +11,7 @@ namespace MauiAuth0App.ViewModels {
 
         [ObservableProperty] private List<Organization> organizations;
         [ObservableProperty] private Organization selectedOrganization;
-        
+
         [ObservableProperty] private List<Device> devices = new();
         [ObservableProperty] private List<Alarm> alarms = new();
         [ObservableProperty] private DashBoards dashBoards = new();
@@ -63,6 +63,8 @@ namespace MauiAuth0App.ViewModels {
         [RelayCommand]
         private async Task OpenDashBoard(DashBoard data)
         {
+            //await App.Current.MainPage.Navigation.PushAsync(
+            //    new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}/new?org={data.OrgResourceId}&org={data.OrgResourceId}"));
             await App.Current.MainPage.Navigation.PushAsync(
                 new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}/new?org={data.OrgResourceId}&org={data.OrgResourceId}"));
         }
