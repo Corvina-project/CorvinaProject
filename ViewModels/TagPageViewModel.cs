@@ -56,8 +56,8 @@ namespace MauiAuth0App.ViewModels
                 return;
 
             if (action == "Visualizza i valori") {
-                action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi vedere?", "Annulla", null, "Ultimi valori", "Ultimi 15 minuti", "Ultimo giorno", "Ultimo mese", "Past year");
-                if (action != "Cancel") {
+                action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi vedere?", "Annulla", null, "Ultimi valori", "Ultimi 15 minuti", "Ultimo giorno", "Ultimo mese", "Ultimo anno");
+                if (action != "Annulla") {
                     _execute = false;
                     Tags = await FoundValueTagDevice(tagName, _device, _organizationId, action);
                 }
@@ -83,7 +83,7 @@ namespace MauiAuth0App.ViewModels
 
                 bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
                 if (response) {
-                    await Application.Current.MainPage.DisplayAlert("Confirmation", $"You have set the tag: {tagName} to the value: {newTagValueString}", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Conferma", $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
                 } else {
                     await Application.Current.MainPage.DisplayAlert("Errore", "Connessione a internet assente", "Ok");
                 }
@@ -160,7 +160,7 @@ namespace MauiAuth0App.ViewModels
                     Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                     foreach (var item in deviceTag[0].data)
                     {
-                        tagsList.Add(new Tag() { tagValue = "Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1] });
+                        tagsList.Add(new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1] });
                     }
                     return tagsList;
                 }
@@ -172,7 +172,7 @@ namespace MauiAuth0App.ViewModels
                     foreach (var item in deviceTag[0].data)
                     {
                         //TODO: cambiare convertitore
-                        tagsList.Add(new Tag() { tagValue = "Date: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValue: " + item[1] });
+                        tagsList.Add(new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1] });
                     }
                     return tagsList; 
                 }
