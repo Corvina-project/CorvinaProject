@@ -15,22 +15,21 @@
                             Padding="30,0"
                             Grid.Row="3">
             <Button x:Name="LoginBtn"
-                Text="LOGIN"
+                    Text="LOGIN"
                     FontFamily="corvina_font"
                     FontSize="25"
                     WidthRequest="350"
                     HeightRequest="50"
-                SemanticProperties.Hint="Click to log in"
-                Clicked="OnLoginClicked"
-                HorizontalOptions="Center" />
+                    SemanticProperties.Hint="Click to log in"
+                    Clicked="OnLoginClicked"
+                    HorizontalOptions="Center" />
             <Button  Text="EXIT"
                      FontSize="25"
                      FontFamily="corvina_font"
                      WidthRequest="350"
                      HeightRequest="50"/>
-
-            <WebView x:Name="WebViewInstance" IsVisible="false" />
         </VerticalStackLayout>
+        <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
     </Grid>
     
 </ContentPage>

@@ -8,6 +8,8 @@ namespace MauiAuth0App.Views;
 
 public partial class WebViewPage : ContentPage
 {
+    public WebView WebView { get; set; }
+    
     public WebViewPage(string url)
     {
         InitializeComponent();
@@ -17,5 +19,19 @@ public partial class WebViewPage : ContentPage
 
         Content = webView;
         BackgroundColor = Colors.Transparent;
+
+        WebView = webView;
     }
-}
+
+    public WebViewPage()
+    {
+        InitializeComponent();
+
+        var webView = new WebView();
+
+        Content = webView;
+        BackgroundColor = Colors.Transparent;
+
+        WebView = webView;
+    }
+ }

@@ -28,14 +28,13 @@
             PlaceholderColor="CornflowerBlue"
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
-        <ScrollView>
-            <StackLayout>
-                <CollectionView
-            ItemsSource="{Binding Tags}"
-            HeightRequest="650"
-            IsGrouped="False"
-            RemainingItemsThreshold="1"
-            RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
+        <StackLayout>
+            <CollectionView
+                ItemsSource="{Binding Tags}"
+                HeightRequest="650"
+                IsGrouped="False"
+                RemainingItemsThreshold="1"
+                RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Tag">
                             <Frame>
@@ -53,16 +52,14 @@
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>
-                <ActivityIndicator
-                    IsRunning="{Binding IsLoading}"
-                    IsVisible="{Binding IsLoading}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Color="Green"/>
-            </StackLayout>
-        </ScrollView>
+            </CollectionView>
+            <ActivityIndicator
+                IsRunning="{Binding IsLoading}"
+                IsVisible="{Binding IsLoading}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="50"
+                HeightRequest="50"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -7,19 +7,28 @@ public partial class LoginPage : ContentPage {
 
     private readonly Auth0Client auth0Client;
     private readonly HttpClient client;
+    
+    private WebViewPage webViewPage;
+    private bool isBusy = false;
 
     public LoginPage(Auth0Client auth0Client, HttpClient client) {
         InitializeComponent();
         this.auth0Client = auth0Client;
         this.client = client;
+        webViewPage = new WebViewPage();
 
-        auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
+        auth0Client.Browser = new WebViewBrowserAuthenticator(webViewPage.WebView);
+        //auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
     }
 
     private async void OnLoginClicked(object sender, EventArgs e) {
         try {
-            LoginBtn.IsVisible = false;
+            if (isBusy) return;
+            isBusy = true;
+            
+            await Navigation.PushAsync(webViewPage);
             var loginResult = await auth0Client.LoginAsync();
+            await Navigation.PopAsync();
 
             if (!loginResult.IsError) {
                 TokenHolder.AccessToken = loginResult.AccessToken;
@@ -39,6 +48,8 @@ public partial class LoginPage : ContentPage {
                     TokenHolder.Timer.Start();
 
                 await Navigation.PushAsync(new OrganizationsPage(client));
+                
+                isBusy = false;
             } else {
                 await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
             }
