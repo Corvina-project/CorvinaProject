@@ -66,7 +66,7 @@ namespace MauiAuth0App.ViewModels {
             //await App.Current.MainPage.Navigation.PushAsync(
             //    new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}/new?org={data.OrgResourceId}&org={data.OrgResourceId}"));
             await App.Current.MainPage.Navigation.PushAsync(
-                new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}/new?org={data.OrgResourceId}&org={data.OrgResourceId}"));
+                new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}"));
         }
 
     }
