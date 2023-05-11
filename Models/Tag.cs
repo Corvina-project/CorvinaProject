@@ -1,4 +1,6 @@
-﻿namespace MauiAuth0App.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace MauiAuth0App.Models;
 
 public class Tag
 {

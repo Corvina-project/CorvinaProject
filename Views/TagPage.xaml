@@ -4,6 +4,7 @@
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              x:Class="MauiAuth0App.Views.TagPage"
+             x:DataType="viewmodels:TagPageViewModel"
              Title="SearchPageRealtime"
              Padding="10">
     
@@ -29,20 +30,23 @@
             HorizontalTextAlignment="Start"/>
         <CollectionView
             ItemsSource="{Binding Tags}"
-            HeightRequest="650">
+            HeightRequest="650"
+            IsGrouped="False"
+            RemainingItemsThreshold="1"
+            RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
             <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Tag">
                     <Frame>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer 
-                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=SelectItemCommand}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=GoToTagDetailsPageCommand}"
                                             CommandParameter="{Binding .}"/>
                         </Frame.GestureRecognizers>
                         <StackLayout>
                             <Label
                                 Text="{Binding modelPath}"/>
                             <Label
-                                Text="{Binding tagValue}"/>
+                                Text="{Binding tagValue, StringFormat='Ultimo valore: {0}'}"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
