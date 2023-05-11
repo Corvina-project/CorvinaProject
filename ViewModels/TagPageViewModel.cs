@@ -20,6 +20,7 @@ namespace MauiAuth0App.ViewModels
         private string text;
         private int i = 0;
         private List<Tag> tagsList = new();
+        [ObservableProperty] private bool isLoading;
 
         public TagPageViewModel(Device dv, HttpClient client)
         {
@@ -44,17 +45,19 @@ namespace MauiAuth0App.ViewModels
         [RelayCommand]
         public async Task GetAllTags()
         {
+            IsLoading = true;
             var tagList = await FindTagsDevice();
             foreach (var item in tagList)
             {
                 Tags.Add(item);
             }
+            IsLoading = false;
         }
 
         [RelayCommand]
         private async void GoToTagDetailsPage(Tag tag)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage(tag));
+            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage());
         }
 
         private async Task<List<Tag>> FindTagsDevice()

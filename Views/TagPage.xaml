@@ -28,29 +28,41 @@
             PlaceholderColor="CornflowerBlue"
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
-        <CollectionView
+        <ScrollView>
+            <StackLayout>
+                <CollectionView
             ItemsSource="{Binding Tags}"
             HeightRequest="650"
             IsGrouped="False"
             RemainingItemsThreshold="1"
             RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
-            <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Tag">
-                    <Frame>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer 
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Tag">
+                            <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=GoToTagDetailsPageCommand}"
                                             CommandParameter="{Binding .}"/>
-                        </Frame.GestureRecognizers>
-                        <StackLayout>
-                            <Label
+                                </Frame.GestureRecognizers>
+                                <StackLayout>
+                                    <Label
                                 Text="{Binding modelPath}"/>
-                            <Label
+                                    <Label
                                 Text="{Binding tagValue, StringFormat='Ultimo valore: {0}'}"/>
-                        </StackLayout>
-                    </Frame>
-                </DataTemplate>
-                </CollectionView.ItemTemplate>
-        </CollectionView>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <ActivityIndicator
+                    IsRunning="{Binding IsLoading}"
+                    IsVisible="{Binding IsLoading}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Color="Green"/>
+            </StackLayout>
+        </ScrollView>
     </StackLayout>
 </ContentPage>

@@ -12,6 +12,7 @@ namespace MauiAuth0App.ViewModels
         private readonly Device _device;
         private readonly string _organizationId;
         private HttpClient client;
+
         public TagDetailsPageViewModel(HttpClient client, Tag tg, Device dv)
         {
             this.client = client;
