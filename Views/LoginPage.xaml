@@ -6,10 +6,10 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#222d38">
 
-    <Grid RowDefinitions="70,auto,50, auto,100" ColumnDefinitions="auto,*,auto">
+    <Grid RowDefinitions="100,auto,50, auto" ColumnDefinitions="*">
         <VerticalStackLayout Grid.Row="1">
             <Image Source="corvina_cloud_blue.png"
-                   HeightRequest="350" Scale="1.6" Margin="0,30,0,0"/>
+                   HeightRequest="350" Scale="1.6"/>
         </VerticalStackLayout>
         <VerticalStackLayout Spacing="25"
                             Padding="30,0"

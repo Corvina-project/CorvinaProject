@@ -10,8 +10,8 @@
     
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="White" Offset="0.6"/>
-            <GradientStop Color="CornflowerBlue" Offset="1.0"/>
+            <GradientStop Color="#6688A5" Offset="0.6"/>
+            <GradientStop Color="#222d38" Offset="1.0"/>
         </LinearGradientBrush>
     </ContentPage.Background>
 
@@ -28,8 +28,9 @@
             PlaceholderColor="CornflowerBlue"
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
-        <StackLayout>
+        <Grid RowDefinitions="auto, 100">
             <CollectionView
+                Grid.RowSpan="2"
                 ItemsSource="{Binding Tags}"
                 HeightRequest="650"
                 IsGrouped="False"
@@ -37,7 +38,7 @@
                 RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Tag">
-                            <Frame>
+                        <Frame Margin="5,10,5,5" BackgroundColor="White">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=GoToTagDetailsPageCommand}"
@@ -54,12 +55,14 @@
                     </CollectionView.ItemTemplate>
             </CollectionView>
             <ActivityIndicator
+                Grid.Row="1"
                 IsRunning="{Binding IsLoading}"
                 IsVisible="{Binding IsLoading}"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 WidthRequest="50"
-                HeightRequest="50"/>
-        </StackLayout>
+                HeightRequest="50"
+                Color="{StaticResource Primary}"/>
+        </Grid>
     </StackLayout>
 </ContentPage>
