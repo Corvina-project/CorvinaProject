@@ -46,9 +46,9 @@
                                 </Frame.GestureRecognizers>
                                 <StackLayout>
                                     <Label
-                                Text="{Binding modelPath}"/>
+                                        Text="{Binding modelPath}"/>
                                     <Label
-                                Text="{Binding tagValue, StringFormat='Ultimo valore: {0}'}"/>
+                                        Text="{Binding tagValue}"/>
                                 </StackLayout>
                             </Frame>
                         </DataTemplate>

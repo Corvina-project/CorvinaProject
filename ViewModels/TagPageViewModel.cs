@@ -80,11 +80,10 @@ namespace MauiAuth0App.ViewModels
                         continue;
                     foreach (var item in deviceTagValues[0].data)
                     {
-                        tagsList[i].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1];
+                        tagsList[i].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
                     }
                 }
                 return tagsList;
-                
             }
             catch (Exception ex)
             {
