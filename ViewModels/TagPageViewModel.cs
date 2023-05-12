@@ -21,6 +21,7 @@ namespace MauiAuth0App.ViewModels
         private int i = 0;
         private List<Tag> tagsList = new();
         [ObservableProperty] private bool isLoading;
+        private bool _executeTag;
 
         public TagPageViewModel(Device dv, HttpClient client)
         {
@@ -28,6 +29,7 @@ namespace MauiAuth0App.ViewModels
             _organizationId = dv.OrgResourceId;
             this.client = client;
             Tags = new();
+            _executeTag = true;
         }
 
         public string Text
@@ -64,26 +66,54 @@ namespace MauiAuth0App.ViewModels
         {
             try
             {
-                string json = await TokenHandler.ExecuteWithPermissionToken(client, 
-                    async()=> await client.GetStringAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{_organizationId}/devices/{_device.DeviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D"));
+                tagsList = new();
+                int index = 0;
+                string json = await TokenHandler.ExecuteWithPermissionToken(client,
+                    async () => await client.GetStringAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{_organizationId}/devices/{_device.DeviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D"));
                 Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                 int k = i + 10;
-                for (; i < k; i++)
+                if (_executeTag && deviceTag.Length < k)
                 {
-                    tagsList.Add(deviceTag[i]);
-                    string tagName = tagsList[i].modelPath;
-                    var response = await TokenHandler.ExecuteWithPermissionToken(client, async () => 
-                        await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{_organizationId}/devices/{_device.DeviceId}/tags?modelPath={tagName}&limit=1"));
-                    string jsonTagValues = await response.Content.ReadAsStringAsync();
-                    Tag[] deviceTagValues = JsonSerializer.Deserialize<Tag[]>(jsonTagValues);
-                    if (deviceTagValues[0].data is null)
-                        continue;
-                    foreach (var item in deviceTagValues[0].data)
+                    for (int j = i; j < deviceTag.Length; j++)
                     {
-                        tagsList[i].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
+                        tagsList.Add(deviceTag[j]);
+                        string tagName = deviceTag[j].modelPath;
+                        var response = await TokenHandler.ExecuteWithPermissionToken(client, async () =>
+                            await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{_organizationId}/devices/{_device.DeviceId}/tags?modelPath={tagName}&limit=1"));
+                        string jsonTagValues = await response.Content.ReadAsStringAsync();
+                        Tag[] deviceTagValues = JsonSerializer.Deserialize<Tag[]>(jsonTagValues);
+                        if (deviceTagValues[0].data is null)
+                            continue;
+                        foreach (var item in deviceTagValues[0].data)
+                        {
+                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
+                        }
+                        index++;
                     }
+                    _executeTag = false;
+                    return tagsList;
                 }
-                return tagsList;
+                else if (!_executeTag) { return tagsList; }
+                else
+                {
+                    for (; i < k; i++)
+                    {
+                        tagsList.Add(deviceTag[i]);
+                        string tagName = deviceTag[i].modelPath;
+                        var response = await TokenHandler.ExecuteWithPermissionToken(client, async () =>
+                            await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{_organizationId}/devices/{_device.DeviceId}/tags?modelPath={tagName}&limit=1"));
+                        string jsonTagValues = await response.Content.ReadAsStringAsync();
+                        Tag[] deviceTagValues = JsonSerializer.Deserialize<Tag[]>(jsonTagValues);
+                        if (deviceTagValues[0].data is null)
+                            continue;
+                        foreach (var item in deviceTagValues[0].data)
+                        {
+                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
+                        }
+                        index++;
+                    }
+                    return tagsList;
+                }
             }
             catch (Exception ex)
             {
