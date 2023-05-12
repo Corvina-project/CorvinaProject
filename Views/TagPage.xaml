@@ -16,19 +16,21 @@
     </ContentPage.Background>
 
     <StackLayout>
-        <Label Text="Type in the searchbox to filter results in realtime."
-               HorizontalOptions="Center"
-               VerticalOptions="Start"/>
-        <SearchBar
+        <Frame Margin="10" CornerRadius="50" HeightRequest="57">
+            <SearchBar
             Text="{Binding Text}"
             HorizontalOptions="Fill"
             VerticalOptions="Start"
-            Placeholder="Search..."
+            Placeholder="Search a Tag..."
             CancelButtonColor="CornflowerBlue"
-            PlaceholderColor="CornflowerBlue"
+            PlaceholderColor="{StaticResource Secondary}"
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
+        </Frame>
+        
+
         <Grid RowDefinitions="auto, 100">
+
             <CollectionView
                 Grid.RowSpan="2"
                 ItemsSource="{Binding Tags}"
@@ -47,9 +49,9 @@
                                 <StackLayout>
                                     <Label
                                         Text="{Binding modelPath}"/>
-                                    <Label
+                                <Label
                                         Text="{Binding tagValue}"/>
-                                </StackLayout>
+                            </StackLayout>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
