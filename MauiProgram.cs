@@ -16,6 +16,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				fonts.AddFont("DESIGNER.otf", "corvina_font");
+                fonts.AddFont("Poppins-Regular.ttf", "attributes_font");
 			});
 
 #if DEBUG
