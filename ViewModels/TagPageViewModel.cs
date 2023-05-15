@@ -59,7 +59,7 @@ namespace MauiAuth0App.ViewModels
         [RelayCommand]
         private async void GoToTagDetailsPage(Tag tag)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage());
+            await App.Current.MainPage.Navigation.PushAsync(new GraphTagPage(Tags));
         }
 
         private async Task<List<Tag>> FindTagsDevice()
@@ -86,7 +86,8 @@ namespace MauiAuth0App.ViewModels
                             continue;
                         foreach (var item in deviceTagValues[0].data)
                         {
-                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
+                            // TODO: salvare in due variabili dentro tag la data e il valore (4IA)
+                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1];
                         }
                         index++;
                     }
@@ -108,7 +109,8 @@ namespace MauiAuth0App.ViewModels
                             continue;
                         foreach (var item in deviceTagValues[0].data)
                         {
-                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nUltimo valore: " + item[1];
+                            // TODO: salvare in due variabili dentro tag la data e il valore (4IA)
+                            tagsList[index].tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1];
                         }
                         index++;
                     }

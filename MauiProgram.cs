@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Views;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MauiAuth0App;
 
@@ -9,8 +10,9 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
+        builder
+            .UseMauiApp<App>()
+            .UseSkiaSharp()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
