@@ -27,7 +27,8 @@
                      FontSize="25"
                      FontFamily="corvina_font"
                      WidthRequest="350"
-                     HeightRequest="50"/>
+                     HeightRequest="50"
+                     Clicked="OnExitClicked"/>
         </VerticalStackLayout>
         <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
     </Grid>

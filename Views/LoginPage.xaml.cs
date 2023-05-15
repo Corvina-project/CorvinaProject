@@ -21,6 +21,11 @@ public partial class LoginPage : ContentPage {
         //auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
     }
 
+    private async void OnExitClicked(object sender, EventArgs e)
+    {
+        Application.Current.Quit();
+    }
+
     private async void OnLoginClicked(object sender, EventArgs e) {
         try {
             if (isBusy) return;
