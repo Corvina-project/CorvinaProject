@@ -1,7 +1,6 @@
 <sub> [README 🇺🇸](README.md) </sub>
 
 ## Indice
-
 ### I. Introduzione 
 -  <a  href="#pota"> Overview dell'Applicazione </a> 
 
@@ -24,7 +23,6 @@
 
 
 ## Overview dell'Applicazione <a name="pota"></a>
-
 L'applicazione Corvina Project è un tool volto all'interfacciamento con il portale di Corvina.  
 Le tecnologie su cui si basa il progetto sono:
 * .NET MAUI per lo sviluppo dell'UI
@@ -37,11 +35,9 @@ Le tecnologie su cui si basa il progetto sono:
 
 * Android 11.0 - API30
 
-## Configurazione <a name="cs"></a>
+## Interfaccia Utente <a name="ui"></a>
 1. Appena avviata l'Applicazione apparirà un pulsante con la scritta "LOGIN"
 2. Inserire le credenziali del portale Corvina 
-
-## Interfaccia Utente <a name="ui"></a>
 Appena eseguito l'accesso si potrà accedere alle organizzazioni di cui si è membri.  
 Cliccando su una, verrano caricati
 - Device
@@ -54,7 +50,7 @@ Ogni elemento può essere cliccato per essere diretti alla pagina dell'elemento 
 ## Caratteristiche e Funzionalità Principali <a name="kfaf"></a>
 Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i vari tag dell'utente tramite lo smartphone in maniera intuitiva e user-friendly.
 
-## Problemi ed Errori Comuni <a name="ciae"></a>
+## Problemi ed Errori Comuni <a name="cie"></a>
 
 ## Soluzione ai Problemi <a name="httt"></a>
 

@@ -1,70 +1,62 @@
 <sub> [README 🇮🇹](README.it.md) </sub>
 
-## Quick Start Guide
+## Table Content
+### I. Introduction
+-  <a  href="#oqsg"> App Overview </a>
 
-<details><summary> I. Introduction </summary>
-
--  <a  href="#pota"> Purpose of the Application </a>
--  <a  href="#ta"> Target Audience </a>
--  <a  href="#oqsg"> Overview of the Quick Start Guide</a>
-
-</details>
-
-<details><summary> II. Getting Started </summary>
-
+### II. System Requirements and Installation
 -  <a  href="#ii"> Installation Instructions </a>
 -  <a  href="#sr"> System Requirements </a>
--  <a  href="#cs"> Configuration Settings </a>
 
-</details>
-
-<details><summary> III. Using the Application </summary>
-
+III. Using the Application
 -  <a  href="#ui"> User Interface</a>
 -  <a  href="#kfaf"> Key Features and Functionalities </a>
 
-</details>
-
-<details><summary> IV. Troubleshooting </summary>
-
+### IV. Troubleshooting 
 -  <a  href="#cie"> Common Issues and Errors </a>
 -  <a  href="#httt"> How to Troubleshoot them </a>
 
-</details>
-
-<details><summary> V. Conclusion </summary>
-
--  <a  href="#sokp"> Summary of Key Points </a>
+### V. Conclusion
 -  <a  href="#ar"> Additional Resources </a>
 -  <a  href="#s"> Support </a>
 -  <a  href="#fu"> Future Updates </a>
 
-</details>
-
 ## Purpose of the Application <a name="pota"></a>
-
-## Target Audience <a name="ta"></a>
-
-## Overview of the Quick Start Guide <a name="ootqsg"></a>
+The Corvina Project application is a tool aimed at interfacing with the Corvina portal.
+The technologies on which the project is based are:
+* .NET MAUI for UI development
+* C# for the back-end part
 
 ## Installation Instructions <a name="ii"></a>
 
 ## System Requirements <a name="sr"></a>
 
-## Configuration Settings <a name="cs"></a>
-
 ## User Interface <a name="ui"></a>
+1. As soon as the Application is started, a button with the wording "LOGIN" will appear
+2. Enter the Corvina portal credentials
+Once logged in, you will be able to access the organizations of which you are a member.
+By clicking on one, they will be loaded
+-Device
+- Alarms
+- Dashboards
+
+Each element can be clicked to be directed to the page of the selected element where it is subsequently possible to access the desired TAGs.
 
 ## Key Features and Functionalities <a name="kfaf"></a>
+From the application it is possible to create, modify, delete and view the various user tags via the smartphone in an intuitive and user-friendly way.
 
-## Common issues and errors <a name="ciae"></a>
+## Common issues and errors <a name="cie"></a>
 
 ## How to troubleshoot them <a name="httt"></a>
 
-## Summary of Key Points <a name="sokp"></a>
-
 ## Additional Resources <a name="ar"></a>
+- [Portale Corvina](https://app.corvina.io/)
+- [Cos'è .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)
 
 ## Support <a name="s"></a>
+Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
+- carlo.cecchetti@issgreppi.it
+- giorgio.citterio@issgreppi.it
 
 ## Future Updates <a name="fu"></a>
+- Notifications
