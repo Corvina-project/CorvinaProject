@@ -1,0 +1,2 @@
+# MauiAuth0App
+prova
