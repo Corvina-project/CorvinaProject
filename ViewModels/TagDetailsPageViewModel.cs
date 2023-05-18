@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Text.Json;
 using MauiAuth0App.Auth0;
@@ -80,6 +81,7 @@ namespace MauiAuth0App.ViewModels
             }
         }
 
+        /*
         private async Task<List<Tag>> FoundValueTagDevice(string tagName, Device device, string organizationId, string action)
         {
             try
@@ -116,7 +118,19 @@ namespace MauiAuth0App.ViewModels
                     Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                     foreach (var item in deviceTag[0].data)
                     {
-                        tagsList.Add(new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1] });
+                        var data = (DateTime) TagPageViewModel.UnixTimestampToDateTime(item[0].ToString());
+                        _ = double.TryParse(item[1].ToString(), out double valore);
+
+                        Application.Current.MainPage.DisplayAlert("Valore", $"{item[0]} {item[1]}", "ok");
+
+                        if (data.Ticks == 0)
+                            continue;
+                        
+                        tagsList.Add(new Tag() {
+                            tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], // da togliere
+                            Data = data,
+                            Valore = valore
+                        });
                     }
                     return tagsList;
                 }
@@ -127,7 +141,19 @@ namespace MauiAuth0App.ViewModels
                     Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
                     foreach (var item in deviceTag[0].data)
                     {
-                        tagsList.Add(new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1] });
+                        var data = (DateTime) TagPageViewModel.UnixTimestampToDateTime(item[0].ToString());
+                        _ = double.TryParse(item[1].ToString(), out double valore);
+
+                        Application.Current.MainPage.DisplayAlert("Valore", $"{item[0]} {item[1]}", "ok");
+
+                        if (data.Ticks == 0)
+                            continue;
+
+                        tagsList.Add(new Tag() {
+                            tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], // da togliere
+                            Data = data,
+                            Valore = valore
+                        });
                     }
                     return tagsList;
                 }
@@ -137,6 +163,7 @@ namespace MauiAuth0App.ViewModels
                 return null;
             }
         }
+        */
 
         private static string UnixTimeStampToDateTime(string unixTime)
         {

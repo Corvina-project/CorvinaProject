@@ -21,7 +21,7 @@
         <Frame Margin="10"
                CornerRadius="50"
                HeightRequest="57">
-            <SearchBar Text="{Binding Text}"
+            <SearchBar Text="Cerca (da fare)"
                        HorizontalOptions="Fill"
                        VerticalOptions="Start"
                        Placeholder="Search a Tag..."
@@ -36,9 +36,7 @@
             <CollectionView Grid.RowSpan="2"
                             ItemsSource="{Binding Tags}"
                             HeightRequest="650"
-                            IsGrouped="False"
-                            RemainingItemsThreshold="1"
-                            RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
+                            IsGrouped="False">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Tag">
                         <Frame Margin="5,10,5,5"

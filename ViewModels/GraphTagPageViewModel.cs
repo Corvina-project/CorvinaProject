@@ -20,7 +20,7 @@ namespace MauiAuth0App.ViewModels
 
         public ISeries[] Series { get; set; } = {
             new LineSeries<DateTimePoint>() {
-                TooltipLabelFormatter = (point) => $"{new DateTime((long) point.SecondaryValue):HH:mm:ss} » {point.PrimaryValue}",
+                TooltipLabelFormatter = (point) => $"{new DateTime((long) point.SecondaryValue):dd/MM/yy HH:mm:ss} » {point.PrimaryValue}",
                 LineSmoothness = 0,
                 Values = Data,
                 Stroke = new SolidColorPaint(SKColors.MediumPurple) { StrokeThickness = 6 },
@@ -31,7 +31,7 @@ namespace MauiAuth0App.ViewModels
 
         public Axis[] XAxes { get; set; } = {
             new Axis() {
-                Labeler = value => new DateTime((long) value).ToString("HH:mm:ss"),
+                Labeler = value => new DateTime((long) value).ToString("dd/MM/yy HH:mm:ss"),
                 LabelsRotation = 20,
                 UnitWidth = TimeSpan.FromSeconds(1).Ticks,
                 MinStep = TimeSpan.FromSeconds(1).Ticks,

@@ -74,6 +74,8 @@ public partial class LoginPage : ContentPage {
         TokenHolder.RefreshToken = result.RefreshToken;
         if (TokenHolder.ResourceId != null)
             await TokenHandler.GetPermissionToken(client);
+
+        await Application.Current.MainPage.DisplayAlert("Refresh", "Refresh del token fatto", "ok");
     }
 
 }
