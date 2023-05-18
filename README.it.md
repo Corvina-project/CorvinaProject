@@ -2,7 +2,7 @@
 
 ## Indice
 ### I. Introduzione 
--  <a  href="#pota"> Overview dell'Applicazione </a> 
+-  <a  href="#ao"> Overview dell'Applicazione </a> 
 
 ### II. Requisiti di Sistema e Installazione
 -  <a  href="#ii"> Guida all'Installazione </a>
@@ -22,7 +22,7 @@
 -  <a  href="#fu"> Futuri Updates </a>
 
 
-## Overview dell'Applicazione <a name="pota"></a>
+## Overview dell'Applicazione <a name="ao"></a>
 L'applicazione Corvina Project è un tool volto all'interfacciamento con il portale di Corvina.  
 Le tecnologie su cui si basa il progetto sono:
 * .NET MAUI per lo sviluppo dell'UI

@@ -2,7 +2,7 @@
 
 ## Table Content
 ### I. Introduction
--  <a  href="#oqsg"> App Overview </a>
+-  <a  href="#ao"> App Overview </a>
 
 ### II. System Requirements and Installation
 -  <a  href="#ii"> Installation Instructions </a>
@@ -21,7 +21,7 @@ III. Using the Application
 -  <a  href="#s"> Support </a>
 -  <a  href="#fu"> Future Updates </a>
 
-## Purpose of the Application <a name="pota"></a>
+## Purpose of the Application <a name="ao"></a>
 The Corvina Project application is a tool aimed at interfacing with the Corvina portal.
 The technologies on which the project is based are:
 * .NET MAUI for UI development
