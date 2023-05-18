@@ -50,8 +50,8 @@ From the application it is possible to create, modify, delete and view the vario
 ## How to troubleshoot them <a name="httt"></a>
 
 ## Additional Resources <a name="ar"></a>
-- [Portale Corvina](https://app.corvina.io/)
-- [Cos'è .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)
+- [Corvina Website](https://app.corvina.io/)
+- [What's .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)
 
 ## Support <a name="s"></a>
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
