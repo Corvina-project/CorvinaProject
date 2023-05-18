@@ -21,7 +21,7 @@ III. Using the Application
 -  <a  href="#s"> Support </a>
 -  <a  href="#fu"> Future Updates </a>
 
-## Purpose of the Application <a name="ao"></a>
+## App Overview <a name="ao"></a>
 The Corvina Project application is a tool aimed at interfacing with the Corvina portal.
 The technologies on which the project is based are:
 * .NET MAUI for UI development
