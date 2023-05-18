@@ -14,9 +14,14 @@ public partial class TagPage : ContentPage
         BindingContext = viewModel;
     }
 
+
+
     protected override async void OnAppearing() {
         base.OnAppearing();
         await viewModel.GetAllTags();
     }
 
+    private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e) {
+        await viewModel.Search(searchBar.Text);
+    }
 }

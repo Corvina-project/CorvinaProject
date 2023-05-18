@@ -21,20 +21,22 @@
         <Frame Margin="10"
                CornerRadius="50"
                HeightRequest="57">
-            <SearchBar Text="Cerca (da fare)"
+            <SearchBar Text="{Binding SearchText}"
+                       x:Name="searchBar"
                        HorizontalOptions="Fill"
                        VerticalOptions="Start"
-                       Placeholder="Search a Tag..."
+                       Placeholder="Cerca un tag..."
                        CancelButtonColor="CornflowerBlue"
                        PlaceholderColor="{StaticResource Secondary}"
                        TextTransform="Lowercase"
+                       TextChanged="SearchBar_TextChanged"
                        HorizontalTextAlignment="Start" />
         </Frame>
 
         <Grid RowDefinitions="auto, 100">
 
             <CollectionView Grid.RowSpan="2"
-                            ItemsSource="{Binding Tags}"
+                            ItemsSource="{Binding SearchTags}"
                             HeightRequest="650"
                             IsGrouped="False">
                 <CollectionView.ItemTemplate>

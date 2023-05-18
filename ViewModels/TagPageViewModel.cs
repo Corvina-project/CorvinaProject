@@ -8,20 +8,26 @@ using System;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Xml.Linq;
 using Device = MauiAuth0App.Models.Device;
-using Encoding = System.Text.Encoding;
 
 namespace MauiAuth0App.ViewModels {
     public partial class TagPageViewModel : ObservableObject {
         private readonly Device device;
         private readonly string organizationId;
+        private readonly object _lock = new();
+        private CancellationTokenSource source = new();
 
         private HttpClient client;
 
         [ObservableProperty]
         private ObservableCollection<Tag> tags = new();
         [ObservableProperty]
+        private List<Tag> searchTags = new();
+        [ObservableProperty]
         private bool isLoading;
+        [ObservableProperty]
+        private string searchText = "";
 
         public TagPageViewModel(Device device, HttpClient client) {
             this.client = client;
@@ -33,11 +39,24 @@ namespace MauiAuth0App.ViewModels {
         [RelayCommand]
         public async Task GetAllTags() {
             IsLoading = true;
-            var tagList = await FindTagsDevice();
-            foreach (var item in tagList) {
-                Tags.Add(item);
-            }
+            var tags = await FindTagsDevice();
+            Tags = new ObservableCollection<Tag>(tags);
+            await Search(SearchText);
             IsLoading = false;
+        }
+
+        public async Task Search(string text) {
+            source.Cancel();
+            source = new();
+
+            await Task.Run(() => {
+                var results = Tags.Where(t => t.modelPath.ToLower().Contains(text.ToLower())).ToList();
+                if (source.IsCancellationRequested)
+                    return;
+                lock (_lock) { 
+                    SearchTags = results;
+                }
+            }, source.Token);
         }
 
         [RelayCommand]
