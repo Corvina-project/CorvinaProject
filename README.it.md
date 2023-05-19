@@ -61,7 +61,6 @@ Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i va
 ## Supporto <a name="s"></a>
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
-- giorgio.citterio@issgreppi.it
 
 ## Futuri Updates <a name="fu"></a>
 - Notifiche
