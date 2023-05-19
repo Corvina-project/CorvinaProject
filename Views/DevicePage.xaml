@@ -15,17 +15,20 @@
     
     <VerticalStackLayout Margin="20">
         <Frame BackgroundColor="LightGrey">
-            <Grid RowDefinitions="auto,auto,auto,auto,auto" ColumnDefinitions="auto,*,auto">
-                <Label Text="{Binding DeviceType}" FontSize="40" CharacterSpacing="1.5" FontAttributes="Bold" Margin="0,0,0,20" FontFamily="corvina_font"/>
+            <Grid RowDefinitions="auto,auto,auto,auto" ColumnDefinitions="auto,*,auto">
+                <Label Text="{Binding DeviceType}" FontSize="35" CharacterSpacing="1.5" FontAttributes="Bold" Margin="0,0,0,20" FontFamily="corvina_font"/>
                 <VerticalStackLayout Grid.Row="1">
-                    <Label Text="{Binding DeviceModel.Label, StringFormat='Name: {0}'}" HorizontalOptions="Center" FontFamily="corvina_font" FontSize="25" TextColor="Black"/>
-                    <HorizontalStackLayout HorizontalOptions="Center">
-                        <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}" Margin="3" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" Margin="3" HorizontalOptions="Center" VerticalOptions="Center"/>
-                        <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" Margin="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <HorizontalStackLayout HorizontalOptions="Start">
+                        <Label Text="Name: "  HorizontalOptions="Start" FontFamily="corvina_font" FontSize="25" TextColor="Black"/>
+                        <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" HorizontalOptions="Start" FontFamily="corvina_font" FontSize="25" TextColor="Black" Margin="0,0,0,5" WidthRequest="210"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Start">
+                        <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}" Margin="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" Margin="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" Margin="2" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
-                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='DeviceId: {0}'}" HorizontalOptions="Center" VerticalOptions="Center" Margin="5" Grid.Row="2" FontFamily="corvina_font" FontSize="20"/>
+                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='DeviceId: {0}'}" HorizontalOptions="Start" Grid.Row="2" FontSize="15" WidthRequest="250"/>
                 <VerticalStackLayout Grid.Row="3">
                     <Label Text="{Binding DeviceModel.CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
                     <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
@@ -45,7 +48,7 @@
                     <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
                     <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
                     <Label Text="{Binding DeviceModel.LastConnUpdateAt, StringFormat='Last Update: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
-                    <Button Text="Tag" Command="{Binding GoToTagPageCommand}" HorizontalOptions="Center" WidthRequest="150" Margin="20"></Button>
+                    <Button Text="Tag" Command="{Binding GoToTagPageCommand}" HorizontalOptions="Center" WidthRequest="150" Margin="0,15,0,0"></Button>
                 </VerticalStackLayout>
             </Grid>
         </Frame>
