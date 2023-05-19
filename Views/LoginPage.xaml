@@ -37,7 +37,8 @@
                      CornerRadius="25"
                      BorderColor="White"
                      BorderWidth="1"
-                     HeightRequest="47"/>
+                     HeightRequest="47"
+                     Clicked="OnExitClicked"/>
         </VerticalStackLayout>
         <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
     </Grid>

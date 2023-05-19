@@ -7,25 +7,19 @@
              x:DataType="viewmodels:TagPageViewModel"
              Title="SearchPageRealtime"
              Padding="10">
-    
-    <ContentPage.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#6688A5" Offset="0.6"/>
-            <GradientStop Color="#222d38" Offset="1.0"/>
-        </LinearGradientBrush>
-    </ContentPage.Background>
 
     <StackLayout>
         <Frame Margin="10" CornerRadius="50" HeightRequest="57">
             <SearchBar
-            Text="{Binding Text}"
-            HorizontalOptions="Fill"
-            VerticalOptions="Start"
-            Placeholder="Search a Tag..."
-            CancelButtonColor="CornflowerBlue"
-            PlaceholderColor="{StaticResource Secondary}"
-            TextTransform="Lowercase"
-            HorizontalTextAlignment="Start"/>
+                TextColor="{StaticResource Primary}"
+                Text="{Binding Text}"
+                HorizontalOptions="Fill"
+                VerticalOptions="Start"
+                Placeholder="Search a Tag..."
+                CancelButtonColor="{StaticResource Tertiary}"
+                PlaceholderColor="{StaticResource Tertiary}"
+                TextTransform="Lowercase"
+                HorizontalTextAlignment="Start"/>
         </Frame>
         <Grid RowDefinitions="auto, 100">
             <CollectionView
@@ -37,7 +31,7 @@
                 RemainingItemsThresholdReachedCommand="{Binding GetAllTagsCommand}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Tag">
-                        <Frame Margin="5,10,5,5" BackgroundColor="White">
+                        <Frame Margin="5,10,5,5" BorderColor="WhiteSmoke" BackgroundColor="#151515" CornerRadius="25">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=GoToTagDetailsPageCommand}"
@@ -45,6 +39,7 @@
                                 </Frame.GestureRecognizers>
                                 <StackLayout>
                                     <Label
+                                        TextColor="{StaticResource Black}"
                                         Text="{Binding modelPath}"/>
                                     <Label
                                         Text="{Binding tagValue}"/>

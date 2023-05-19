@@ -77,7 +77,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Label Text="Alarms"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" />
+            <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" />
             <CollectionView ItemsSource="{Binding Alarms}"
                         Margin="20"
                         x:Name="AlarmsView">
@@ -87,7 +87,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Alarm">
-                        <Frame BackgroundColor="WhiteSmoke"
+                        <Frame BackgroundColor="#151515"
                            CornerRadius="15"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"

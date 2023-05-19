@@ -41,7 +41,7 @@ public partial class LoginPage : ContentPage {
                 
                 if (TokenHolder.Timer == null) {
                     TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700 * 1000);
+                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1500 * 1000);
                     TokenHolder.Timer.Tick += (s, e) => {
                         MainThread.InvokeOnMainThreadAsync(async () => {
                             await RefreshAuth();
