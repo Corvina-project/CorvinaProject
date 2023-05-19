@@ -112,9 +112,14 @@ namespace MauiAuth0App.ViewModels
                     async () => await client.GetAsync($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags?modelPath={tagName}&limit=1000&{final}"));
                 string json = await response.Content.ReadAsStringAsync();
                 Tag[] deviceTag = JsonSerializer.Deserialize<Tag[]>(json);
-                foreach (var item in deviceTag[0].data)
+                if (deviceTag[0].data.Length == 0)
+                    tag = new Tag() { modelPath = tagName, tagValue = "Valore: valore non dato" };
+                else
                 {
-                    tag = new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], modelPath = tagName };
+                    foreach (var item in deviceTag[0].data)
+                    {
+                        tag = new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], modelPath = tagName };
+                    }
                 }
                 return tag;
             }

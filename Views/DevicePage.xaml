@@ -19,7 +19,7 @@
                 <Label Text="{Binding DeviceType}" FontSize="35" CharacterSpacing="1.5" FontAttributes="Bold" Margin="0,0,0,20" FontFamily="corvina_font"/>
                 <VerticalStackLayout Grid.Row="1">
                     <HorizontalStackLayout HorizontalOptions="Start">
-                        <Label Text="Name: "  HorizontalOptions="Start" FontFamily="corvina_font" FontSize="25" TextColor="Black"/>
+                        <Label Text="Name: "  HorizontalOptions="Start" FontSize="25" TextColor="Black"/>
                         <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" HorizontalOptions="Start" FontFamily="corvina_font" FontSize="25" TextColor="Black" Margin="0,0,0,5" WidthRequest="210"/>
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Start">
