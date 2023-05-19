@@ -36,7 +36,7 @@ The technologies on which the project is based are:
 2. Enter the Corvina portal credentials
 Once logged in, you will be able to access the organizations of which you are a member.
 By clicking on one, they will be loaded
--Device
+- Device
 - Alarms
 - Dashboards
 
