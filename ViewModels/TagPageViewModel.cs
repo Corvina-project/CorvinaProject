@@ -59,7 +59,7 @@ namespace MauiAuth0App.ViewModels
         [RelayCommand]
         private async void GoToTagDetailsPage(Tag tag)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage());
+            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage(tag, _device, client));
         }
 
         private async Task<List<Tag>> FindTagsDevice()

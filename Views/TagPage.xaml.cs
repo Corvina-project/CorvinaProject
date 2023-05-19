@@ -18,5 +18,4 @@ public partial class TagPage : ContentPage
         base.OnAppearing();
         await viewModel.GetAllTags();
     }
-
 }

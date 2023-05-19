@@ -27,10 +27,7 @@
             TextTransform="Lowercase"
             HorizontalTextAlignment="Start"/>
         </Frame>
-        
-
         <Grid RowDefinitions="auto, 100">
-
             <CollectionView
                 Grid.RowSpan="2"
                 ItemsSource="{Binding Tags}"
@@ -49,7 +46,7 @@
                                 <StackLayout>
                                     <Label
                                         Text="{Binding modelPath}"/>
-                                <Label
+                                    <Label
                                         Text="{Binding tagValue}"/>
                             </StackLayout>
                             </Frame>
