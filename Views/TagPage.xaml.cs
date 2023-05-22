@@ -1,4 +1,4 @@
-﻿using MauiAuth0App.Models;
+using MauiAuth0App.Models;
 using MauiAuth0App.ViewModels;
 using Device = MauiAuth0App.Models.Device;
 

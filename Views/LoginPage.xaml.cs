@@ -21,6 +21,11 @@ public partial class LoginPage : ContentPage {
         //auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
     }
 
+    private async void OnExitClicked(object sender, EventArgs e)
+    {
+        Application.Current.Quit();
+    }
+
     private async void OnLoginClicked(object sender, EventArgs e) {
         try {
             if (isBusy) return;
@@ -36,7 +41,7 @@ public partial class LoginPage : ContentPage {
                 
                 if (TokenHolder.Timer == null) {
                     TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700 * 1000);
+                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1500 * 1000);
                     TokenHolder.Timer.Tick += (s, e) => {
                         MainThread.InvokeOnMainThreadAsync(async () => {
                             await RefreshAuth();

@@ -36,7 +36,7 @@ The technologies on which the project is based are:
 2. Enter the Corvina portal credentials
 Once logged in, you will be able to access the organizations of which you are a member.
 By clicking on one, they will be loaded
--Device
+- Device
 - Alarms
 - Dashboards
 
@@ -56,7 +56,6 @@ From the application it is possible to create, modify, delete and view the vario
 ## Support <a name="s"></a>
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
-- giorgio.citterio@issgreppi.it
 
 ## Future Updates <a name="fu"></a>
 - Notifications
