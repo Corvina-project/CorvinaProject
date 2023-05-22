@@ -4,8 +4,13 @@ using System.Text;
 using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LiveChartsCore.Defaults;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
+using SkiaSharp;
 using Device = MauiAuth0App.Models.Device;
 
 namespace MauiAuth0App.ViewModels
@@ -17,6 +22,7 @@ namespace MauiAuth0App.ViewModels
         private HttpClient client;
         [ObservableProperty] private Tag tagItem;
         [ObservableProperty] private bool isLoading;
+        public static ObservableCollection<DateTimePoint> Data { get; set; }
 
         public TagDetailsPageViewModel(Tag tg, Device dv, HttpClient client)
         {
@@ -130,7 +136,33 @@ namespace MauiAuth0App.ViewModels
                 return null;
             }
         }
-        */
+
+        public ISeries[] Series { get; set; } = {
+            new LineSeries<DateTimePoint>() {
+                TooltipLabelFormatter = (point) => $"{new DateTime((long) point.SecondaryValue):dd/MM/yy HH:mm:ss} » {point.PrimaryValue}",
+                LineSmoothness = 0,
+                Values = Data,
+                Stroke = new SolidColorPaint(SKColors.MediumPurple) { StrokeThickness = 6 },
+                GeometryStroke = new SolidColorPaint(SKColors.MediumPurple) { StrokeThickness = 6 },
+                Fill = new SolidColorPaint(SKColors.MediumPurple.WithAlpha(100))
+            }
+        };
+
+        public Axis[] XAxes { get; set; } = {
+            new Axis() {
+                Labeler = value => new DateTime((long) value).ToString("dd/MM/yy HH:mm:ss"),
+                LabelsRotation = 20,
+                UnitWidth = TimeSpan.FromSeconds(1).Ticks,
+                MinStep = TimeSpan.FromSeconds(1).Ticks,
+                Name = "Orario"
+            }
+        };
+
+        public Axis[] YAxes { get; set; } = {
+            new Axis() {
+                Name = "Valore"
+            }
+        };
 
         private static string UnixTimeStampToDateTime(string unixTime)
         {

@@ -13,11 +13,11 @@ using Device = MauiAuth0App.Models.Device;
 
 namespace MauiAuth0App.ViewModels {
     public partial class TagPageViewModel : ObservableObject {
+
         private readonly Device device;
         private readonly string organizationId;
         private readonly object _lock = new();
         private CancellationTokenSource source = new();
-
         private HttpClient client;
 
         [ObservableProperty]
@@ -34,7 +34,6 @@ namespace MauiAuth0App.ViewModels {
             this.device = device;
             organizationId = device.OrgResourceId;
         }
-
 
         [RelayCommand]
         public async Task GetAllTags() {
@@ -62,14 +61,12 @@ namespace MauiAuth0App.ViewModels {
         [RelayCommand]
         private async void GoToTagDetailsPage(Tag tag)
         {
-            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage(tag, _device, client));
+            await App.Current.MainPage.Navigation.PushAsync(new TagDetailsPage(tag, device, client));
         }
 
         private async Task<List<Tag>> FindTagsDevice() {
             var tags = await TokenHandler.ExecuteWithPermissionToken(client,                                                                                            // modelPath=**&since=2000-03-11T17:35:44.652Z&to=2050-01-01T00:00:00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix&aggregation={"type":"average","sampling":{"extent":120,"size"=3,"unit"="minutes"}}
                     () => client.GetFromJsonAsync<List<Tag>>($"https://app.corvina.io/svc/platform/api/v1/organizations/{organizationId}/devices/{device.DeviceId}/tags?modelPath=%2A%2A&since=2000-03-11T17%3A35%3A44.652Z&to=2050-01-01T00%3A00%3A00.000Z&sinceAfter=false&limit=1000&format=json&timestampFormat=unix")); // &limit=1000&&aggregation=%7B%22type%22%3A%22average%22%2C%22sampling%22%3A%7B%22extent%22%3A120%2C%22size%22%3A2%2C%22unit%22%3A%22minutes%22%7D%7D
-
-
 
             tags.ForEach(async tag => {
                 foreach (var item in tag.data) {
@@ -83,7 +80,6 @@ namespace MauiAuth0App.ViewModels {
                     tag.tagValue = "Data: " + UnixTimestampToDateTimeString(item[0].ToString()) + "\nValore: " + item[1];
                 }
             });
-
             return tags;
 
             /*
