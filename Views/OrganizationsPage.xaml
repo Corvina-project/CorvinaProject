@@ -19,6 +19,7 @@
         <VerticalStackLayout>
             <Image Source="corvina.png"
                    HeightRequest="150" Scale="1.7" />
+   
             <Label Text="Organizations" FontSize="27" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontAttributes="Bold"/>
             <CollectionView ItemsSource="{Binding Organizations}"
                         Margin="20"
@@ -129,6 +130,8 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+          
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
