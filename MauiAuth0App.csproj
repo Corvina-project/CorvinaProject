@@ -57,6 +57,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\corvinacloud.svg" />
+	  <None Remove="Resources\Images\organization.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -79,6 +80,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\GraphTagPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\OptionsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\OrganizationsPage.xaml">

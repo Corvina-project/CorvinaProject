@@ -34,4 +34,8 @@ public partial class WebViewPage : ContentPage
 
         WebView = webView;
     }
- }
+
+    protected override bool OnBackButtonPressed() {
+        return false;
+    }
+}
