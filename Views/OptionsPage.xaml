@@ -74,7 +74,7 @@
                             <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
                         </VerticalStackLayout>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:OrganizazionsPageViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:OptionsPageViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
                         </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>

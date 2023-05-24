@@ -29,7 +29,8 @@
                     TextColor="White"
                     BorderColor="White"
                     BorderWidth="1"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="Center" 
+                    Margin="9"/>
             <Button  Text="EXIT"
                      Background="#151515"
                      FontSize="25"
