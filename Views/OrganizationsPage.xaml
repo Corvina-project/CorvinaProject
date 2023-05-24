@@ -16,119 +16,61 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        <VerticalStackLayout>
+        <Grid RowDefinitions="Auto,*"
+              RowSpacing="20">
             <Image Source="corvina.png"
-                   HeightRequest="150" Scale="1.7" />
-            <Label Text="Organizations" FontSize="27" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontAttributes="Bold"/>
-            <CollectionView ItemsSource="{Binding Organizations}"
-                        Margin="20"
-                        SelectionChanged="OrganizationsView_SelectionChanged"
-                        SelectionMode="Single"
-                        SelectedItem="{Binding SelectedOrganization}">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Organization">
-                        <Border BackgroundColor="#151515"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"                          
-                           Padding="15"
-                                >
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="25"/>
-                            </Border.StrokeShape>
-                            <VerticalStackLayout HorizontalOptions="Center" 
-                                             VerticalOptions="Center">
-                                <Label Text="{Binding Id, StringFormat='ID: {0}'}"   FontFamily="corvina_font" Margin="0,5,0,5"/>
-                                <Label Text="{Binding Name, StringFormat='Name: {0}'}" FontFamily="corvina_font" Margin="0,5,0,5" />
-                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" FontFamily="corvina_font" Margin="0,5,0,5" />
-                                <Label Text="{Binding Status, StringFormat='Status: {0}'}"  FontFamily="corvina_font" Margin="0,5,0,5" />
-                            </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold"/>
-            <CollectionView ItemsSource="{Binding Devices}"
-                        Margin="20"
-                        x:Name="DevicesView">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Device">
-                        <Frame BackgroundColor="#151515"
-                           CornerRadius="30"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           BorderColor="White">
-                            <VerticalStackLayout HorizontalOptions="Center" 
-                                             VerticalOptions="Center">
-                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" FontFamily="corvina_font" Margin="0,0,0,10" />
-                                <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" FontFamily="corvina_font"  />
-                            </VerticalStackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" />
-            <CollectionView ItemsSource="{Binding Alarms}"
-                        Margin="20"
-                        x:Name="AlarmsView">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:Alarm">
-                        <Frame BackgroundColor="#151515"
-                           CornerRadius="15"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           BorderColor="White">
-                            <VerticalStackLayout HorizontalOptions="Center"
-                                             VerticalOptions="Center">
-                                <Label Text="{Binding DeviceId, StringFormat='DeviceId: {0}'}" />
-                                <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
-                                <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <Label Text="Dashboards"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold"/>
-            <CollectionView ItemsSource="{Binding DashBoards.Data}"
-                        Margin="20">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical"
-                                   ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:DashBoard">
-                        <Frame BackgroundColor="Black"
-                           CornerRadius="15"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           BorderColor="White">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Id, StringFormat='Id: {0}'}"/>
-                                <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
-                                <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
-                                <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
-                            </VerticalStackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:OrganizazionsPageViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
+                   Margin="0,50,0,0"
+                   WidthRequest="290"
+                   VerticalOptions="Center"/>
+
+            <VerticalStackLayout Grid.Row="1">
+                <Label Text="Organizations" 
+                       FontSize="27" 
+                       Margin="20"
+                       TextColor="WhiteSmoke" 
+                       FontFamily="corvina_font" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start"
+                       FontAttributes="Bold"/>
+
+                <CollectionView ItemsSource="{Binding Organizations}"
+                                Margin="20">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="10" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Organization">
+                            <Border BackgroundColor="#151515"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"                          
+                                    Padding="15,20,20,20">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="25"/>
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Image Source="organization.png"
+                                           HeightRequest="50"/>
+                                    <VerticalStackLayout HorizontalOptions="Center" 
+                                                     VerticalOptions="Center"
+                                                     Spacing="2">
+                                        <Label Text="{Binding Id, StringFormat='ID: {0}'}"    />
+                                        <Label Text="{Binding Name, StringFormat='Name: {0}'}"  />
+                                        <Label Text="{Binding Label, StringFormat='Label: {0}'}" />
+                                        <Label Text="{Binding Status, StringFormat='Status: {0}'}"  />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                                
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Border.GestureRecognizers>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </Grid>
     </ScrollView>
 </ContentPage>
