@@ -24,18 +24,23 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Device">
-                    <Frame HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <VerticalStackLayout HorizontalOptions="Center" 
-                                             VerticalOptions="Center"
-                                             WidthRequest="220">
-                            <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Center" />
-                            <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Center" />
-                        </VerticalStackLayout>
+                <Frame HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Grid.Column="1">
+                        <Grid ColumnDefinitions="auto,auto">
+                            <Image Grid.Column="0" Source="device_icon.png"></Image>
+                            <VerticalStackLayout HorizontalOptions="Center" 
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="220"
+                                                 Grid.Column="1">
+                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Grid>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                        </Frame.GestureRecognizers>
-                    </Frame>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
