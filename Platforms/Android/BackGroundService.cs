@@ -59,9 +59,10 @@ public class BackGroundService : Service, IServices
 
     public void StartTokenHandler(HttpClient client)
     {
-        TokenHolder.Timer = new Timer(async _ =>await RefreshAuth(client),
-            null, TimeSpan.Zero,
-            TimeSpan.FromSeconds(1500*1000));
+        TokenHolder.Timer = new Timer(async _ =>await RefreshAuth(client), 
+            null, 
+            TimeSpan.Zero,
+            TimeSpan.FromSeconds(3*60));
         Execute(client);
     }
     
@@ -112,7 +113,7 @@ public class BackGroundService : Service, IServices
         var notification = new Notification.Builder(this, "ServiceChannel")
             .SetContentTitle("")
             .SetSmallIcon(Resource.Mipmap.appicon)
-            .SetOngoing(true)
+            .SetOngoing(false)
             .Build();
 
         StartForeground(100, notification);
@@ -137,7 +138,7 @@ public class BackGroundService : Service, IServices
                     {
                         NotificationId = i,
                         Title = "Alert",
-                        Description = x.Description,
+                        Description = x.Description == "" ? "No description" : x.Description,
                         BadgeNumber = 1
                     };
                     await LocalNotificationCenter.Current.Show(request);
