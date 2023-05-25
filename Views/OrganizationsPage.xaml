@@ -16,15 +16,15 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        <Grid RowDefinitions="Auto,*"
+        <Grid RowDefinitions="Auto,Auto,*"
               RowSpacing="20">
             <Image Source="corvina.png"
                    Margin="0,50,0,0"
                    WidthRequest="290"
                    VerticalOptions="Center"/>
 
-            <VerticalStackLayout Grid.Row="1">
-                <Label Text="Organizations" 
+            <Label Text="Organizations" 
+                   Grid.Row="1"
                        FontSize="27" 
                        Margin="20"
                        TextColor="WhiteSmoke" 
@@ -32,9 +32,11 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Start"
                        FontAttributes="Bold"/>
-
+            
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center">
+                
                 <CollectionView ItemsSource="{Binding Organizations}"
-                                Margin="20">
+                                Margin="20,-50,20,20">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
                                            ItemSpacing="10" />
