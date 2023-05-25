@@ -14,8 +14,6 @@ public partial class TagPage : ContentPage
         BindingContext = viewModel;
     }
 
-
-
     protected override async void OnAppearing() {
         base.OnAppearing();
         await viewModel.GetAllTags();
