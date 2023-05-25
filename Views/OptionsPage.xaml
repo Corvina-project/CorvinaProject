@@ -3,7 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              xmlns:models="clr-namespace:MauiAuth0App.Models"
+             xmlns:converter="clr-namespace:MauiAuth0App.Converter"
+
              x:Class="MauiAuth0App.Views.OptionsPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:UnixDateTimeConverter x:Key="UnixDateTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <VerticalStackLayout Margin="20">
         <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold"/>

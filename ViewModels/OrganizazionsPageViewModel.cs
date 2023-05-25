@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using MauiAuth0App.Models;
 

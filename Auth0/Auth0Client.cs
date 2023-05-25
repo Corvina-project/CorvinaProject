@@ -27,7 +27,6 @@ public class Auth0Client {
 
     public async Task<LoginResult> LoginAsync() {
         LoginRequest loginRequest = null;
-
         return await oidcClient.LoginAsync(loginRequest);
     }
 }

@@ -1,6 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
 using MauiAuth0App.Auth0;
+#if ANDROID
+using MauiAuth0App.Extensions;
+using MauiAuth0App.Platforms.Android;
+using Microsoft.Extensions.Hosting;
+#endif
 using MauiAuth0App.Views;
+using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MauiAuth0App;
@@ -20,6 +25,9 @@ public static class MauiProgram
 				fonts.AddFont("DESIGNER.otf", "corvina_font");
                 fonts.AddFont("Poppins-Regular.ttf", "attributes_font");
 			});
+#if ANDROID
+		builder.Services.AddTransient<IServices, TestService>();
+#endif
 
 #if DEBUG
 		builder.Logging.AddDebug();

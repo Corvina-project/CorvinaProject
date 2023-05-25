@@ -6,6 +6,5 @@
              NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        
     </ContentPage.Content>
 </ContentPage>

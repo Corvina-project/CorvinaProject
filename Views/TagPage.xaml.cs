@@ -18,7 +18,8 @@ public partial class TagPage : ContentPage
 
     protected override async void OnAppearing() {
         base.OnAppearing();
-        await viewModel.GetAllTags();
+        //await viewModel.Load();
+        //await viewModel.GetAllTags();
     }
 
     private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e) {

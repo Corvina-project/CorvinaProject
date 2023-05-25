@@ -10,10 +10,11 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Xml.Linq;
 using Device = MauiAuth0App.Models.Device;
+using Encoding = System.Text.Encoding;
+using Exception = System.Exception;
 
 namespace MauiAuth0App.ViewModels {
     public partial class TagPageViewModel : ObservableObject {
-
         private readonly Device device;
         private readonly string organizationId;
         private readonly object _lock = new();
