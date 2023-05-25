@@ -34,7 +34,6 @@
         </Frame>
 
         <Grid RowDefinitions="auto, 100">
-
             <CollectionView Grid.RowSpan="2"
                             ItemsSource="{Binding SearchTags}"
                             HeightRequest="650"
@@ -48,8 +47,8 @@
                                                       CommandParameter="{Binding .}" />
                             </Frame.GestureRecognizers>
                             <StackLayout>
-                                <Label Text="{Binding modelPath}" />
-                                <Label Text="{Binding tagValue}" />
+                                <Label Text="{Binding modelPath}" TextColor="Black"/>
+                                <Label Text="{Binding tagValue}" TextColor="Black"/>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

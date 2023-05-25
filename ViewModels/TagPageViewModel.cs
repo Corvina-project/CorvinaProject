@@ -36,7 +36,6 @@ namespace MauiAuth0App.ViewModels {
             organizationId = device.OrgResourceId;
         }
 
-        [RelayCommand]
         public async Task GetAllTags() {
             IsLoading = true;
             var tags = await FindTagsDevice();
