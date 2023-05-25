@@ -45,10 +45,14 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
+<<<<<<< Updated upstream
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#FFFFFF" />
 		<MauiIcon Include="Resources\Images\corvinacloud.svg">
 		  <Color>#512BD4</Color>
 		</MauiIcon>
+=======
+		<MauiIcon Include="Resources\AppIcon\image.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+>>>>>>> Stashed changes
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\corvina_cloud.png" Color="#000000" BaseSize="128,128" />
