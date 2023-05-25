@@ -14,7 +14,7 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout Margin="20">
-        <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold"/>
+        <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"
                         x:Name="DevicesView">
@@ -39,7 +39,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold" />
+        <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" />
         <CollectionView ItemsSource="{Binding Alarms}"
                         Margin="20"
                         x:Name="AlarmsView">
@@ -64,7 +64,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Dashboards"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="22" FontAttributes="Bold"/>
+        <Label Text="Dashboards"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding DashBoards.Data}"
                         Margin="20">
             <CollectionView.ItemsLayout>
