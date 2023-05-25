@@ -8,13 +8,13 @@
              Title="Login"
              BackgroundColor="Black">
 
-    <Grid RowDefinitions="250,auto,220, auto" ColumnDefinitions="*">
+    <Grid RowDefinitions="250,auto,150, auto" ColumnDefinitions="*">
         <VerticalStackLayout Grid.Row="1">
             <Image Source="inverter.png"
                    HeightRequest="150" Scale="1.6" WidthRequest="120"/>
         </VerticalStackLayout>
         <VerticalStackLayout Spacing="10"
-                            Padding="30,0"
+                            Padding="30,0,30,0"
                             Grid.Row="3">
             <Button x:Name="LoginBtn"
                     Text="LOGIN"
@@ -30,7 +30,7 @@
                     BorderColor="White"
                     BorderWidth="1"
                     HorizontalOptions="Center" 
-                    Margin="9"/>
+                    Margin="19"/>
             <Button  Text="EXIT"
                      Background="#151515"
                      FontSize="25"
