@@ -26,7 +26,7 @@ public static class MauiProgram
                 fonts.AddFont("Poppins-Regular.ttf", "attributes_font");
 			});
 #if ANDROID
-		builder.Services.AddTransient<IServices, TestService>();
+		builder.Services.AddTransient<IServices, BackGroundService>();
 #endif
 
 #if DEBUG

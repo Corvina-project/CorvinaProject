@@ -5,6 +5,6 @@
         public static string PermissionToken { get; set; }
         public static bool IsPermission { get; set; }
         public static string ResourceId { get; set; }
-        public static IDispatcherTimer Timer { get; set; }
+        public static Timer Timer { get; set; }
     }
 }

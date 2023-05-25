@@ -47,18 +47,13 @@ public partial class LoginPage : ContentPage {
                 TokenHolder.AccessToken = loginResult.AccessToken;
                 TokenHolder.RefreshToken = loginResult.RefreshToken;
                 
-                if (TokenHolder.Timer == null) {
-                    TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1500 * 1000);
-                    TokenHolder.Timer.Tick += (s, e) => {
-                        MainThread.InvokeOnMainThreadAsync(async () => {
-                            await RefreshAuth();
-                        });
-                    };
+                if (TokenHolder.Timer == null)
+                {
+                    service.StartTokenHandler(client);
                 }
 
-                if (!TokenHolder.Timer.IsRunning)
-                    TokenHolder.Timer.Start();
+                // if (!TokenHolder.Timer.IsRunning)
+                //     TokenHolder.Timer.Start();
 
                 await Navigation.PushAsync(new OrganizationsPage(client));
                 
@@ -70,24 +65,6 @@ public partial class LoginPage : ContentPage {
         } finally {
             //LoginBtn.IsVisible = true;
         }
-    }
-
-    private async Task RefreshAuth() {
-        List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>> {
-            new KeyValuePair<string, string>("grant_type", "refresh_token"),
-            new KeyValuePair<string, string>("refresh_token", TokenHolder.RefreshToken),
-            new KeyValuePair<string, string>("client_id", "nextel-mobile-app")
-        };
-        var content = new FormUrlEncodedContent(postData);
-        var response = await client.PostAsync("https://auth.corvina.io/auth/realms/exor/protocol/openid-connect/token", content);
-
-        Token result = await JsonSerializer.DeserializeAsync<Token>(await response.Content.ReadAsStreamAsync());
-        TokenHolder.AccessToken = result.AccessToken;
-        TokenHolder.RefreshToken = result.RefreshToken;
-        if (TokenHolder.ResourceId != null)
-            await TokenHandler.GetPermissionToken(client);
-
-        await Application.Current.MainPage.DisplayAlert("Refresh", "Refresh del token fatto", "ok");
     }
 
 }
