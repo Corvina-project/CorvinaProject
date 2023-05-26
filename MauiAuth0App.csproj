@@ -79,6 +79,7 @@
 	  <None Remove="Resources\Images\device_icon.png" />
 	  <None Remove="Resources\Images\map_icon.png" />
 	  <None Remove="Resources\Images\organization.png" />
+	  <None Remove="Resources\Images\tag_icon.png" />
 	  <None Remove="Resources\Splash\corvina_cloud.png" />
 	</ItemGroup>
 
