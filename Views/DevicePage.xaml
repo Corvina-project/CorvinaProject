@@ -26,7 +26,7 @@
         </Frame>
         <VerticalStackLayout Margin="20" Grid.Row="1">
             <VerticalStackLayout>
-                <Grid RowDefinitions="auto, auto, auto">
+                <Grid RowDefinitions="auto, *, auto">
                     <HorizontalStackLayout Margin="11" Grid.Row="1" HorizontalOptions="Center">
                         <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" FontFamily="attributes_font"
                            HorizontalOptions="CenterAndExpand" 
@@ -100,11 +100,12 @@
         </VerticalStackLayout>
         <HorizontalStackLayout VerticalOptions="Center" Grid.Row="3" HorizontalOptions="Center" Margin="20">
             <Image
-                    Source="dotnet_bot.png"
+                    Source="tag_icon.png"
                     HeightRequest="50"
                     VerticalOptions="Center"
                 Margin="5"/>
             <Button Text="Tag"
+                    FontSize="16"
                         BackgroundColor="#151515"
                         TextColor="White"
                         BorderColor="White"
