@@ -10,4 +10,8 @@ public class Tag
     public string?[] header { get; set; }
     public object?[][] data { get; set; }
     public string tagValue { get; set; }
+
+    [JsonIgnore]
+    public Dictionary<DateTime, double> Dati { get; set; } = new();
+
 }

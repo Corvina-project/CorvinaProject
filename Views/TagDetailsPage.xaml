@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAuth0App.Views.TagDetailsPage"
+             xmlns:models="clr-namespace:MauiAuth0App.Models"
+             xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             x:DataType="viewmodels:TagDetailsPageViewModel"
              Title="TagDetailsPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button
+            Text="Cambia o aggiungi valore"
+            TextColor="Black"
+            Command="{Binding ViewValueCommand}"/>
+        <Label
+            Text="{Binding TagItem.modelPath}"/>
+        <Label
+            Text="{Binding TagItem.tagValue}"/>
+        <lvc:CartesianChart 
+            x:Name="chart"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HeightRequest="200"
+            Series="{Binding Series}"
+            XAxes="{Binding XAxes}"
+            YAxes="{Binding YAxes}"/>
     </VerticalStackLayout>
 </ContentPage>

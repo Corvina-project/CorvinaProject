@@ -12,14 +12,13 @@ namespace MauiAuth0App.Views;
 
 public partial class OrganizationsPage : ContentPage
 {
-
     private OrganizazionsPageViewModel model;
 	private readonly HttpClient client;
+    private bool isBusy = false;
 
 	public OrganizationsPage(HttpClient client) {
 		InitializeComponent();
 		this.client = client;
-
         model = new OrganizazionsPageViewModel(client);
         BindingContext = model;
     }
@@ -29,29 +28,16 @@ public partial class OrganizationsPage : ContentPage
         await model.LoadOrganizations();
     }
 
-    private async void OrganizationsView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        TokenHolder.ResourceId = model.SelectedOrganization.ResourceId;
-        
-        await model.LoadDevices();
-        await model.LoadAlarms();
-        await model.LoadDashBoards();
-    }
-
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) {
-        //TODO: Sta parte è inutile se visualizziamo tutto nella homepage
-        //string action = await DisplayActionSheet("Cosa vuoi aprire", "Cancel", null, "Device", "Alarms", "Dashboard");
-
-        var device = (sender as BindableObject).BindingContext as Models.Device;
-        await Navigation.PushAsync(new DevicePage(device, DeviceType.Device, client));
-
-        /*
-        switch (action)
-        {
-            case "Device": await Navigation.PushAsync(new DevicePage(device, DeviceType.Device, client)); break;
-            case "Alarms": await Navigation.PushAsync(new DevicePage(device, DeviceType.Device, client)); break;
-            case "Dashboard": await Navigation.PushAsync(new DashBoardPage(client, model.SelectedOrganization)); break;
-        }
-        */
+        if (isBusy)
+            return;
+        isBusy = true;
+        var organization = (sender as BindableObject).BindingContext as Organization;
+        var page = new OptionsPage(client);
+        var model = new OptionsPageViewModel(client, organization);
+        await model.LoadViewModel();
+        page.BindingContext = model;
+        await Navigation.PushAsync(page);
+        isBusy = false;
     }
 }

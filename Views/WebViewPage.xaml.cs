@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MauiAuth0App.Views;
 
 public partial class WebViewPage : ContentPage
@@ -25,13 +19,18 @@ public partial class WebViewPage : ContentPage
 
     public WebViewPage()
     {
+        NavigationPage.SetHasNavigationBar(this,false);
+        NavigationPage.SetHasBackButton(this, false);
         InitializeComponent();
 
         var webView = new WebView();
 
         Content = webView;
         BackgroundColor = Colors.Transparent;
-
         WebView = webView;
     }
- }
+
+    protected override bool OnBackButtonPressed() {
+        return false;
+    }
+}

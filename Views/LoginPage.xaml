@@ -3,31 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              x:Class="MauiAuth0App.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#222d38">
+             Title="Login"
+             BackgroundColor="Black">
 
-    <Grid RowDefinitions="100,auto,50, auto" ColumnDefinitions="*">
+    <Grid RowDefinitions="250,auto,150, auto" ColumnDefinitions="*">
         <VerticalStackLayout Grid.Row="1">
-            <Image Source="corvina_cloud_blue.png"
-                   HeightRequest="350" Scale="1.6"/>
+            <Image Source="inverter.png"
+                   HeightRequest="150" Scale="1.6" WidthRequest="120"/>
         </VerticalStackLayout>
-        <VerticalStackLayout Spacing="25"
-                            Padding="30,0"
+        <VerticalStackLayout Spacing="10"
+                            Padding="30,0,30,0"
                             Grid.Row="3">
             <Button x:Name="LoginBtn"
                     Text="LOGIN"
                     FontFamily="corvina_font"
                     FontSize="25"
-                    WidthRequest="350"
-                    HeightRequest="50"
+                    CornerRadius="25"
+                    WidthRequest="230"
+                    HeightRequest="47"
+                    Background="#151515"
                     SemanticProperties.Hint="Click to log in"
                     Clicked="OnLoginClicked"
-                    HorizontalOptions="Center" />
+                    TextColor="White"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    HorizontalOptions="Center" 
+                    Margin="19"/>
             <Button  Text="EXIT"
+                     Background="#151515"
                      FontSize="25"
+                     TextColor="White"
                      FontFamily="corvina_font"
-                     WidthRequest="350"
-                     HeightRequest="50"
+                     WidthRequest="230"
+                     CornerRadius="25"
+                     BorderColor="White"
+                     BorderWidth="1"
+                     HeightRequest="47"
                      Clicked="OnExitClicked"/>
         </VerticalStackLayout>
         <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
@@ -39,5 +52,5 @@
                          VerticalOptions="Center"/>
         </HorizontalStackLayout>
     </Grid>
-    
+
 </ContentPage>

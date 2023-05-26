@@ -1,4 +1,4 @@
-﻿using MauiAuth0App.Models;
+using MauiAuth0App.Models;
 using MauiAuth0App.ViewModels;
 using Device = MauiAuth0App.Models.Device;
 
@@ -19,4 +19,7 @@ public partial class TagPage : ContentPage
         await viewModel.GetAllTags();
     }
 
+    private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e) {
+        await viewModel.Search(searchBar.Text);
+    }
 }

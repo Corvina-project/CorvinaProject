@@ -1,117 +1,66 @@
 <sub> [README 🇺🇸](README.md) </sub>
 
-## Guida Iniziale
-  
+## Indice
+### I. Introduzione 
+-  <a  href="#ao"> Overview dell'Applicazione </a> 
 
-<details><summary> I. Introduzione </summary>
-
-  
-
--  <a  href="#pota"> Scopo dell'Applicazione </a>
-
--  <a  href="#ta"> Target di Riferimento </a>
-
--  <a  href="#oqsg"> Panoramica della Guida Iniziale </a>
-
-  
-
-</details>
-
-  
-
-<details><summary> II. Inizio </summary>
-
-  
-
+### II. Requisiti di Sistema e Installazione
 -  <a  href="#ii"> Guida all'Installazione </a>
-
 -  <a  href="#sr"> Requisiti di Sistema </a>
-
--  <a  href="#cs"> Configurazione </a>
-
   
-
-</details>
-
-  
-  
-
-<details><summary> III. Guida all'Uso </summary>
-
-  
-
+### III. Guida all'Uso 
 -  <a  href="#ui"> Interfaccia Utente </a>
-
 -  <a  href="#kfaf"> Caratteristiche e Funzionalità Principali </a>
 
-  
-
-</details>
-
-  
-  
-
-<details><summary> IV. Troubleshooting </summary>
-
-  
-
+### IV. Troubleshooting 
 -  <a  href="#cie"> Problemi ed Errori Comuni </a>
-
 -  <a  href="#httt"> Soluzione ai Problemi </a>
 
-  
-
-</details>
-
-  
-  
-
-<details><summary> V. Conclusioni </summary>
-
-  
-
--  <a  href="#sokp"> Riepilogo </a>
-
+### V. Conclusioni 
 -  <a  href="#ar"> Risorse Aggiuntive </a>
-
 -  <a  href="#s"> Supporto </a>
-
 -  <a  href="#fu"> Futuri Updates </a>
 
-  
 
-</details>
+## Overview dell'Applicazione <a name="ao"></a>
+L'applicazione Corvina Project è un tool volto all'interfacciamento con il portale di Corvina.  
+Le tecnologie su cui si basa il progetto sono:
+* .NET MAUI per lo sviluppo dell'UI
+* C# per la parte back-end
 
-  
-  
-  
-
-## Scopo dell'Applicazione <a name="pota"></a>
-
-## Target di Riferimento <a name="ta"></a>
-
-## Panoramica della Guida Iniziale <a name="ootqsg"></a>
 
 ## Guida all'Installazione <a name="ii"></a>
 
 ## Requisiti di Sistema <a name="sr"></a>
 
-> 
-
-## Configurazione <a name="cs"></a>
+* Android 11.0 - API30
 
 ## Interfaccia Utente <a name="ui"></a>
+1. Appena avviata l'Applicazione apparirà un pulsante con la scritta "LOGIN"
+2. Inserire le credenziali del portale Corvina 
+Appena eseguito l'accesso si potrà accedere alle organizzazioni di cui si è membri.  
+Cliccando su una, verrano caricati
+- Device
+- Allarmi
+- Dashboard  
+
+Ogni elemento può essere cliccato per essere diretti alla pagina dell'elemento selezionato in cui è possibile successivamente accedere ai TAG desiderati.
+
 
 ## Caratteristiche e Funzionalità Principali <a name="kfaf"></a>
+Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i vari tag dell'utente tramite lo smartphone in maniera intuitiva e user-friendly.
 
-## Problemi ed Errori Comuni <a name="ciae"></a>
+## Problemi ed Errori Comuni <a name="cie"></a>
 
 ## Soluzione ai Problemi <a name="httt"></a>
 
-## Riepilogo <a name="sokp"></a>
-
 ## Risorse Aggiuntive <a name="ar"></a>
+- [Portale Corvina](https://app.corvina.io/)
+- [Cos'è .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui)
 
 ## Supporto <a name="s"></a>
+Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
+- carlo.cecchetti@issgreppi.it
 
 ## Futuri Updates <a name="fu"></a>
+- Notifiche

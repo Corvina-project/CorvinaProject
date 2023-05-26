@@ -1,5 +1,7 @@
 ﻿using MauiAuth0App.Auth0;
 using System.Text.Json;
+using MauiAuth0App.Extensions;
+using Microsoft.Extensions.Hosting;
 
 namespace MauiAuth0App.Views;
 
@@ -11,14 +13,18 @@ public partial class LoginPage : ContentPage {
     private WebViewPage webViewPage;
     private bool isBusy = false;
 
-    public LoginPage(Auth0Client auth0Client, HttpClient client) {
+    private IServices service;
+
+    public LoginPage(Auth0Client auth0Client, HttpClient client, IServices service) {
         InitializeComponent();
         this.auth0Client = auth0Client;
         this.client = client;
-        webViewPage = new WebViewPage();
-
-        auth0Client.Browser = new WebViewBrowserAuthenticator(webViewPage.WebView);
         //auth0Client.Browser = new WebViewBrowserAuthenticator(WebViewInstance);
+
+        this.service = service;
+        
+        webViewPage = new WebViewPage();
+        auth0Client.Browser = new WebViewBrowserAuthenticator(webViewPage.WebView);
     }
 
     private async void OnExitClicked(object sender, EventArgs e)
@@ -27,41 +33,37 @@ public partial class LoginPage : ContentPage {
     }
 
     private async void OnLoginClicked(object sender, EventArgs e) {
+        if (isBusy) return;
+        isBusy = true;
         try {
-            if (isBusy) return;
-            isBusy = true;
-            
             await Navigation.PushAsync(webViewPage);
-            var loginResult = await auth0Client.LoginAsync();
+            isBusy = false;
+            var loginResult = await auth0Client.LoginAsync();//TODO: Secondo me qui c'è un grandissimo memory leak
             await Navigation.PopAsync();
+
+            service.Start();
 
             if (!loginResult.IsError) {
                 TokenHolder.AccessToken = loginResult.AccessToken;
                 TokenHolder.RefreshToken = loginResult.RefreshToken;
                 
-                if (TokenHolder.Timer == null) {
-                    TokenHolder.Timer = Application.Current.Dispatcher.CreateTimer();
-                    TokenHolder.Timer.Interval = TimeSpan.FromMilliseconds(1700 * 1000);
-                    TokenHolder.Timer.Tick += (s, e) => {
-                        MainThread.InvokeOnMainThreadAsync(async () => {
-                            await RefreshAuth();
-                        });
-                    };
+                if (TokenHolder.Timer == null)
+                {
+                    service.StartTokenHandler(client);
                 }
 
-                if (!TokenHolder.Timer.IsRunning)
-                    TokenHolder.Timer.Start();
+                // if (!TokenHolder.Timer.IsRunning)
+                //     TokenHolder.Timer.Start();
 
                 await Navigation.PushAsync(new OrganizationsPage(client));
                 
-                isBusy = false;
             } else {
                 await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
             }
         } catch (Exception ex) {
             await DisplayAlert("Errore interno", ex.Source + ": " + ex.Message, "OK");
         } finally {
-            LoginBtn.IsVisible = true;
+            //LoginBtn.IsVisible = true;
         }
     }
 

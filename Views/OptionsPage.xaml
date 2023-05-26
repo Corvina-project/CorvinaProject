@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
+             xmlns:models="clr-namespace:MauiAuth0App.Models"
+             xmlns:converter="clr-namespace:MauiAuth0App.Converter"
+
+             x:Class="MauiAuth0App.Views.OptionsPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:UnixDateTimeConverter x:Key="UnixDateTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Margin="20">
+        <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+        <CollectionView ItemsSource="{Binding Devices}"
+                        Margin="20"
+                        x:Name="DevicesView">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Device">
+                <Frame HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Grid.Column="1">
+                        <Grid ColumnDefinitions="auto,auto">
+                            <Image Grid.Column="0" Source="device_icon.png"></Image>
+                            <VerticalStackLayout HorizontalOptions="Center" 
+                                                    VerticalOptions="Center"
+                                                    WidthRequest="220"
+                                                 Grid.Column="1">
+                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" />
+        <CollectionView ItemsSource="{Binding Alarms}"
+                        Margin="20"
+                        x:Name="AlarmsView">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Alarm">
+                    <Frame BackgroundColor="#151515"
+                           CornerRadius="15"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BorderColor="White">
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                            <Label Text="{Binding DeviceId, StringFormat='DeviceId: {0}'}" />
+                            <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Dashboards"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+        <CollectionView ItemsSource="{Binding DashBoards.Data}"
+                        Margin="20">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:DashBoard">
+                    <Frame HorizontalOptions="Center"
+                           VerticalOptions="Center">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Id, StringFormat='Id: {0}'}"/>
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                            <Label Text="{Binding CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:OptionsPageViewModel }}, Path=OpenDashBoardCommand}" CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
