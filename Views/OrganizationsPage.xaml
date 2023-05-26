@@ -16,10 +16,10 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        
         <VerticalStackLayout Spacing="20">
             <HorizontalStackLayout HorizontalOptions="End"
-                                   VerticalOptions="Start">
+                                   VerticalOptions="Start"
+                                   Margin="20">
                 <ImageButton Source="information.png"
                          Command="{Binding GoToCreditsCommand}"
                          HeightRequest="25"
@@ -38,7 +38,6 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Start"
                        FontAttributes="Bold"/>
-
             <VerticalStackLayout>
                 <CollectionView ItemsSource="{Binding Organizations}"
                                 Margin="20"
@@ -68,7 +67,6 @@
                                         <Label Text="{Binding Status, StringFormat='Status: {0}'}"  />
                                     </VerticalStackLayout>
                                 </HorizontalStackLayout>
-
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Border.GestureRecognizers>

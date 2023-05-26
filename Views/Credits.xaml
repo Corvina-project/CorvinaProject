@@ -74,14 +74,14 @@
                            HorizontalOptions="Start"/>
                 <Label Text="Vincenzo Villa"
                            HorizontalOptions="Start"/>
-                <Label Text="Pietro Petrarca"
+                <Label Text="Pietro Petracca"
                            HorizontalOptions="Start"/>
                 <Label Text="Luca Melcarne"
                            HorizontalOptions="Start"/>
             </VerticalStackLayout>
 
             <HorizontalStackLayout Margin="0,0,0,20">
-                <Label Text="Documentazione"
+                <Label Text="Documentazione: "
                        HorizontalOptions="Start"
                        VerticalOptions="Center"/>
                 <ImageButton Source="github.svg"
@@ -90,7 +90,7 @@
                              HeightRequest="20"/>
             </HorizontalStackLayout>
 
-            <Label Text="Il progetto basato sulle funzionalità base di .net maui, fa utilizzo di alcune librerie supplementari:" Margin="0,0,0,10"/>
+            <Label Text="Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:" Margin="0,0,0,10"/>
             <VerticalStackLayout Margin="20,0,0,0">
                 <Label Text="CommunityToolkit.Mvvm"
                        HorizontalOptions="Start"/>
