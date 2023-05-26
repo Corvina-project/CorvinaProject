@@ -16,7 +16,7 @@
     <VerticalStackLayout Margin="20">
         <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding Devices}"
-                        Margin="20"
+                        Margin="20"                        
                         x:Name="DevicesView">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
@@ -26,7 +26,8 @@
                 <DataTemplate x:DataType="models:Device">
                 <Frame HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            Margin="5,5,0,5">
                         <Grid ColumnDefinitions="auto,auto">
                             <Image Grid.Column="0" Source="device_icon.png"></Image>
                             <VerticalStackLayout HorizontalOptions="Center" 
