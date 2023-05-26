@@ -27,7 +27,7 @@
         <VerticalStackLayout Margin="20" Grid.Row="1">
             <VerticalStackLayout>
                 <Grid RowDefinitions="auto, auto, auto">
-                    <HorizontalStackLayout Margin="15" Grid.Row="1" HorizontalOptions="Center">
+                    <HorizontalStackLayout Margin="11" Grid.Row="1" HorizontalOptions="Center">
                         <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" FontFamily="attributes_font"
                            HorizontalOptions="CenterAndExpand" 
                            FontSize="24" 
@@ -35,21 +35,19 @@
                     </HorizontalStackLayout>
                 </Grid>
                 
-                <Grid RowDefinitions="auto, auto, auto" Margin="4">
+                <Grid ColumnDefinitions="*,*" Margin="4">
                     <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}" 
                            FontFamily="attributes_font"
                            Margin="2" 
-                           HorizontalOptions="Start" 
-                           VerticalOptions="Center"/>
-                    <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" 
-                           FontFamily="attributes_font"
-                           Margin="2" 
+                           Grid.Column="0"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
+                    
                     <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" 
                            FontFamily="attributes_font"
                            Margin="2" 
-                           HorizontalOptions="End" 
+                           Grid.Column="1"
+                           HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
                 </Grid>
             </VerticalStackLayout>
@@ -84,8 +82,16 @@
                 <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
                 <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
                 
-                
             </VerticalStackLayout>
+            <Grid>
+                <HorizontalStackLayout HorizontalOptions="End">
+                    <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" 
+                           FontFamily="attributes_font"
+                           Margin="10" 
+                           HorizontalOptions="End" 
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Grid>
         </VerticalStackLayout>
         <Button Text="Tag" 
                     BackgroundColor="#151515"
