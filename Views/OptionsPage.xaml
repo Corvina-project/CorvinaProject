@@ -15,7 +15,6 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout Margin="20">
-        <Button Text="LogOut" Command="{Binding LogoutCommand}"/>
         <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"                        

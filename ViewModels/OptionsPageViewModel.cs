@@ -16,17 +16,14 @@ namespace MauiAuth0App.ViewModels {
         [ObservableProperty] private DashBoards dashBoards = new();
 
         private HttpClient client;
-        private IServices services;
 
         public OptionsPageViewModel(HttpClient client, Organization organization) {
             this.client = client;
             Organization = organization;
         }
 
-        public async Task LoadViewModel(IServices services) {
+        public async Task LoadViewModel() {
             TokenHolder.ResourceId = Organization.ResourceId;
-
-            this.services = services;
 
             await LoadDevices();
             await LoadAlarms();
@@ -70,12 +67,5 @@ namespace MauiAuth0App.ViewModels {
                 new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}"));
         }
 
-        [RelayCommand]
-        private async Task Logout()
-        {
-            services.Stop();
-            TokenHolder.ClearToken();
-            await App.Current.MainPage.Navigation.PopToRootAsync();
-        }
     }
 }
