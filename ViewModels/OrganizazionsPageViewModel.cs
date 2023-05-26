@@ -1,6 +1,11 @@
 using System.Net.Http.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+<<<<<<< Updated upstream
+=======
+using MauiAuth0App.Auth0;
+using MauiAuth0App.Extensions;
+>>>>>>> Stashed changes
 using MauiAuth0App.Models;
 using MauiAuth0App.Views;
 
@@ -10,9 +15,11 @@ namespace MauiAuth0App.ViewModels {
         [ObservableProperty] private List<Organization> organizations;
 
         private HttpClient client;
+        private IServices services;
 
-        public OrganizazionsPageViewModel(HttpClient client)
+        public OrganizazionsPageViewModel(HttpClient client, IServices services)
         {
+            this.services = services;
             this.client = client;
         }
         
@@ -22,9 +29,19 @@ namespace MauiAuth0App.ViewModels {
         }
 
         [RelayCommand]
+<<<<<<< Updated upstream
         private async void GoToCredits()
         {
             await App.Current.MainPage.Navigation.PushAsync(new Credits());
         }
+=======
+        private async Task Logout()
+        {
+            services.Stop();
+            TokenHolder.ClearToken();
+            await App.Current.MainPage.Navigation.PopToRootAsync();
+        }
+
+>>>>>>> Stashed changes
     }
 }

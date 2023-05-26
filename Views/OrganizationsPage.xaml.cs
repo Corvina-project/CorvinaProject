@@ -16,14 +16,12 @@ public partial class OrganizationsPage : ContentPage
     private OrganizazionsPageViewModel model;
 	private readonly HttpClient client;
     private bool isBusy = false;
-    private IServices services;
 
 	public OrganizationsPage(HttpClient client, IServices services) {
 		InitializeComponent();
 		this.client = client;
-        model = new OrganizazionsPageViewModel(client);
+        model = new OrganizazionsPageViewModel(client, services);
         BindingContext = model;
-        this.services = services;
     }
 
     protected override async void OnAppearing() {
@@ -38,7 +36,7 @@ public partial class OrganizationsPage : ContentPage
         var organization = (sender as BindableObject).BindingContext as Organization;
         var page = new OptionsPage(client);
         var model = new OptionsPageViewModel(client, organization);
-        await model.LoadViewModel(services);
+        await model.LoadViewModel();
         page.BindingContext = model;
         await Navigation.PushAsync(page);
         isBusy = false;

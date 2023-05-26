@@ -16,6 +16,7 @@
     </ContentPage.Resources>
 
     <ScrollView>
+        
         <VerticalStackLayout Spacing="20">
             <HorizontalStackLayout HorizontalOptions="End"
                                    VerticalOptions="Start">
@@ -41,7 +42,7 @@
             <VerticalStackLayout>
                 <CollectionView ItemsSource="{Binding Organizations}"
                                 Margin="20"
-                                HeightRequest="500">
+                                HeightRequest="450">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
                                            ItemSpacing="10" />
@@ -76,6 +77,10 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </VerticalStackLayout>
+<<<<<<< Updated upstream
+=======
+            <ImageButton Source="logout.png" Command="{Binding LogoutCommand}"/>
+>>>>>>> Stashed changes
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
