@@ -5,26 +5,36 @@
              Title="Credits">
     <ScrollView>
         <VerticalStackLayout>
-            <HorizontalStackLayout>
-                <Frame Margin="100">
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Margin="0,0,0,30">
+                <Frame BackgroundColor="White"
+                       CornerRadius="100"
+                       Margin="0,0,20,0">
                     <ImageButton Source="villagreppi.png"
                              Clicked="OpenVillaGreppi"
                              HeightRequest="90"
                              WidthRequest="90"/>
                 </Frame>
-                <Frame Margin="100">
+                <Frame BackgroundColor="White"
+                        CornerRadius="100">
                     <ImageButton Source="cloud.png"
                              Clicked="OpenCorvinaCloud"
                              HeightRequest="90"
                              WidthRequest="90"/>
                 </Frame>
             </HorizontalStackLayout>
-            <Label Text="Progetto a cura del quarto anno dell'istituto ISS Greppi Monticello, progetto in collaborazione con corvina cloud"/>
+            <Label Text="Progetto a cura del quarto anno dell'istituto ISS Greppi Monticello, progetto in collaborazione con corvina cloud" 
+                   Margin="0,0,0,20"/>
             <Label Text="Alunni:"
                    HorizontalOptions="Center"/>
-            
-            <HorizontalStackLayout>
-                <VerticalStackLayout>
+
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Column="0">
                     <Label Text="4IA"
                            HorizontalOptions="Center"/>
                     <Label Text="Alessandro Bevilacqua"
@@ -38,8 +48,8 @@
                     <Label Text="Daniele Sala"
                            HorizontalOptions="Start"/>
                 </VerticalStackLayout>
-                    
-                <VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1">
                     <Label Text="4IB"
                            HorizontalOptions="Center"/>
                     <Label Text="Alex Arosio"
@@ -53,9 +63,9 @@
                     <Label Text="Pietro Giovanni Panzeri"
                            HorizontalOptions="Start"/>
                 </VerticalStackLayout>
-            </HorizontalStackLayout>
-                
-            <VerticalStackLayout>
+            </Grid>
+
+            <VerticalStackLayout Margin="0,0,0,20">
                 <Label Text="Professori"
                            HorizontalOptions="Center"/>
                 <Label Text="Gennaro Malafronte"
@@ -70,16 +80,17 @@
                            HorizontalOptions="Start"/>
             </VerticalStackLayout>
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,0,0,20">
                 <Label Text="Documentazione"
                        HorizontalOptions="Start"
                        VerticalOptions="Center"/>
                 <ImageButton Source="github.svg"
                              Clicked="OpenGitHub"
-                             VerticalOptions="Center"/>
+                             VerticalOptions="Center"
+                             HeightRequest="20"/>
             </HorizontalStackLayout>
 
-            <Label Text="il progetto basato sulle funzionalita base di .net maui, fa utilizzo di alcune librerie subblementari:"/>
+            <Label Text="il progetto basato sulle funzionalita base di .net maui, fa utilizzo di alcune librerie subblementari:" Margin="0,0,0,10"/>
             <VerticalStackLayout Margin="20,0,0,0">
                 <Label Text="CommunityToolkit.Mvvm"
                        HorizontalOptions="Start"/>
