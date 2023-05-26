@@ -12,7 +12,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-
     <VerticalStackLayout Spacing="10">
         <Label Text="Device" 
                FontSize="45" 
@@ -68,11 +67,11 @@
                 </Grid>
                 
                 <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="3">
-                    <ImageButton 
-                Source="location.png"
-                    Scale="0.5"
-                    HorizontalOptions="Center"
-                Command="{Binding OpenMapCommand}"/>
+                    <ImageButton
+                        Source="location.png"
+                        HeightRequest="75"
+                        HorizontalOptions="Center"
+                        Command="{Binding OpenMapCommand}"/>
                     <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
                     <!--<Label Text="Coordinates:"></Label>
                 <CollectionView Margin="10,0,0,0" 
