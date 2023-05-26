@@ -77,10 +77,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </VerticalStackLayout>
-<<<<<<< Updated upstream
-=======
             <ImageButton Source="logout.png" Command="{Binding LogoutCommand}"/>
->>>>>>> Stashed changes
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,11 +1,8 @@
 using System.Net.Http.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-<<<<<<< Updated upstream
-=======
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Extensions;
->>>>>>> Stashed changes
 using MauiAuth0App.Models;
 using MauiAuth0App.Views;
 
@@ -29,12 +26,11 @@ namespace MauiAuth0App.ViewModels {
         }
 
         [RelayCommand]
-<<<<<<< Updated upstream
         private async void GoToCredits()
         {
             await App.Current.MainPage.Navigation.PushAsync(new Credits());
         }
-=======
+        [RelayCommand]
         private async Task Logout()
         {
             services.Stop();
@@ -42,6 +38,5 @@ namespace MauiAuth0App.ViewModels {
             await App.Current.MainPage.Navigation.PopToRootAsync();
         }
 
->>>>>>> Stashed changes
     }
 }
