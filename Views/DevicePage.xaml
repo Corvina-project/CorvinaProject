@@ -46,6 +46,7 @@
                     <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" 
                            FontFamily="attributes_font"
                            Margin="2" 
+                           
                            Grid.Column="1"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
