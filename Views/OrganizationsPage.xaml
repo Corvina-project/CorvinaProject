@@ -17,11 +17,17 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="20">
+            <HorizontalStackLayout HorizontalOptions="End"
+                                   VerticalOptions="Start">
+                <ImageButton Source="information.png"
+                         Command="{Binding GoToCreditsCommand}"
+                         HeightRequest="25"
+                         VerticalOptions="Center"/>
+            </HorizontalStackLayout>
             <Image Source="corvina.png"
-                   Margin="0,50,0,0"
+                   Margin="0,40,0,0"
                    WidthRequest="290"
                    VerticalOptions="Center"/>
-
             <Label Text="Organizations" 
                    Grid.Row="1"
                        FontSize="27" 
@@ -31,9 +37,8 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Start"
                        FontAttributes="Bold"/>
-            
+
             <VerticalStackLayout>
-                
                 <CollectionView ItemsSource="{Binding Organizations}"
                                 Margin="20"
                                 HeightRequest="500">
@@ -62,7 +67,7 @@
                                         <Label Text="{Binding Status, StringFormat='Status: {0}'}"  />
                                     </VerticalStackLayout>
                                 </HorizontalStackLayout>
-                                
+
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                                 </Border.GestureRecognizers>
@@ -70,9 +75,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
             </VerticalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
