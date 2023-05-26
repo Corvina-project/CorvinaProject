@@ -116,7 +116,7 @@ public class BackGroundService : Service, IServices
             .SetOngoing(false)
             .Build();
 
-        StartForeground(100, notification);
+        StartForeground(1, notification);
     }
     
     private void Execute(HttpClient client)

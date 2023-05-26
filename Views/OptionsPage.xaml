@@ -4,7 +4,8 @@
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:converter="clr-namespace:MauiAuth0App.Converter"
-
+             
+             x:DataType="viewmodels:OptionsPageViewModel"
              x:Class="MauiAuth0App.Views.OptionsPage">
     
     <ContentPage.Resources>
@@ -14,6 +15,7 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout Margin="20">
+        <Button Text="LogOut" Command="{Binding LogoutCommand}"/>
         <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"                        

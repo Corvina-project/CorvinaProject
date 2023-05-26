@@ -4,6 +4,7 @@ using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using MauiAuth0App.Views;
 using System.Net.Http.Json;
+using MauiAuth0App.Extensions;
 
 namespace MauiAuth0App.ViewModels {
     public partial class OptionsPageViewModel : ObservableObject {
@@ -15,14 +16,17 @@ namespace MauiAuth0App.ViewModels {
         [ObservableProperty] private DashBoards dashBoards = new();
 
         private HttpClient client;
+        private IServices services;
 
         public OptionsPageViewModel(HttpClient client, Organization organization) {
             this.client = client;
             Organization = organization;
         }
 
-        public async Task LoadViewModel() {
+        public async Task LoadViewModel(IServices services) {
             TokenHolder.ResourceId = Organization.ResourceId;
+
+            this.services = services;
 
             await LoadDevices();
             await LoadAlarms();
@@ -64,6 +68,14 @@ namespace MauiAuth0App.ViewModels {
             //    new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}/new?org={data.OrgResourceId}&org={data.OrgResourceId}"));
             await App.Current.MainPage.Navigation.PushAsync(
                 new WebViewPage($"https://app.corvina.io/#/dashboards/{data.Id}"));
+        }
+
+        [RelayCommand]
+        private async Task Logout()
+        {
+            services.Stop();
+            TokenHolder.ClearToken();
+            await App.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

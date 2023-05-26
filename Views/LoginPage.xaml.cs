@@ -1,5 +1,6 @@
 ﻿using MauiAuth0App.Auth0;
 using System.Text.Json;
+using IdentityModel.OidcClient;
 using MauiAuth0App.Extensions;
 using Microsoft.Extensions.Hosting;
 
@@ -35,31 +36,32 @@ public partial class LoginPage : ContentPage {
     private async void OnLoginClicked(object sender, EventArgs e) {
         if (isBusy) return;
         isBusy = true;
-        try {
-            await Navigation.PushAsync(webViewPage);
-            isBusy = false;
-            var loginResult = await auth0Client.LoginAsync();//TODO: Secondo me qui c'è un grandissimo memory leak
-            await Navigation.PopAsync();
+        try
+        {
+            LoginResult loginResult = new LoginResult();
+            if (TokenHolder.AccessToken == null)
+            {
+                await Navigation.PushAsync(webViewPage);
+                isBusy = false;
+                loginResult = await auth0Client.LoginAsync();//TODO: Secondo me qui c'è un grandissimo memory leak
+                await Navigation.PopAsync();
 
-            service.Start();
-
-            if (!loginResult.IsError) {
-                TokenHolder.AccessToken = loginResult.AccessToken;
-                TokenHolder.RefreshToken = loginResult.RefreshToken;
-                
-                if (TokenHolder.Timer == null)
+                if (loginResult.IsError)
                 {
-                    service.StartTokenHandler(client);
+                    await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+                    return;
                 }
 
-                // if (!TokenHolder.Timer.IsRunning)
-                //     TokenHolder.Timer.Start();
+                TokenHolder.AccessToken = loginResult.AccessToken;
+                TokenHolder.RefreshToken = loginResult.RefreshToken;
 
-                await Navigation.PushAsync(new OrganizationsPage(client));
-                
-            } else {
-                await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+                service.Start();
+                if (TokenHolder.Timer == null) service.StartTokenHandler(client);
+
+                    // if (!TokenHolder.Timer.IsRunning)
+                    //TokenHolder.Timer.Start();
             }
+            await Navigation.PushAsync(new OrganizationsPage(client, service));    
         } catch (Exception ex) {
             await DisplayAlert("Errore interno", ex.Source + ": " + ex.Message, "OK");
         } finally {
