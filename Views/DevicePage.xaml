@@ -69,7 +69,7 @@
                 <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="3">
                     <ImageButton
                         Source="location.png"
-                        HeightRequest="75"
+                        HeightRequest="70"
                         HorizontalOptions="Center"
                         Command="{Binding OpenMapCommand}"/>
                     <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
