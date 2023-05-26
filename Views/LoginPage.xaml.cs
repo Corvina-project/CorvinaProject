@@ -81,5 +81,9 @@ public partial class LoginPage : ContentPage {
             await TokenHandler.GetPermissionToken(client);
     }
 
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Credits());
+    }
 }
 

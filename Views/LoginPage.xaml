@@ -31,6 +31,13 @@
                      Clicked="OnExitClicked"/>
         </VerticalStackLayout>
         <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Credits"
+                   VerticalOptions="Center"/>
+            <ImageButton Source="information.svg"
+                         Clicked="ImageButton_Clicked"
+                         VerticalOptions="Center"/>
+        </HorizontalStackLayout>
     </Grid>
     
 </ContentPage>
