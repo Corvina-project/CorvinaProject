@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAuth0App.Views.Credits"
              Title="Credits">
-    <ScrollView>
-        <VerticalStackLayout Padding="10">
+    <ScrollView Margin="10">
+        <VerticalStackLayout>
             <HorizontalStackLayout HorizontalOptions="Center"
                                    Margin="0,0,0,30">
                 <Frame BackgroundColor="White"
