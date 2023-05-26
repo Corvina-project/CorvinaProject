@@ -4,7 +4,7 @@
              x:Class="MauiAuth0App.Views.Credits"
              Title="Credits">
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout Padding="10">
             <HorizontalStackLayout HorizontalOptions="Center"
                                    Margin="0,0,0,30">
                 <Frame BackgroundColor="White"
