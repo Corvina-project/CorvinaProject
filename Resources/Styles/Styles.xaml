@@ -380,6 +380,7 @@
     <Style TargetType="Page" ApplyToDerivedTypes="True">
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BackgroundColor" Value="Black" />
+        <Setter Property="Shell.BackgroundColor" Value="Black" />
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
@@ -396,7 +397,7 @@
     </Style>
 
     <Style TargetType="NavigationPage">
-        <Setter Property="BarBackgroundColor" Value="Red" />
+        <Setter Property="Shell.BackgroundColor" Value="Black" />
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}" />
         <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource White}}" />
     </Style>

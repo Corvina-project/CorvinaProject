@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
@@ -8,49 +8,39 @@
              Title="Login"
              BackgroundColor="Black">
 
-    <Grid RowDefinitions="250,auto,150, auto" ColumnDefinitions="*">
-        <VerticalStackLayout Grid.Row="1">
-            <Image Source="inverter.png"
-                   HeightRequest="150" Scale="1.6" WidthRequest="120"/>
-        </VerticalStackLayout>
-        <VerticalStackLayout Spacing="10"
-                            Padding="30,0,30,0"
-                            Grid.Row="3">
+    <Grid RowDefinitions="auto,2*,*"
+          Margin="20">
+        <HorizontalStackLayout HorizontalOptions="End"
+                               VerticalOptions="Start">
+            <ImageButton Source="information.png"
+                         Clicked="ImageButton_Clicked"
+                         HeightRequest="25"
+                         VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <Image Source="inverter.png"
+               Grid.Row="1"
+               HeightRequest="120" />
+
+        <VerticalStackLayout VerticalOptions="End"
+                             Grid.Row="2"
+                             Spacing="15">
             <Button x:Name="LoginBtn"
                     Text="LOGIN"
                     FontFamily="corvina_font"
-                    FontSize="25"
+                    Margin="50,0"
                     CornerRadius="25"
-                    WidthRequest="230"
-                    HeightRequest="47"
-                    Background="#151515"
+                    FontSize="25"
                     SemanticProperties.Hint="Click to log in"
-                    Clicked="OnLoginClicked"
-                    TextColor="White"
-                    BorderColor="White"
-                    BorderWidth="1"
-                    HorizontalOptions="Center" 
-                    Margin="19"/>
-            <Button  Text="EXIT"
-                     Background="#151515"
-                     FontSize="25"
-                     TextColor="White"
-                     FontFamily="corvina_font"
-                     WidthRequest="230"
-                     CornerRadius="25"
-                     BorderColor="White"
-                     BorderWidth="1"
-                     HeightRequest="47"
-                     Clicked="OnExitClicked"/>
+                    Clicked="OnLoginClicked"/>
+            <Button Text="EXIT"
+                    FontSize="25"
+                    Margin="50,0"
+                    CornerRadius="25"
+                    FontFamily="corvina_font"
+                    Clicked="OnExitClicked"/>
         </VerticalStackLayout>
         <!-- <WebView x:Name="WebViewInstance" IsVisible="false" /> -->
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Credits"
-                   VerticalOptions="Center"/>
-            <ImageButton Source="information.svg"
-                         Clicked="ImageButton_Clicked"
-                         VerticalOptions="Center"/>
-        </HorizontalStackLayout>
     </Grid>
 
 </ContentPage>

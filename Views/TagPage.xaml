@@ -5,17 +5,7 @@
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              x:Class="MauiAuth0App.Views.TagPage"
              x:DataType="viewmodels:TagPageViewModel"
-             Title="SearchPageRealtime"
              Padding="10">
-
-    <ContentPage.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#6688A5"
-                          Offset="0.6" />
-            <GradientStop Color="#222d38"
-                          Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>
 
     <StackLayout>
         <Frame Margin="10"
@@ -40,15 +30,14 @@
                             IsGrouped="False">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Tag">
-                        <Frame Margin="5,10,5,5"
-                               BackgroundColor="White">
+                        <Frame Margin="5,10,5,5">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:TagPageViewModel}}, Path=GoToTagDetailsPageCommand}"
                                                       CommandParameter="{Binding .}" />
                             </Frame.GestureRecognizers>
                             <StackLayout>
-                                <Label Text="{Binding modelPath}" TextColor="Black"/>
-                                <Label Text="{Binding tagValue}" TextColor="Black"/>
+                                <Label Text="{Binding modelPath}" />
+                                <Label Text="{Binding tagValue}" FontAttributes="Bold" />
                             </StackLayout>
                         </Frame>
                     </DataTemplate>
