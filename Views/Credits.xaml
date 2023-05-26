@@ -23,7 +23,7 @@
                              WidthRequest="90"/>
                 </Frame>
             </HorizontalStackLayout>
-            <Label Text="Progetto a cura del quarto anno dell'istituto ISS Greppi Monticello, progetto in collaborazione con corvina cloud" 
+            <Label Text="Progetto a cura del quarto anno dell'istituto ISS Greppi Monticello, in collaborazione con corvina cloud." 
                    Margin="0,0,0,20"/>
             <Label Text="Alunni:"
                    HorizontalOptions="Center"/>
@@ -43,7 +43,7 @@
                            HorizontalOptions="Start"/>
                     <Label Text="Carlo Cechetti"
                            HorizontalOptions="Start"/>
-                    <Label Text="Walid Lacraidi"
+                    <Label Text="Walid Lakraidi"
                            HorizontalOptions="Start"/>
                     <Label Text="Daniele Sala"
                            HorizontalOptions="Start"/>
@@ -66,7 +66,7 @@
             </Grid>
 
             <VerticalStackLayout Margin="0,0,0,20">
-                <Label Text="Professori"
+                <Label Text="Professori:"
                            HorizontalOptions="Center"/>
                 <Label Text="Gennaro Malafronte"
                            HorizontalOptions="Start"/>
@@ -74,7 +74,7 @@
                            HorizontalOptions="Start"/>
                 <Label Text="Vincenzo Villa"
                            HorizontalOptions="Start"/>
-                <Label Text="pietro Petrarca"
+                <Label Text="Pietro Petrarca"
                            HorizontalOptions="Start"/>
                 <Label Text="Luca Melcarne"
                            HorizontalOptions="Start"/>
@@ -90,7 +90,7 @@
                              HeightRequest="20"/>
             </HorizontalStackLayout>
 
-            <Label Text="il progetto basato sulle funzionalita base di .net maui, fa utilizzo di alcune librerie subblementari:" Margin="0,0,0,10"/>
+            <Label Text="Il progetto basato sulle funzionalità base di .net maui, fa utilizzo di alcune librerie supplementari:" Margin="0,0,0,10"/>
             <VerticalStackLayout Margin="20,0,0,0">
                 <Label Text="CommunityToolkit.Mvvm"
                        HorizontalOptions="Start"/>
