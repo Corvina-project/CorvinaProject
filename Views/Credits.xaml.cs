@@ -6,7 +6,6 @@ public partial class Credits : ContentPage
 	{
 		InitializeComponent();
 	}
-
     private async void OpenVillaGreppi(object sender, EventArgs e)
     {
         await Launcher.OpenAsync("https://www.istitutogreppi.edu.it/");
@@ -19,5 +18,4 @@ public partial class Credits : ContentPage
     {
         await Launcher.OpenAsync("https://github.com/Corvina-project/MauiAuth0App");
     }
-
 }

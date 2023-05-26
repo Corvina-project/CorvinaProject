@@ -12,7 +12,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="94, auto, auto">
+    <Grid RowDefinitions="94, auto, auto, auto">
         <Label Text="Device" 
                FontSize="45" 
                    CharacterSpacing="1.5" 
@@ -22,7 +22,7 @@
                    FontFamily="corvina_font"
                Grid.Row="0"/>
         <Frame Grid.Row="1" WidthRequest="380">
-            
+
         </Frame>
         <VerticalStackLayout Margin="20" Grid.Row="1">
             <VerticalStackLayout>
@@ -34,7 +34,7 @@
                            WidthRequest="300"/>
                     </HorizontalStackLayout>
                 </Grid>
-                
+
                 <Grid ColumnDefinitions="*,*" Margin="4">
                     <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}" 
                            FontFamily="attributes_font"
@@ -42,7 +42,7 @@
                            Grid.Column="0"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
-                    
+
                     <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" 
                            FontFamily="attributes_font"
                            Margin="2" 
@@ -64,7 +64,7 @@
                        Grid.Row="1" FontSize="15"/>
             </Grid>
             <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="3">
-                
+
                 <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
                 <Label Text="Coordinates:"></Label>
                 <CollectionView Margin="10,0,0,0" 
@@ -81,7 +81,7 @@
                 </CollectionView>
                 <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
                 <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
-                
+
             </VerticalStackLayout>
             <Grid>
                 <HorizontalStackLayout HorizontalOptions="End">
@@ -93,17 +93,22 @@
                 </HorizontalStackLayout>
             </Grid>
         </VerticalStackLayout>
-        <Button Text="Tag" 
-                    BackgroundColor="#151515"
-                    TextColor="White"
-                    BorderColor="White"
-                    BorderWidth="1"
+        <Button Text="Tag"
+                BackgroundColor="#151515"
+                TextColor="White"
+                BorderColor="White"
+                BorderWidth="1"
                 VerticalOptions="EndAndExpand"
-                    Command="{Binding GoToTagPageCommand}" 
-                    HorizontalOptions="Center" 
-                    WidthRequest="150" 
-                    Margin="0,15,0,0"
+                Command="{Binding GoToTagPageCommand}" 
+                HorizontalOptions="Center" 
+                WidthRequest="150" 
+                Margin="0,15,0,0"
                 Grid.Row="2"/>
+        <Button Text="Show on Map"
+                Command="{Binding OpenMapCommand}"
+                HorizontalOptions="Center" 
+                WidthRequest="200" 
+                Margin="8"
+                Grid.Row="3"/>
     </Grid>
-    
 </ContentPage>
