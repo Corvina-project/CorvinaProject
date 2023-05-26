@@ -94,12 +94,8 @@
             </Grid>
             <ImageButton 
                 Source="map_icon.png"
-            Scale="0.2"
-                Command="{Binding OpenMapCommand}"
-                HorizontalOptions="Center" 
-                WidthRequest="200" 
-                Margin="8"
-                Grid.Row="3"/>
+                Scale="0.2"
+                Command="{Binding OpenMapCommand}"/>
         </VerticalStackLayout>
         <Button Text="Tag"
                 BackgroundColor="#151515"
