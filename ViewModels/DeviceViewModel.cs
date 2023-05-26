@@ -11,13 +11,14 @@ public partial class DeviceViewModel : ObservableObject
     [ObservableProperty] private Device deviceModel;
     [ObservableProperty] private DeviceType deviceType;
     private HttpClient client;
-    IMap map;
+    [ObservableProperty] private bool? isConnected;
 
     public DeviceViewModel(Device deviceModel, DeviceType deviceType, HttpClient client)
     {
         this.deviceModel = deviceModel;
         this.deviceType = deviceType;
         this.client = client;
+        IsConnected = deviceModel.Connected;
     }
 
     [RelayCommand]
