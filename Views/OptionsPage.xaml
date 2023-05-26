@@ -27,17 +27,18 @@
                 <Frame HorizontalOptions="Center"
                             VerticalOptions="Center"
                             Grid.Column="1"
-                            Margin="5,5,0,5">
-                        <Grid ColumnDefinitions="auto,auto">
-                            <Image Grid.Column="0" Source="device_icon.png"></Image>
+                            Margin="5">
+                        <HorizontalStackLayout Spacing="20">
+                            <Image Source="device_icon.png" 
+                                   HeightRequest="30"></Image>
                             <VerticalStackLayout HorizontalOptions="Center" 
-                                                    VerticalOptions="Center"
-                                                    WidthRequest="220"
+                                                 VerticalOptions="Center"
+                                                 WidthRequest="220"
                                                  Grid.Column="1">
-                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Center" />
-                                <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Center" />
+                                <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Start" />
+                                <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Start" />
                             </VerticalStackLayout>
-                        </Grid>
+                        </HorizontalStackLayout>
                         <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>

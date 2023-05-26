@@ -5,73 +5,76 @@
              xmlns:converter="clr-namespace:MauiAuth0App.Converter"
              x:Class="MauiAuth0App.Views.DevicePage"
              x:DataType="vm:DeviceViewModel">
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:UnixDateTimeConverter x:Key="UnixDateTimeConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="94, auto, auto, auto">
+
+    <VerticalStackLayout Spacing="10">
         <Label Text="Device" 
                FontSize="45" 
-                   CharacterSpacing="1.5" 
-                   FontAttributes="Bold" 
-                   Padding="30"
-                   HorizontalOptions="Center"
-                   FontFamily="corvina_font"
+               CharacterSpacing="1.5" 
+               FontAttributes="Bold" 
+               Padding="30"
+               HorizontalOptions="Center"
+               FontFamily="corvina_font"
                Grid.Row="0"/>
-        <Frame Grid.Row="1" WidthRequest="380">
+        <Frame Grid.Row="1" Margin="10,0" Padding="5,15">
+            <VerticalStackLayout Spacing="15">
+                <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" 
+                       FontFamily="attributes_font"
+                       HorizontalOptions="Center" 
+                       FontSize="24" />
 
-        </Frame>
-        <VerticalStackLayout Margin="20" Grid.Row="1">
-            <VerticalStackLayout>
-                <Grid RowDefinitions="auto, *, auto">
-                    <HorizontalStackLayout Margin="11" Grid.Row="1" HorizontalOptions="Center">
-                        <Label Text="{Binding DeviceModel.Label, StringFormat='{0}'}" FontFamily="attributes_font"
-                           HorizontalOptions="CenterAndExpand" 
-                           FontSize="24" 
-                           WidthRequest="300"/>
-                    </HorizontalStackLayout>
-                </Grid>
-
-                <Grid ColumnDefinitions="*,*" Margin="4">
+                <Grid ColumnDefinitions="*,*">
                     <Label Text="{Binding DeviceModel.Connected, StringFormat='Status: {0}'}" 
                            FontFamily="attributes_font"
-                           Margin="2" 
                            Grid.Column="0"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
 
                     <Label Text="{Binding DeviceModel.RealmId, StringFormat='RealmId: {0}'}" 
                            FontFamily="attributes_font"
-                           Margin="2" 
-                           
                            Grid.Column="1"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
                 </Grid>
-            </VerticalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center" Margin="8">
-                <Label Text="Device: "
-                       FontSize="19"
-                       FontFamily="attributes_font"/>
-                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='{0}'}" HorizontalOptions="Center" Grid.Row="2" FontSize="19" WidthRequest="250"/>
-            </HorizontalStackLayout>
-            <Grid RowDefinitions="auto, auto, auto" Padding="10">
-                <Label Text="{Binding DeviceModel.LastConnUpdateAt, StringFormat='Last Update: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
+                
+                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='Device: {0}'}" 
+                       HorizontalOptions="Center" 
                        FontSize="15"/>
-                <Label Text="{Binding DeviceModel.CreationDate, StringFormat='Creation Date: {0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
-                       Grid.Row="1" FontSize="15"/>
-            </Grid>
-            <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="3">
-                <ImageButton 
-                Source="map_icon.png"
+                
+                <Grid ColumnDefinitions="*,*">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Image Source="creationdate.png"
+                               HeightRequest="30" />
+                        <Label Text="Creazione" HorizontalOptions="Center" />
+                        <Label Text="{Binding DeviceModel.CreationDate, StringFormat='{0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
+                               FontSize="15"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout HorizontalOptions="Center"
+                                         Grid.Column="1">
+                        <Image Source="lastupdatedate.png"
+                               HeightRequest="30"/>
+                        <Label Text="Ultimo update" HorizontalOptions="Center" />
+                        <Label Text="{Binding DeviceModel.LastConnUpdateAt, StringFormat='{0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
+                               FontSize="15"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Grid>
+                
+                <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="3">
+                    <ImageButton 
+                Source="location.png"
                     Scale="0.5"
                     HorizontalOptions="Center"
                 Command="{Binding OpenMapCommand}"/>
-                <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
-                <!--<Label Text="Coordinates:"></Label>
+                    <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
+                    <!--<Label Text="Coordinates:"></Label>
                 <CollectionView Margin="10,0,0,0" 
                     ItemsSource="{Binding DeviceModel.Attributes.GeoLocation}">
                     <CollectionView.ItemsLayout>
@@ -83,24 +86,26 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>-->
-                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
-                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
+                    <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
+                    <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
 
-            </VerticalStackLayout>
-            <Grid>
-                <HorizontalStackLayout HorizontalOptions="End">
-                    <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" 
+                </VerticalStackLayout>
+                <Grid>
+                    <HorizontalStackLayout HorizontalOptions="End">
+                        <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" 
                            FontFamily="attributes_font"
                            Margin="10" 
                            HorizontalOptions="End" 
                            VerticalOptions="Center"/>
-                </HorizontalStackLayout>
-            </Grid>
+                    </HorizontalStackLayout>
+                </Grid>
 
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
         <HorizontalStackLayout VerticalOptions="Center" Grid.Row="3" HorizontalOptions="Center" Margin="20">
             <Image
-                    Source="tag_icon.png"
+                    Source="tag.png"
                     HeightRequest="50"
                     VerticalOptions="Center"
                 Margin="5"/>
@@ -114,5 +119,5 @@
                     WidthRequest="110"
                         Command="{Binding GoToTagPageCommand}"/>
         </HorizontalStackLayout>
-    </Grid>
+    </VerticalStackLayout>
 </ContentPage>

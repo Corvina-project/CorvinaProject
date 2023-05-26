@@ -76,10 +76,14 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\corvinacloud.svg" />
+	  <None Remove="Resources\Images\creationdate.png" />
 	  <None Remove="Resources\Images\device_icon.png" />
+	  <None Remove="Resources\Images\information.png" />
+	  <None Remove="Resources\Images\lastupdatedate.png" />
+	  <None Remove="Resources\Images\location.png" />
 	  <None Remove="Resources\Images\map_icon.png" />
 	  <None Remove="Resources\Images\organization.png" />
-	  <None Remove="Resources\Images\tag_icon.png" />
+	  <None Remove="Resources\Images\tag.png" />
 	  <None Remove="Resources\Splash\corvina_cloud.png" />
 	</ItemGroup>
 

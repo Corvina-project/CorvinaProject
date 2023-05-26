@@ -16,8 +16,7 @@
     </ContentPage.Resources>
 
     <ScrollView>
-        <Grid RowDefinitions="Auto,Auto,*"
-              RowSpacing="20">
+        <VerticalStackLayout Spacing="20">
             <Image Source="corvina.png"
                    Margin="0,50,0,0"
                    WidthRequest="290"
@@ -33,10 +32,11 @@
                        VerticalOptions="Start"
                        FontAttributes="Bold"/>
             
-            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center">
+            <VerticalStackLayout>
                 
                 <CollectionView ItemsSource="{Binding Organizations}"
-                                Margin="20,-50,20,20">
+                                Margin="20"
+                                HeightRequest="500">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
                                            ItemSpacing="10" />
@@ -73,6 +73,6 @@
 
             </VerticalStackLayout>
 
-        </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
