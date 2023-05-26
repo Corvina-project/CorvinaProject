@@ -7,16 +7,6 @@
              x:DataType="viewmodels:TagPageViewModel"
              Padding="10">
 
-    
-    <!--<ContentPage.Background>
-        <LinearGradientBrush EndPoint="0,1">
-            <GradientStop Color="#6688A5"
-                          Offset="0.6" />
-            <GradientStop Color="#222d38"
-                          Offset="1.0" />
-        </LinearGradientBrush>
-    </ContentPage.Background>-->
-
     <StackLayout>
         <Frame Margin="10"
                CornerRadius="50"
