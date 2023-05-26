@@ -42,7 +42,7 @@
             <VerticalStackLayout>
                 <CollectionView ItemsSource="{Binding Organizations}"
                                 Margin="20"
-                                HeightRequest="450">
+                                HeightRequest="400">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
                                            ItemSpacing="10" />
@@ -77,7 +77,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </VerticalStackLayout>
-            <ImageButton Source="logout.png" Command="{Binding LogoutCommand}"/>
+            <ImageButton Source="logout.png" Command="{Binding LogoutCommand}" HeightRequest="50"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
