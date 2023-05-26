@@ -67,5 +67,25 @@ public partial class LoginPage : ContentPage {
         }
     }
 
+    private async Task RefreshAuth() {
+        List<KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>> {
+            new KeyValuePair<string, string>("grant_type", "refresh_token"),
+            new KeyValuePair<string, string>("refresh_token", TokenHolder.RefreshToken),
+            new KeyValuePair<string, string>("client_id", "nextel-mobile-app")
+        };
+        var content = new FormUrlEncodedContent(postData);
+        var response = await client.PostAsync("https://auth.corvina.io/auth/realms/exor/protocol/openid-connect/token", content);
+
+        Token result = await JsonSerializer.DeserializeAsync<Token>(await response.Content.ReadAsStreamAsync());
+        TokenHolder.AccessToken = result.AccessToken;
+        TokenHolder.RefreshToken = result.RefreshToken;
+        if (TokenHolder.ResourceId != null)
+            await TokenHandler.GetPermissionToken(client);
+    }
+
+    private async void ImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Credits());
+    }
 }
 
