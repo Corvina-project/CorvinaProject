@@ -154,13 +154,18 @@ namespace MauiAuth0App.ViewModels
                 LabelsRotation = 20,
                 UnitWidth = TimeSpan.FromSeconds(1).Ticks,
                 MinStep = TimeSpan.FromSeconds(1).Ticks,
-                Name = "Orario"
+                Name = "Orario",
+                NamePaint = new SolidColorPaint(SKColors.White),
+                LabelsPaint = new SolidColorPaint(SKColors.White)
             }
         };
 
         public Axis[] YAxes { get; set; } = {
             new Axis() {
-                Name = "Valore"
+                Name = "Valore",
+                NamePaint = new SolidColorPaint(SKColors.White),
+                LabelsPaint = new SolidColorPaint(SKColors.White)
+
             }
         };
 

@@ -1,4 +1,4 @@
-﻿using MauiAuth0App.Auth0;
+using MauiAuth0App.Auth0;
 using System.Text.Json;
 using MauiAuth0App.Extensions;
 using Microsoft.Extensions.Hosting;
