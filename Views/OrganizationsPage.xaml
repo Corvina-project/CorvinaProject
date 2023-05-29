@@ -18,8 +18,7 @@
     <ScrollView>
         <VerticalStackLayout Spacing="20">
             <HorizontalStackLayout HorizontalOptions="End"
-                                    VerticalOptions="Start"
-                                   Margin="20">
+                                    VerticalOptions="Start">
                 <ImageButton Source="information.png"
                          Command="{Binding GoToCreditsCommand}"
                          HeightRequest="25"
