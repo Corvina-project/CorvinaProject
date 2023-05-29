@@ -15,7 +15,8 @@
             <ImageButton Source="information.png"
                          Clicked="ImageButton_Clicked"
                          HeightRequest="25"
-                         VerticalOptions="Center"/>
+                         VerticalOptions="Center"
+                         HorizontalOptions="End"/>
         </HorizontalStackLayout>
 
         <Image Source="inverter.png"

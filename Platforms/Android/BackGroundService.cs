@@ -81,15 +81,15 @@ public class BackGroundService : Service, IServices
         if (TokenHolder.ResourceId != null)
             await TokenHandler.GetPermissionToken(client);
         
-        var request = new NotificationRequest()
-        {
-            NotificationId = 999,
-            Title = "Alert",
-            Description = "Token aggiornato: " + TokenHolder.AccessToken,
-            BadgeNumber = 1
-        };
+        //var request = new NotificationRequest()
+        //{
+        //    NotificationId = 999,
+        //    Title = "Alert",
+        //    Description = "Token aggiornato: " + TokenHolder.AccessToken,
+        //    BadgeNumber = 1
+        //};
 
-        await LocalNotificationCenter.Current.Show(request);
+        //await LocalNotificationCenter.Current.Show(request);
 
         //await Application.Current.MainPage.DisplayAlert("Refresh", "Refresh del token fatto", "ok");
     }
