@@ -61,11 +61,65 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add value.
+        /// </summary>
+        internal static string AddValue {
+            get {
+                return ResourceManager.GetString("AddValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alarms.
+        /// </summary>
+        internal static string Alarms {
+            get {
+                return ResourceManager.GetString("Alarms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboards.
+        /// </summary>
+        internal static string Dashboards {
+            get {
+                return ResourceManager.GetString("Dashboards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Devices.
+        /// </summary>
+        internal static string Devices {
+            get {
+                return ResourceManager.GetString("Devices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EXIT.
         /// </summary>
         internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Organizations.
+        /// </summary>
+        internal static string Organizations {
+            get {
+                return ResourceManager.GetString("Organizations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag Attributes.
+        /// </summary>
+        internal static string TagAttributes {
+            get {
+                return ResourceManager.GetString("TagAttributes", resourceCulture);
             }
         }
     }

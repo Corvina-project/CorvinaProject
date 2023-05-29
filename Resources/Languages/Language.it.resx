@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddValue" xml:space="preserve">
+    <value>Aggiungi valore</value>
+  </data>
+  <data name="Alarms" xml:space="preserve">
+    <value>Allarmi</value>
+  </data>
+  <data name="Dashboards" xml:space="preserve">
+    <value>Pannelli</value>
+  </data>
+  <data name="Devices" xml:space="preserve">
+    <value>Dispositivi</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>ESCI</value>
+  </data>
+  <data name="Organizations" xml:space="preserve">
+    <value>Organizzazioni</value>
+  </data>
+  <data name="TagAttributes" xml:space="preserve">
+    <value>Dettagli Tag</value>
   </data>
 </root>

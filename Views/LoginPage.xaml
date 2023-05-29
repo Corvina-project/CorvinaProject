@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
-             xmlns:lang="clr-namespace:MauiAuth0App.Resources.Languages"
              x:Class="MauiAuth0App.Views.LoginPage"
              NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False"
@@ -35,7 +34,7 @@
                     FontSize="25"
                     SemanticProperties.Hint="Click to log in"
                     Clicked="OnLoginClicked"/>
-            <Button Text="{x:Static lang:Language.Exit}"
+            <Button Text="EXIT"
                     FontSize="25"
                     Margin="50,0"
                     CornerRadius="25"

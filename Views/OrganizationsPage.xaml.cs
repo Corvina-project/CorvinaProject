@@ -8,6 +8,8 @@ using System.Text.Json;
 using MauiAuth0App.Extensions;
 using MauiAuth0App.ViewModels;
 using DeviceType = MauiAuth0App.Enum.DeviceType;
+using MauiAuth0App.Resources.Languages;
+using System.Globalization;
 
 namespace MauiAuth0App.Views;
 
@@ -16,8 +18,10 @@ public partial class OrganizationsPage : ContentPage
     private OrganizazionsPageViewModel model;
 	private readonly HttpClient client;
     private bool isBusy = false;
+    public LocalizationResourceManager LocalizationResourceManager
+        => LocalizationResourceManager.Instance;
 
-	public OrganizationsPage(HttpClient client, IServices services) {
+    public OrganizationsPage(HttpClient client, IServices services) {
 		InitializeComponent();
 		this.client = client;
         model = new OrganizazionsPageViewModel(client, services);
@@ -40,5 +44,13 @@ public partial class OrganizationsPage : ContentPage
         page.BindingContext = model;
         await Navigation.PushAsync(page);
         isBusy = false;
+    }
+
+    private void CambiaLinguaClicked(object sender, EventArgs e)
+    {
+        var switchToCulture = Language.Culture.TwoLetterISOLanguageName
+            .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
+            new CultureInfo("en-US") : new CultureInfo("it-IT");
+        LocalizationResourceManager.Instance.SetCulture(switchToCulture);
     }
 }
