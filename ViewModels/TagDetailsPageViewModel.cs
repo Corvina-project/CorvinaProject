@@ -24,12 +24,12 @@ namespace MauiAuth0App.ViewModels
         [ObservableProperty] private bool isLoading;
         public static ObservableCollection<DateTimePoint> Data { get; set; }
 
-        public TagDetailsPageViewModel(Tag tg, Device dv, HttpClient client)
+        public TagDetailsPageViewModel(Tag tag, Device device, HttpClient client)
         {
             this.client = client;
-            _device = dv;
-            _organizationId = dv.OrgResourceId;
-            tagItem = tg;
+            _device = device;
+            _organizationId = device.OrgResourceId;
+            tagItem = tag;
         }
 
         [RelayCommand]
@@ -43,9 +43,31 @@ namespace MauiAuth0App.ViewModels
         private async Task SelectItem()
         {
             string tagName = TagItem.modelPath;
-            string action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi fare?", "Indietro", null, "Aggiungi un valore", "Visualizza i valori");
-            if (action == null)
+            string newTagValueString = await Application.Current.MainPage.DisplayPromptAsync("Inserisci il valore", "Inserisci il valore che il tag dovrebbe assumere");
+            if (newTagValueString == null)
                 return;
+            var success = int.TryParse(newTagValueString, out int newtagValue);
+            if (!success)
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Il campo inserito non è valido", "Ok");
+                return;
+            }
+            if (tagName == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Potresti non essere connesso ", "Ok");
+                return;
+            }
+            bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
+            if (response)
+            {
+                await Application.Current.MainPage.DisplayAlert("Conferma", $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Connessione a internet assente", "Ok");
+            }
+            #region Visualizza valori
+            /*
             if (action == "Visualizza i valori")
             {
                 action = await Application.Current.MainPage.DisplayActionSheet("Cosa vuoi vedere?", "Annulla", null, "Ultimi 15 minuti", "Ultimo giorno", "Ultimo mese", "Ultimo anno");
@@ -55,32 +77,8 @@ namespace MauiAuth0App.ViewModels
                 }
                 return;
             }
-            if (action == "Aggiungi un valore")
-            {
-                string newTagValueString = await Application.Current.MainPage.DisplayPromptAsync("Inserisci il valore", "Inserisci il valore che il tag dovrebbe assumere");
-                if (newTagValueString == null)
-                    return;
-                var success = int.TryParse(newTagValueString, out int newtagValue);
-                if (!success)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Errore", "Il campo inserito non è valido", "Ok");
-                    return;
-                }
-                if (tagName == null)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Errore", "Potresti non essere connesso ", "Ok");
-                    return;
-                }
-                bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
-                if (response)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Conferma", $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
-                }
-                else
-                {
-                    await Application.Current.MainPage.DisplayAlert("Errore", "Connessione a internet assente", "Ok");
-                }
-            }
+            */
+            #endregion
         }
 
         private async Task<bool> AddDeviceTagValue(string tagName, int tagValue, Device device, string organizationId)

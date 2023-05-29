@@ -12,6 +12,7 @@ public partial class DeviceViewModel : ObservableObject
     [ObservableProperty] private DeviceType deviceType;
     private HttpClient client;
     [ObservableProperty] private bool? isConnected;
+    [ObservableProperty] private string isVpnConnected;
 
     public DeviceViewModel(Device deviceModel, DeviceType deviceType, HttpClient client)
     {
@@ -19,13 +20,21 @@ public partial class DeviceViewModel : ObservableObject
         this.deviceType = deviceType;
         this.client = client;
         IsConnected = deviceModel.Connected;
+        switch (deviceModel.Attributes.VpnConnected)
+        {
+            case true:
+                IsVpnConnected = "connessa";
+                break;
+            case false:
+                IsVpnConnected = "disconnessa";
+                break;
+        }
     }
 
     [RelayCommand]
     public async Task GoToTagPage()
     {
         await App.Current.MainPage.Navigation.PushAsync(new TagPage(DeviceModel, client));
-        //await App.Current.MainPage.DisplayAlert("Tag Page", "andare a tag page", "ok");
     }
 
     [RelayCommand]
