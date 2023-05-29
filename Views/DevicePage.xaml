@@ -42,7 +42,7 @@
                 
 
                 <Grid ColumnDefinitions="*,*">
-                    <Label Text="{Binding DeviceModel.ModelVersion, StringFormat='Version: {0}'}" 
+                    <Label Text="{Binding DeviceType, StringFormat='Tipo: {0}'}" 
                            FontFamily="attributes_font"
                            Grid.Column="0"
                            HorizontalOptions="Center" 
@@ -55,7 +55,7 @@
                            VerticalOptions="Center"/>
                 </Grid>
                 
-                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='Device: {0}'}" 
+                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='Device id: {0}'}" 
                        HorizontalOptions="Center" 
                        FontSize="15"/>
                 

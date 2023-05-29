@@ -7,11 +7,25 @@
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              x:DataType="viewmodels:TagDetailsPageViewModel">
     <VerticalStackLayout Margin="10">
+        <Label Margin="20"
+            Text="Tag Attributes"
+            HorizontalOptions="Center"
+            FontSize="39"
+               FontAttributes="Bold"
+            FontFamily="corvina_font"/>
         <Label
-            Text="{Binding TagItem.modelPath}"/>
-        <Label
-            Text="{Binding TagItem.tagValue}"/>
+            Margin="3"
+            Text="{Binding TagItem.modelPath}"
+            FontFamily="attributes_font"
+            HorizontalOptions="Center"
+            />
+        <Label Margin="3"
+            Text="{Binding TagItem.tagValue}"
+            FontFamily="attributes_font"
+            FontAttributes="Bold"
+               FontSize="14"/>
         <lvc:CartesianChart 
+            Margin="10"
             x:Name="chart"
             VerticalOptions="Center"
             HorizontalOptions="Center"
@@ -19,8 +33,11 @@
             Series="{Binding Series}"
             XAxes="{Binding XAxes}"
             YAxes="{Binding YAxes}"/>
-        <Button
-            Text="Cambia o aggiungi valore"
-            Command="{Binding ViewValueCommand}"/>
+        <Button Margin="0,20,0,0"
+                BorderWidth="2"
+                CornerRadius="25"
+            Text="Aggiungi valore"
+            Command="{Binding ViewValueCommand}"
+            WidthRequest="210"/>
     </VerticalStackLayout>
 </ContentPage>
