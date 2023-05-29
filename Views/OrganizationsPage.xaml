@@ -41,7 +41,7 @@
             <VerticalStackLayout>
                 <CollectionView ItemsSource="{Binding Organizations}"
                                 Margin="20"
-                                HeightRequest="400">
+                                HeightRequest="390">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
                                            ItemSpacing="10" />

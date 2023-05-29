@@ -62,12 +62,16 @@
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
                            BorderColor="White">
-                        <VerticalStackLayout HorizontalOptions="Center"
-                                             VerticalOptions="Center">
-                            <Label Text="{Binding DeviceId, StringFormat='DeviceId: {0}'}" />
-                            <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
-                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
-                        </VerticalStackLayout>
+                        <HorizontalStackLayout Spacing="20">
+                            <Image Source="alarm.png" 
+                                   HeightRequest="30"></Image>
+                            <VerticalStackLayout HorizontalOptions="Center"
+                                                 VerticalOptions="Center">
+                                <Label Text="{Binding DeviceId, StringFormat='DeviceId: {0}'}" />
+                                <Label Text="{Binding Enabled, StringFormat='Enabled: {0}'}" />
+                                <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
