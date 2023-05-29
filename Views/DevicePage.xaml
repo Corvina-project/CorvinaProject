@@ -42,7 +42,7 @@
                 
 
                 <Grid ColumnDefinitions="*,*">
-                    <Label Text="{Binding DeviceType, StringFormat='Tipo: {0}'}" 
+                    <Label Text="{Binding DeviceModel.Attributes.VpnConnected, StringFormat='Vpn: {0}'}" 
                            FontFamily="attributes_font"
                            Grid.Column="0"
                            HorizontalOptions="Center" 
