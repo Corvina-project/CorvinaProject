@@ -79,6 +79,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Students:.
+        /// </summary>
+        internal static string Alunni {
+            get {
+                return ResourceManager.GetString("Alunni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboards.
         /// </summary>
         internal static string Dashboards {
@@ -106,6 +115,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LOGIN.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Organizations.
         /// </summary>
         internal static string Organizations {
@@ -120,6 +138,15 @@ namespace MauiAuth0App.Resources.Languages {
         internal static string TagAttributes {
             get {
                 return ResourceManager.GetString("TagAttributes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change to italian.
+        /// </summary>
+        internal static string TextButton {
+            get {
+                return ResourceManager.GetString("TextButton", resourceCulture);
             }
         }
     }

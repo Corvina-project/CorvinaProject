@@ -109,6 +109,9 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Language.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Settings.xaml.cs">
+	    <DependentUpon>Settings.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
@@ -124,7 +127,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Credits.xaml">
+	  <MauiXaml Update="Views\Settings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\OptionsPage.xaml">

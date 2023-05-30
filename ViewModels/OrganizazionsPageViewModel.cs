@@ -28,7 +28,7 @@ namespace MauiAuth0App.ViewModels {
         [RelayCommand]
         private async void GoToCredits()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new Credits());
+            await App.Current.MainPage.Navigation.PushAsync(new Settings());
         }
         [RelayCommand]
         private async Task Logout()

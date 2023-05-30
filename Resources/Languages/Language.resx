@@ -123,6 +123,9 @@
   <data name="Alarms" xml:space="preserve">
     <value>Alarms</value>
   </data>
+  <data name="Alunni" xml:space="preserve">
+    <value>Students:</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Dashboards</value>
   </data>
@@ -131,12 +134,17 @@
   </data>
   <data name="Exit" xml:space="preserve">
     <value>EXIT</value>
-    <comment>vhbj</comment>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>LOGIN</value>
   </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizations</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
     <value>Tag Attributes</value>
+  </data>
+  <data name="TextButton" xml:space="preserve">
+    <value>Change to italian</value>
   </data>
 </root>

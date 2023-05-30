@@ -27,8 +27,6 @@
                          VerticalOptions="Start"
                          Margin="20"/>
             </HorizontalStackLayout>
-            <Button Text="Cambia lingua"
-                    Clicked="CambiaLinguaClicked"/>
             <Image Source="corvina.png"
                    Margin="0,40,0,0"
                    WidthRequest="290"

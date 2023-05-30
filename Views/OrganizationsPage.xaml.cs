@@ -45,12 +45,4 @@ public partial class OrganizationsPage : ContentPage
         await Navigation.PushAsync(page);
         isBusy = false;
     }
-
-    private void CambiaLinguaClicked(object sender, EventArgs e)
-    {
-        var switchToCulture = Language.Culture.TwoLetterISOLanguageName
-            .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
-            new CultureInfo("en-US") : new CultureInfo("it-IT");
-        LocalizationResourceManager.Instance.SetCulture(switchToCulture);
-    }
 }

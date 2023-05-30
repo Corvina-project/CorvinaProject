@@ -123,6 +123,9 @@
   <data name="Alarms" xml:space="preserve">
     <value>Allarmi</value>
   </data>
+  <data name="Alunni" xml:space="preserve">
+    <value>Alunni:</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Pannelli</value>
   </data>
@@ -132,10 +135,16 @@
   <data name="Exit" xml:space="preserve">
     <value>ESCI</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>ACCESSO</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizzazioni</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
     <value>Dettagli Tag</value>
+  </data>
+  <data name="TextButton" xml:space="preserve">
+    <value>Cambia a inglese</value>
   </data>
 </root>
