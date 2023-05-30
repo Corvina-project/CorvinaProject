@@ -12,6 +12,7 @@ using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using SkiaSharp;
 using Device = MauiAuth0App.Models.Device;
+using MauiAuth0App.Converter;
 
 namespace MauiAuth0App.ViewModels
 {
@@ -123,7 +124,7 @@ namespace MauiAuth0App.ViewModels
                 {
                     foreach (var item in deviceTag[0].data)
                     {
-                        tag = new Tag() { tagValue = "Data: " + UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], modelPath = tagName };
+                        tag = new Tag() { tagValue = "Data: " + UnixTimeStamp.UnixTimeStampToDateTime(item[0].ToString()) + "\nValore: " + item[1], modelPath = tagName };
                     }
                 }
                 return tag;
@@ -166,21 +167,5 @@ namespace MauiAuth0App.ViewModels
 
             }
         };
-
-        private static string UnixTimeStampToDateTime(string unixTime)
-        {
-            string response = unixTime;
-            try
-            {
-                double c = double.Parse(unixTime);
-                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-                dateTime = dateTime.AddMilliseconds(c).ToLocalTime();
-                response = dateTime.ToString();
-            }
-            catch
-            {
-            }
-            return response;
-        }
     }
 }
