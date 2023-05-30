@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using MauiAuth0App.Views;
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+using MauiAuth0App.Resources.Languages;
+using System.Globalization;
 
 namespace MauiAuth0App;
 
@@ -49,6 +51,9 @@ public static class MauiProgram
         builder.Services.AddTransient(
             sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("DemoAPI")
         );
+
+        var culture = new CultureInfo(Preferences.Default.Get("language", "it"));
+        LocalizationResourceManager.Instance.SetCulture(culture);
 
         return builder.Build();
 	}

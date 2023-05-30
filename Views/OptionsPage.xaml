@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:converter="clr-namespace:MauiAuth0App.Converter"
-             
+             xmlns:extensions="clr-namespace:MauiAuth0App.Extensions"
              x:DataType="viewmodels:OptionsPageViewModel"
              x:Class="MauiAuth0App.Views.OptionsPage">
     
@@ -15,7 +15,7 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout Margin="20">
-        <Label Text="Devices" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+        <Label Text="{extensions:Translate Name=Devices}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding Devices}"
                         Margin="20"                        
                         x:Name="DevicesView">
@@ -47,7 +47,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Alarms" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" />
+        <Label Text="{extensions:Translate Name=Alarms}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" />
         <CollectionView ItemsSource="{Binding Alarms}"
                         Margin="20"
                         x:Name="AlarmsView">
@@ -76,7 +76,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="Dashboards"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+        <Label Text="{extensions:Translate Name=Dashboards}"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
         <CollectionView ItemsSource="{Binding DashBoards.Data}"
                         Margin="20">
             <CollectionView.ItemsLayout>
@@ -100,6 +100,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </VerticalStackLayout>
 </ContentPage>

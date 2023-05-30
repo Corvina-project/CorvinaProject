@@ -6,7 +6,12 @@ public partial class WebViewPage : ContentPage
     
     public WebViewPage(string url)
     {
+
         InitializeComponent();
+
+        NavigationPage.SetHasNavigationBar(this,true);
+        NavigationPage.SetHasBackButton(this, true);
+        Shell.SetNavBarIsVisible(this,true);
 
         var webView = new WebView();
         webView.Source = url;
@@ -19,8 +24,6 @@ public partial class WebViewPage : ContentPage
 
     public WebViewPage()
     {
-        NavigationPage.SetHasNavigationBar(this,false);
-        NavigationPage.SetHasBackButton(this, false);
         InitializeComponent();
 
         var webView = new WebView();

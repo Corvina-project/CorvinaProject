@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using MauiAuth0App.Auth0;
 using MauiAuth0App.Models;
 using MauiAuth0App.Views;
+using MauiAuth0App.Converter;
 using System.Collections.ObjectModel;
 using System.Net.Http.Json;
 using Device = MauiAuth0App.Models.Device;
@@ -65,14 +66,14 @@ namespace MauiAuth0App.ViewModels {
 
             tags.ForEach(async tag => {
                 foreach (var item in tag.data) {
-                    var dateTime = (DateTime) UnixTimestampToDateTime(item[0].ToString());
+                    var dateTime = (DateTime) UnixTimeStamp.UnixTimeStampToDateTime(item[0].ToString());
                     _ = double.TryParse(item[1].ToString(), out double valore);
                     //Application.Current.MainPage.DisplayAlert("Valore", $"{item[0]} {item[1]}", "ok");
 
                     tag.Dati.Add(dateTime, valore);
 
                     // da togliere
-                    tag.tagValue = "Data: " + UnixTimestampToDateTimeString(item[0].ToString()) + "\nValore: " + item[1];
+                    tag.tagValue = "Data: " + UnixTimeStamp.UnixTimeStampToString(item[0].ToString()) + "\nValue: " + item[1];
                 }
             });
             return tags;
@@ -161,24 +162,5 @@ namespace MauiAuth0App.ViewModels {
             */
             #endregion
         }
-
-        public static string UnixTimestampToDateTimeString(string unixTime) {
-            var dateTime = UnixTimestampToDateTime(unixTime);
-            if (dateTime == null)
-                return unixTime;
-
-            return dateTime.ToString();
-        }
-
-        public static DateTime? UnixTimestampToDateTime(string unixTime) {
-            var success = double.TryParse(unixTime, out double c);
-
-            if (!success)
-                return null;
-
-            DateTime dateTime = new(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            return dateTime.AddMilliseconds(c).ToLocalTime();
-        }
-
     }
 }

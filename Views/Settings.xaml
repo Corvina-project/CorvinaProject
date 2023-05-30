@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAuth0App.Views.Credits"
-             Title="Credits">
+             xmlns:extensions="clr-namespace:MauiAuth0App.Extensions"
+             x:Class="MauiAuth0App.Views.Settings">
     <ScrollView Margin="10">
         <VerticalStackLayout>
+            <Button Text="{extensions:Translate Name=TextButton}"
+                    Clicked="CambiaLinguaClicked"
+                    x:Name="CambiaLinguaButton"
+                    SemanticProperties.Hint="Cambia lingua"
+                    Margin="0, 0, 0, 30"
+                    WidthRequest="200"
+                    CornerRadius="25"/>
             <HorizontalStackLayout HorizontalOptions="Center"
                                    Margin="0,0,0,30">
                 <Frame BackgroundColor="White"
@@ -23,9 +30,9 @@
                              WidthRequest="90"/>
                 </Frame>
             </HorizontalStackLayout>
-            <Label Text="Progetto a cura del quarto anno dell'istituto ISS Greppi Monticello, in collaborazione con corvina cloud." 
+            <Label Text="{extensions:Translate Name=Description1}" 
                    Margin="0,0,0,20"/>
-            <Label Text="Alunni:"
+            <Label Text="{extensions:Translate Name=Students}"
                    HorizontalOptions="Center"/>
 
             <Grid Margin="0,0,0,20">
@@ -66,7 +73,7 @@
             </Grid>
 
             <VerticalStackLayout Margin="0,0,0,20">
-                <Label Text="Professori:"
+                <Label Text="{extensions:Translate Name=Teachers}"
                            HorizontalOptions="Center"/>
                 <Label Text="Gennaro Malafronte"
                            HorizontalOptions="Start"/>
@@ -81,7 +88,7 @@
             </VerticalStackLayout>
 
             <HorizontalStackLayout Margin="0,0,0,20">
-                <Label Text="Documentazione: "
+                <Label Text="{extensions:Translate Name=Documentation} "
                        HorizontalOptions="Start"
                        VerticalOptions="Center"/>
                 <ImageButton Source="github.svg"
@@ -90,7 +97,7 @@
                              HeightRequest="20"/>
             </HorizontalStackLayout>
 
-            <Label Text="Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:" Margin="0,0,0,10"/>
+            <Label Text="{extensions:Translate Name=Description2}" Margin="0,0,0,10"/>
             <VerticalStackLayout Margin="20,0,0,0">
                 <Label Text="CommunityToolkit.Mvvm"
                        HorizontalOptions="Start"/>

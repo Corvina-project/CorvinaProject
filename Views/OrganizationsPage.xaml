@@ -4,6 +4,7 @@
              xmlns:models="clr-namespace:MauiAuth0App.Models"
              xmlns:viewmodels="clr-namespace:MauiAuth0App.ViewModels"
              xmlns:converter="clr-namespace:MauiAuth0App.Converter"
+             xmlns:extensions="clr-namespace:MauiAuth0App.Extensions"
              x:Class="MauiAuth0App.Views.OrganizationsPage"
              x:DataType="viewmodels:OrganizazionsPageViewModel"
              Title="OrganizationsPage"
@@ -30,7 +31,7 @@
                    Margin="0,40,0,0"
                    WidthRequest="290"
                    VerticalOptions="Center"/>
-            <Label Text="Organizations" 
+            <Label Text="{extensions:Translate Name=Organizations}" 
                    Grid.Row="1"
                        FontSize="27" 
                        Margin="20"
