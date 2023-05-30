@@ -79,15 +79,6 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Students:.
-        /// </summary>
-        internal static string Alunni {
-            get {
-                return ResourceManager.GetString("Alunni", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dashboards.
         /// </summary>
         internal static string Dashboards {
@@ -97,11 +88,38 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project made by the fourth grade of the institute IISS Greppi Monticello, in collaboration with corvina cloud..
+        /// </summary>
+        internal static string Description1 {
+            get {
+                return ResourceManager.GetString("Description1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The project was developed using .NET MAUI, and it use some additional libraries:.
+        /// </summary>
+        internal static string Description2 {
+            get {
+                return ResourceManager.GetString("Description2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Devices.
         /// </summary>
         internal static string Devices {
             get {
                 return ResourceManager.GetString("Devices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documentation:.
+        /// </summary>
+        internal static string Documentation {
+            get {
+                return ResourceManager.GetString("Documentation", resourceCulture);
             }
         }
         
@@ -133,11 +151,29 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Students:.
+        /// </summary>
+        internal static string Students {
+            get {
+                return ResourceManager.GetString("Students", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tag Attributes.
         /// </summary>
         internal static string TagAttributes {
             get {
                 return ResourceManager.GetString("TagAttributes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teachers:.
+        /// </summary>
+        internal static string Teachers {
+            get {
+                return ResourceManager.GetString("Teachers", resourceCulture);
             }
         }
         

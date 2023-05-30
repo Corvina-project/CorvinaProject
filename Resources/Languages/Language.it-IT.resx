@@ -123,14 +123,20 @@
   <data name="Alarms" xml:space="preserve">
     <value>Allarmi</value>
   </data>
-  <data name="Alunni" xml:space="preserve">
-    <value>Alunni:</value>
-  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Pannelli</value>
   </data>
+  <data name="Description1" xml:space="preserve">
+    <value>Progetto a cura del quarto anno dell'istituto IISS Greppi Monticello, in collaborazione con corvina cloud.</value>
+  </data>
+  <data name="Description2" xml:space="preserve">
+    <value>Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:</value>
+  </data>
   <data name="Devices" xml:space="preserve">
     <value>Dispositivi</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Documentazione:</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>ESCI</value>
@@ -141,8 +147,14 @@
   <data name="Organizations" xml:space="preserve">
     <value>Organizzazioni</value>
   </data>
+  <data name="Students" xml:space="preserve">
+    <value>Alunni:</value>
+  </data>
   <data name="TagAttributes" xml:space="preserve">
     <value>Dettagli Tag</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value>Professori:</value>
   </data>
   <data name="TextButton" xml:space="preserve">
     <value>Cambia a inglese</value>
