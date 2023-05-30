@@ -5,7 +5,7 @@
              x:Class="MauiAuth0App.Views.Settings">
     <ScrollView Margin="10">
         <VerticalStackLayout>
-            <Button Text="Cambia lingua"
+            <Button Text="{extensions:Translate Name=TextButton}"
                     Clicked="CambiaLinguaClicked"
                     x:Name="CambiaLinguaButton"
                     SemanticProperties.Hint="Cambia lingua"

@@ -26,8 +26,10 @@ public partial class Settings : ContentPage
     {
         var switchToCulture = Language.Culture.TwoLetterISOLanguageName
             .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
-            new CultureInfo("en-US") : new CultureInfo("it-IT");
+            new CultureInfo("en-US") : new CultureInfo("it");
         LocalizationResourceManager.Instance.SetCulture(switchToCulture);
+
+        Preferences.Default.Set("language", switchToCulture.TwoLetterISOLanguageName);
 
         CambiaLinguaButton.Text = LocalizationResourceManager.Instance["TextButton"].ToString();
         SemanticScreenReader.Announce(CambiaLinguaButton.Text);
