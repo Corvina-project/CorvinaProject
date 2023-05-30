@@ -123,6 +123,9 @@
   <data name="Alarms" xml:space="preserve">
     <value>Alarms</value>
   </data>
+  <data name="Creation" xml:space="preserve">
+    <value>Creation</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Dashboards</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Exit" xml:space="preserve">
     <value>EXIT</value>
+  </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>Last update</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>LOGIN</value>

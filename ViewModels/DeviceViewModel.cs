@@ -23,10 +23,10 @@ public partial class DeviceViewModel : ObservableObject
         switch (deviceModel.Attributes.VpnConnected)
         {
             case true:
-                IsVpnConnected = "connessa";
+                IsVpnConnected = "connected";
                 break;
             case false:
-                IsVpnConnected = "disconnessa";
+                IsVpnConnected = "not connected";
                 break;
         }
     }

@@ -64,7 +64,7 @@
                     <VerticalStackLayout HorizontalOptions="Center">
                         <Image Source="creationdate.png"
                                HeightRequest="30" />
-                        <Label Text="Creazione" HorizontalOptions="Center" />
+                        <Label Text="{extensions:Translate Name=Creation}" HorizontalOptions="Center" />
                         <Label Text="{Binding DeviceModel.CreationDate, StringFormat='{0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
                                FontSize="15"
                                HorizontalOptions="Center"/>
@@ -73,7 +73,7 @@
                                          Grid.Column="1">
                         <Image Source="lastupdatedate.png"
                                HeightRequest="30"/>
-                        <Label Text="Ultimo update" HorizontalOptions="Center" />
+                        <Label Text="{extensions:Translate Name=LastUpdate}" HorizontalOptions="Center" />
                         <Label Text="{Binding DeviceModel.LastConnUpdateAt, StringFormat='{0:dd/MM/yyyy}', Converter={StaticResource UnixDateTimeConverter}}"
                                FontSize="15"
                                HorizontalOptions="Center"/>

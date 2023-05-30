@@ -79,6 +79,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creation.
+        /// </summary>
+        internal static string Creation {
+            get {
+                return ResourceManager.GetString("Creation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboards.
         /// </summary>
         internal static string Dashboards {
@@ -129,6 +138,15 @@ namespace MauiAuth0App.Resources.Languages {
         internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last update.
+        /// </summary>
+        internal static string LastUpdate {
+            get {
+                return ResourceManager.GetString("LastUpdate", resourceCulture);
             }
         }
         
