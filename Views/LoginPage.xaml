@@ -13,7 +13,7 @@
           Margin="20">
         <HorizontalStackLayout HorizontalOptions="End"
                                VerticalOptions="Start">
-            <ImageButton Source="information.png"
+            <ImageButton Source="impostazioni.png"
                          Clicked="ImageButton_Clicked"
                          HeightRequest="25"
                          VerticalOptions="Center"

@@ -20,7 +20,7 @@
         <VerticalStackLayout Spacing="20">
             <HorizontalStackLayout HorizontalOptions="End"
                                     VerticalOptions="Start">
-                <ImageButton Source="information.png"
+                <ImageButton Source="impostazioni.png"
                          Command="{Binding GoToCreditsCommand}"
                          HeightRequest="25"
                          HorizontalOptions="End"
@@ -63,7 +63,11 @@
                                     <VerticalStackLayout HorizontalOptions="Center" 
                                                      VerticalOptions="Center"
                                                      Spacing="2">
-                                        <Label Text="{Binding Id, StringFormat='ID: {0}'}"    />
+                                        <Label Text="{Binding Id, StringFormat='ID: {0}'}" />
+                                        <!-- prova cambio lingua
+                                        <Label Text="{Binding Name, StringFormat='{extensions:Translate Name=Name} {0}'}"  />
+                                        <Label Text="{Binding Label, StringFormat='{extemsions:Translate Name=Label} {0}'}" />
+                                        <Label Text="{Binding Status, StringFormat='{extensions:Translate Name=Status} {0}'}"  />-->
                                         <Label Text="{Binding Name, StringFormat='Name: {0}'}"  />
                                         <Label Text="{Binding Label, StringFormat='Label: {0}'}" />
                                         <Label Text="{Binding Status, StringFormat='Status: {0}'}"  />

@@ -40,7 +40,6 @@
                         </Frame.Triggers>
                     </Frame>
                 </Grid>
-                
 
                 <Grid ColumnDefinitions="*,*">
                     <Label Text="{Binding IsVpnConnected, StringFormat='Vpn {0}'}" 
@@ -55,11 +54,14 @@
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"/>
                 </Grid>
-                
-                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='Device id: {0}'}" 
+
+
+                <!-- prova cambio lingua
+                    Text="{Binding DeviceModel.DeviceId, StringFormat='{extensions:Translate Key=DeviceId} {0}'}"-->
+                <Label Text="{Binding DeviceModel.DeviceId, StringFormat='Device id: {0}'}"
                        HorizontalOptions="Center" 
                        FontSize="15"/>
-                
+
                 <Grid ColumnDefinitions="*,*">
                     <VerticalStackLayout HorizontalOptions="Center">
                         <Image Source="creationdate.png"
@@ -95,9 +97,9 @@
                         Margin="5" Grid.Column="3"
                         Command="{Binding GoToTagPageCommand}"/>
                 </Grid>
-                
-                    <!--collection view al posto di fare come sotto commentato perchÃ© altrimenti dava problemi all'avvio-->
-                    <!--<Label Text="Coordinates:"></Label>
+
+                <!--collection view al posto di fare come sotto commentato perchè altrimenti dava problemi all'avvio-->
+                <!--<Label Text="Coordinates:"></Label>
                 <CollectionView Margin="10,0,0,0" 
                     ItemsSource="{Binding DeviceModel.Attributes.GeoLocation}">
                     <CollectionView.ItemsLayout>
@@ -109,8 +111,8 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>-->
-                    <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
-                    <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
+                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[0], StringFormat='Latitude: {0}'}"/>-->
+                <!--<Label Text="{Binding DeviceModel.Attributes.GeoLocation[1], StringFormat='Longitude: {0}'}"/>-->
 
                 <Grid>
                     <HorizontalStackLayout HorizontalOptions="End">
@@ -121,9 +123,7 @@
                            VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                 </Grid>
-
             </VerticalStackLayout>
         </Frame>
-
     </VerticalStackLayout>
 </ContentPage>
