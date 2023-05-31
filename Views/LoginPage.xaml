@@ -11,14 +11,13 @@
 
     <Grid RowDefinitions="auto,2*,*"
           Margin="20">
-        <HorizontalStackLayout HorizontalOptions="End"
-                               VerticalOptions="Start">
-            <ImageButton Source="information.png"
+        <ImageButton Source="impostazioni.png"
                          Clicked="ImageButton_Clicked"
-                         HeightRequest="25"
+                         HeightRequest="30"
+                             Margin="10"
+                         WidthRequest="30"
                          VerticalOptions="Center"
                          HorizontalOptions="End"/>
-        </HorizontalStackLayout>
 
         <Image Source="inverter.png"
                Grid.Row="1"

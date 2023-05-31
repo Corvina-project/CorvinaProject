@@ -118,60 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddValue" xml:space="preserve">
-    <value>Add value</value>
+    <value>'Iidafat qima</value>
   </data>
   <data name="Alarms" xml:space="preserve">
-    <value>Alarms</value>
+    <value>'Iindhar</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Creation</value>
+    <value>Khalq</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
-    <value>Dashboards</value>
+    <value>Lawhat alqiada</value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Project made by the fourth grade of the institute IISS Greppi Monticello, in collaboration with corvina cloud.</value>
+    <value>Mashrue min 'iiedad alsafi alraabie limaehad IISS Greppi Monticello , bialtaeawun mae corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>The project was developed using .NET MAUI, and it use some additional libraries:</value>
+    <value>Tama tatwir almashrue biastikhdam .NET MAUI , wayustakhdim baed almaktabat al'iidafiati</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
-    <value>Device id:</value>
+    <value>Maerif Aljihazi:</value>
   </data>
   <data name="Devices" xml:space="preserve">
-    <value>Devices</value>
+    <value>Al'ajhiza</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentation:</value>
+    <value>Tawthiqu:</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>EXIT</value>
+    <value>MUKHRAJ</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Label:</value>
+    <value>Milsaq:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
-    <value>Last update</value>
+    <value>Akhir Tahdith</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>LOGIN</value>
+    <value>TASJIL ALDUKHUL</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name:</value>
+    <value>Asma:</value>
   </data>
   <data name="Organizations" xml:space="preserve">
-    <value>Organizations</value>
+    <value>Almunazamat</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status:</value>
+    <value>Halatun:</value>
   </data>
   <data name="Students" xml:space="preserve">
-    <value>Students:</value>
+    <value>Tulaabi:</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
-    <value>Tag Attributes</value>
-  </data>
-  <data name="Teachers" xml:space="preserve">
-    <value>Teachers:</value>
+    <value>Simat Alealaama</value>
   </data>
 </root>

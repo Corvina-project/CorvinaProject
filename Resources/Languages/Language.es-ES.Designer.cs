@@ -22,14 +22,14 @@ namespace MauiAuth0App.Resources.Languages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Language {
+    internal class Language_es_ES {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Language() {
+        internal Language_es_ES() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MauiAuth0App.Resources.Languages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MauiAuth0App.Resources.Languages.Language", typeof(Language).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MauiAuth0App.Resources.Languages.Language-es-ES", typeof(Language_es_ES).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add value.
+        ///   Looks up a localized string similar to Añadir valor.
         /// </summary>
         internal static string AddValue {
             get {
@@ -70,7 +70,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alarms.
+        ///   Looks up a localized string similar to Alarmas.
         /// </summary>
         internal static string Alarms {
             get {
@@ -79,7 +79,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creation.
+        ///   Looks up a localized string similar to Creación.
         /// </summary>
         internal static string Creation {
             get {
@@ -88,7 +88,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dashboards.
+        ///   Looks up a localized string similar to Tableros.
         /// </summary>
         internal static string Dashboards {
             get {
@@ -97,7 +97,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project made by the fourth grade of the institute IISS Greppi Monticello, in collaboration with corvina cloud..
+        ///   Looks up a localized string similar to Proyecto realizado por el cuarto grado del instituto IISS Greppi Monticello, en colaboración con corvina cloud..
         /// </summary>
         internal static string Description1 {
             get {
@@ -106,7 +106,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The project was developed using .NET MAUI, and it use some additional libraries:.
+        ///   Looks up a localized string similar to El proyecto se desarrolló utilizando .NET MAUI y utiliza algunas bibliotecas adicionales:.
         /// </summary>
         internal static string Description2 {
             get {
@@ -115,7 +115,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Device id:.
+        ///   Looks up a localized string similar to ID dispositivo:.
         /// </summary>
         internal static string DeviceId {
             get {
@@ -124,7 +124,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Devices.
+        ///   Looks up a localized string similar to Dispositivos.
         /// </summary>
         internal static string Devices {
             get {
@@ -133,7 +133,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Documentation:.
+        ///   Looks up a localized string similar to Documentación:.
         /// </summary>
         internal static string Documentation {
             get {
@@ -142,7 +142,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXIT.
+        ///   Looks up a localized string similar to SALIDA.
         /// </summary>
         internal static string Exit {
             get {
@@ -151,7 +151,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Label:.
+        ///   Looks up a localized string similar to Etiqueta:.
         /// </summary>
         internal static string Label {
             get {
@@ -160,7 +160,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last update.
+        ///   Looks up a localized string similar to Última actualización.
         /// </summary>
         internal static string LastUpdate {
             get {
@@ -169,7 +169,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LOGIN.
+        ///   Looks up a localized string similar to ACCESO.
         /// </summary>
         internal static string Login {
             get {
@@ -178,7 +178,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name:.
+        ///   Looks up a localized string similar to Nombre:.
         /// </summary>
         internal static string Name {
             get {
@@ -187,7 +187,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Organizations.
+        ///   Looks up a localized string similar to Organizaciones.
         /// </summary>
         internal static string Organizations {
             get {
@@ -196,7 +196,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Status:.
+        ///   Looks up a localized string similar to Estudiantes:.
         /// </summary>
         internal static string Status {
             get {
@@ -214,7 +214,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tag Attributes.
+        ///   Looks up a localized string similar to Atributos de etiqueta.
         /// </summary>
         internal static string TagAttributes {
             get {
@@ -223,7 +223,7 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Teachers:.
+        ///   Looks up a localized string similar to Profesores:.
         /// </summary>
         internal static string Teachers {
             get {

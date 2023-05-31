@@ -10,9 +10,9 @@ namespace MauiAuth0App.ViewModels {
     public partial class OrganizazionsPageViewModel : ObservableObject {
 
         [ObservableProperty] private List<Organization> organizations;
-
         private HttpClient client;
         private IServices services;
+        private bool isBusy = false;
 
         public OrganizazionsPageViewModel(HttpClient client, IServices services)
         {
@@ -28,7 +28,11 @@ namespace MauiAuth0App.ViewModels {
         [RelayCommand]
         private async void GoToCredits()
         {
+            if (isBusy)
+                return;
+            isBusy = true;
             await App.Current.MainPage.Navigation.PushAsync(new Settings());
+            isBusy = false;
         }
         [RelayCommand]
         private async Task Logout()

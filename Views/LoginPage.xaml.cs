@@ -13,6 +13,7 @@ public partial class LoginPage : ContentPage {
     
     private WebViewPage webViewPage;
     private bool isBusy = false;
+    private bool isBusySettings = false;
 
     private IServices service;
 
@@ -63,8 +64,10 @@ public partial class LoginPage : ContentPage {
             }
             await Navigation.PushAsync(new OrganizationsPage(client, service));    
         } catch (Exception ex) {
+            await Navigation.PopAsync();
             await DisplayAlert("Errore interno", ex.Source + ": " + ex.Message, "OK");
         } finally {
+            isBusy = false;
             //LoginBtn.IsVisible = true;
         }
     }
@@ -87,7 +90,10 @@ public partial class LoginPage : ContentPage {
 
     private async void ImageButton_Clicked(object sender, EventArgs e)
     {
+        if(isBusySettings) return;
+        isBusySettings = true;
         await Navigation.PushAsync(new Settings());
+        isBusySettings = false;
     }
 }
 

@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddValue" xml:space="preserve">
-    <value>Add value</value>
+    <value>Añadir valor</value>
   </data>
   <data name="Alarms" xml:space="preserve">
-    <value>Alarms</value>
+    <value>Alarmas</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Creation</value>
+    <value>Creación</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
-    <value>Dashboards</value>
+    <value>Tableros</value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Project made by the fourth grade of the institute IISS Greppi Monticello, in collaboration with corvina cloud.</value>
+    <value>Proyecto realizado por el cuarto grado del instituto IISS Greppi Monticello, en colaboración con corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>The project was developed using .NET MAUI, and it use some additional libraries:</value>
+    <value>El proyecto se desarrolló utilizando .NET MAUI y utiliza algunas bibliotecas adicionales:</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
-    <value>Device id:</value>
+    <value>ID dispositivo:</value>
   </data>
   <data name="Devices" xml:space="preserve">
-    <value>Devices</value>
+    <value>Dispositivos</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentation:</value>
+    <value>Documentación:</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>EXIT</value>
+    <value>SALIDA</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Label:</value>
+    <value>Etiqueta:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
-    <value>Last update</value>
+    <value>Última actualización</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>LOGIN</value>
+    <value>ACCESO</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name:</value>
+    <value>Nombre:</value>
   </data>
   <data name="Organizations" xml:space="preserve">
-    <value>Organizations</value>
+    <value>Organizaciones</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status:</value>
+    <value>Estudiantes:</value>
   </data>
   <data name="Students" xml:space="preserve">
     <value>Students:</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
-    <value>Tag Attributes</value>
+    <value>Atributos de etiqueta</value>
   </data>
   <data name="Teachers" xml:space="preserve">
-    <value>Teachers:</value>
+    <value>Profesores:</value>
   </data>
 </root>

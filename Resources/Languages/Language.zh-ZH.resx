@@ -118,51 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddValue" xml:space="preserve">
-    <value>Aggiungi valore</value>
+    <value>Zēngzhí</value>
   </data>
   <data name="Alarms" xml:space="preserve">
-    <value>Allarmi</value>
+    <value>Jǐngbào qì</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Creazione</value>
+    <value>Chuàngjiàn</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
-    <value>Pannelli</value>
+    <value>Yíbiǎo bǎn</value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Progetto a cura del quarto anno dell'istituto IISS Greppi Monticello, in collaborazione con corvina cloud.</value>
+    <value>Xiàngmù yóu yánjiū suǒ sì niánjí de IISS Greppi Monticello yǔ corvina cloud hézuò wánchéng.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:</value>
+    <value>Gāi xiàngmù shì shǐyòng.NET MAUI kāifā de, tā shǐyòngle yīxiē éwài de kù:</value>
+  </data>
+  <data name="DeviceId" xml:space="preserve">
+    <value>Shèbèi ID:</value>
   </data>
   <data name="Devices" xml:space="preserve">
-    <value>Dispositivi</value>
+    <value>Shèbèi</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentazione:</value>
+    <value>Wéndàng:</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>ESCI</value>
+    <value>Chūkǒu</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Biāoqiān:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
-    <value>Ultimo update</value>
+    <value>Zuìhòu gēngxīn</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>ACCESSO</value>
+    <value>Dēnglù</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Xìngmíng:</value>
   </data>
   <data name="Organizations" xml:space="preserve">
-    <value>Organizzazioni</value>
+    <value>Zǔzhī</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Dìwèi:</value>
   </data>
   <data name="Students" xml:space="preserve">
-    <value>Alunni:</value>
+    <value>Xuéshēng:</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
-    <value>Dettagli Tag</value>
+    <value>Biāojì shǔxìng</value>
   </data>
   <data name="Teachers" xml:space="preserve">
-    <value>Professori:</value>
-  </data>
-  <data name="TextButton" xml:space="preserve">
-    <value>Cambia a inglese</value>
+    <value>Jiàoshī:</value>
   </data>
 </root>
