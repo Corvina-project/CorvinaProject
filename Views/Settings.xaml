@@ -19,9 +19,13 @@
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Italiano 🇮🇹</x:String>
                                 <x:String>English 🇬🇧 🇺🇸</x:String>
+                                <x:String>Spanish 🇪🇸</x:String>
+                                <x:String>Portuguese 🇵🇹</x:String>
                                 <x:String>Deutsch 🇩🇪</x:String>
-                                <x:String>Earabiun 🇦🇪</x:String>
-                                <x:String>Zhōngguó rén 🇨🇳</x:String>
+                                <x:String>Arabic 🇦🇪</x:String>
+                                <x:String>Chinese 🇨🇳</x:String>
+                                <x:String>Hindi 🇮🇳</x:String>
+                                <x:String>Russian 🇷🇺</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>

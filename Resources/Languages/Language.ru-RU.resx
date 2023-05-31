@@ -135,6 +135,9 @@
   <data name="Description2" xml:space="preserve">
     <value>Proyekt byl razrabotan s ispol'zovaniyem .NET MAUI i ispol'zuyet nekotoryye dopolnitel'nyye biblioteki:</value>
   </data>
+  <data name="DeviceId" xml:space="preserve">
+    <value>Identifikator ustroystva:</value>
+  </data>
   <data name="Devices" xml:space="preserve">
     <value>Ustroystva</value>
   </data>
@@ -144,14 +147,23 @@
   <data name="Exit" xml:space="preserve">
     <value>VYKHOD</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Yarlyki:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Posledneye obnovleniye</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>AVTORIZOVAT'SYA</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Imya:</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizatsii</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Polozheniye del:</value>
   </data>
   <data name="Students" xml:space="preserve">
     <value>Studenty:</value>

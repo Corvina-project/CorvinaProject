@@ -135,6 +135,9 @@
   <data name="Description2" xml:space="preserve">
     <value>O projecto foi desenvolvido usando .NET MAUI, e utiliza algumas bibliotecas adicionais:</value>
   </data>
+  <data name="DeviceId" xml:space="preserve">
+    <value>ID de dispositivo:</value>
+  </data>
   <data name="Devices" xml:space="preserve">
     <value>Dispositivos</value>
   </data>
@@ -144,14 +147,23 @@
   <data name="Exit" xml:space="preserve">
     <value>SAIDA</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Rótulo:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Última atualização</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>LOGIN</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nome:</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizações</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status:</value>
   </data>
   <data name="Students" xml:space="preserve">
     <value>Alunos:</value>

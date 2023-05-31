@@ -135,6 +135,9 @@
   <data name="Description2" xml:space="preserve">
     <value>Pariyojana .NET MAUI ka upayog karake vikasit kee gaee thee, aur yah kuchh atirikt pustakaalayon ka upayog karatee hai:</value>
   </data>
+  <data name="DeviceId" xml:space="preserve">
+    <value>Divais aaeedee:</value>
+  </data>
   <data name="Devices" xml:space="preserve">
     <value>Upakaran</value>
   </data>
@@ -144,14 +147,23 @@
   <data name="Exit" xml:space="preserve">
     <value>BAAHAR NIKALANA</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Lebal:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Aakhiree apadet</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>LOG IN KAREN</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naam:</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Sangathanon</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Darja:</value>
   </data>
   <data name="Students" xml:space="preserve">
     <value>Chhaatr:</value>

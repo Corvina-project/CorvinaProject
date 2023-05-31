@@ -24,33 +24,51 @@ public partial class Settings : ContentPage
 
     private void CambiaLinguaClicked(object sender, EventArgs e)
     {
-        string Cinfo = "it-IT";
+        string cultureInfo = "it-IT";
         switch (PickerLanguage.SelectedItem.ToString())
         {
             case "Italiano 🇮🇹":
-                Cinfo = "it-IT";
+                cultureInfo = "it-IT";
                 break;
             case "English 🇬🇧 🇺🇸":
-                Cinfo = "en-Us";
+                cultureInfo = "en-Us";
+                break;
+            //TODO: french case "French 🇫🇷":
+            //    cultureInfo = "fr-FR";
+            //    break;
+            case "Spanish 🇪🇸":
+                cultureInfo = "es-ES";
+                break;
+            case "Portuguese 🇵🇹":
+                cultureInfo = "pt-PT";
                 break;
             case "Deutsch 🇩🇪":
-                Cinfo = "de-DE";
+                cultureInfo = "de-DE";
                 break;
-            case "Earabiun 🇦🇪":
-                Cinfo = "ar-AR";
+            case "Arabic 🇦🇪":
+                cultureInfo = "ar";
                 break;
-            case "Zhōngguó rén 🇨🇳":
-                Cinfo = "zh-ZH";
+            case "Chinese 🇨🇳":
+                cultureInfo = "zh-CN";
+                break;
+            case "Hindi 🇮🇳":
+                cultureInfo = "hi";
+                break;
+            case "Russian 🇷🇺":
+                cultureInfo = "ru-RU";
+                break;
+            default:
+                cultureInfo = "en-Us";
                 break;
         }
+ 
+        var switchToCulture = new CultureInfo(cultureInfo);
+        LocalizationResourceManager.Instance.SetCulture(switchToCulture);
+        Preferences.Default.Set("language", switchToCulture.TwoLetterISOLanguageName);
+
         //var switchToCulture = Language.Culture.TwoLetterISOLanguageName
         //    .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
         //    new CultureInfo("en-US") : new CultureInfo("it");
-        var switchToCulture = new CultureInfo(Cinfo);
-        LocalizationResourceManager.Instance.SetCulture(switchToCulture);
-
-        Preferences.Default.Set("language", switchToCulture.TwoLetterISOLanguageName);
-
         //CambiaLinguaButton.Text = LocalizationResourceManager.Instance["TextButton"].ToString();
         //SemanticScreenReader.Announce(CambiaLinguaButton.Text);
     }
