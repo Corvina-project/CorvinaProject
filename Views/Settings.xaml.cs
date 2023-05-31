@@ -24,14 +24,25 @@ public partial class Settings : ContentPage
 
     private void CambiaLinguaClicked(object sender, EventArgs e)
     {
-        var switchToCulture = Language.Culture.TwoLetterISOLanguageName
-            .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
-            new CultureInfo("en-US") : new CultureInfo("it");
+        string Cinfo = "it";
+        switch (PickerLanguage.SelectedItem.ToString())
+        {
+            case "Italiano":
+                Cinfo = "it";
+                break;
+            case "Inglese":
+                Cinfo = "en-Us";
+                break;
+        }
+        //var switchToCulture = Language.Culture.TwoLetterISOLanguageName
+        //    .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
+        //    new CultureInfo("en-US") : new CultureInfo("it");
+        var switchToCulture = new CultureInfo(Cinfo);
         LocalizationResourceManager.Instance.SetCulture(switchToCulture);
 
         Preferences.Default.Set("language", switchToCulture.TwoLetterISOLanguageName);
 
-        CambiaLinguaButton.Text = LocalizationResourceManager.Instance["TextButton"].ToString();
-        SemanticScreenReader.Announce(CambiaLinguaButton.Text);
+        //CambiaLinguaButton.Text = LocalizationResourceManager.Instance["TextButton"].ToString();
+        //SemanticScreenReader.Announce(CambiaLinguaButton.Text);
     }
 }
