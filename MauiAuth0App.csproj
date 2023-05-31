@@ -104,10 +104,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Resources\Languages\Language-es-ES.Designer.cs">
+	  <Compile Update="Resources\Languages\Language.es-ES.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Language-es-ES.resx</DependentUpon>
+	    <DependentUpon>Language.es-ES.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Languages\Language.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -151,9 +151,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Languages\Language-es-ES.resx">
+	  <EmbeddedResource Update="Resources\Languages\Language.es-ES.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Language-es-ES.Designer.cs</LastGenOutput>
+	    <LastGenOutput>Language.es-ES.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Languages\Language.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
