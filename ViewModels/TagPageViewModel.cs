@@ -73,7 +73,7 @@ namespace MauiAuth0App.ViewModels {
                     tag.Dati.Add(dateTime, valore);
 
                     // da togliere
-                    tag.tagValue = "Data: " + UnixTimeStamp.UnixTimeStampToString(item[0].ToString()) + "\nValue: " + item[1];
+                    tag.tagValue = Resources.Languages.Language.Date + UnixTimeStamp.UnixTimeStampToString(item[0].ToString()) + "\n" + Resources.Languages.Language.Value + item[1];
                 }
             });
             return tags;

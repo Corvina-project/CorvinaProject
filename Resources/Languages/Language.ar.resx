@@ -123,11 +123,17 @@
   <data name="Alarms" xml:space="preserve">
     <value>'Iindhar</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>mutasil</value>
+  </data>
   <data name="Creation" xml:space="preserve">
     <value>Khalq</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Lawhat alqiada</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>fi makaniki: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Mashrue min 'iiedad alsafi alraabie limaehad IISS Greppi Monticello , bialtaeawun mae corvina cloud.</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Asma:</value>
   </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>ghayr mutasil</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Almunazamat</value>
   </data>
@@ -170,5 +179,8 @@
   </data>
   <data name="TagAttributes" xml:space="preserve">
     <value>Simat Alealaama</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>qimatun: </value>
   </data>
 </root>

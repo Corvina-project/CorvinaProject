@@ -123,11 +123,17 @@
   <data name="Alarms" xml:space="preserve">
     <value>Elaarm</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>jude hue</value>
+  </data>
   <data name="Creation" xml:space="preserve">
     <value>Nirmaan</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Daishabord</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Taareekh: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Chorvin klaud ke sahayog se sansthaan IISS Greppi Monticello kee chauthee kaksha dvaara banaee gaee pariyojana.</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Naam:</value>
   </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>jude nahin hain</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Sangathanon</value>
   </data>
@@ -173,5 +182,8 @@
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Shikshakon kee:</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Keemat: </value>
   </data>
 </root>

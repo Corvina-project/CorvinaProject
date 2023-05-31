@@ -123,11 +123,17 @@
   <data name="Alarms" xml:space="preserve">
     <value>Jǐngbào qì</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>liánjiē de</value>
+  </data>
   <data name="Creation" xml:space="preserve">
     <value>Chuàngjiàn</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Yíbiǎo bǎn</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Zài nǐ jiā: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Xiàngmù yóu yánjiū suǒ sì niánjí de IISS Greppi Monticello yǔ corvina cloud hézuò wánchéng.</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Xìngmíng:</value>
   </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>wèi liánjiē</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Zǔzhī</value>
   </data>
@@ -173,5 +182,8 @@
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Jiàoshī:</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Jiàzhí: </value>
   </data>
 </root>

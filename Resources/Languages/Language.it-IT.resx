@@ -123,11 +123,17 @@
   <data name="Alarms" xml:space="preserve">
     <value>Allarmi</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>connessa</value>
+  </data>
   <data name="Creation" xml:space="preserve">
     <value>Creazione</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Pannelli</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Progetto a cura del quarto anno dell'istituto IISS Greppi Monticello, in collaborazione con corvina cloud.</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Nome:</value>
   </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>non connessa</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizzazioni</value>
   </data>
@@ -173,5 +182,8 @@
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Professori:</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valore: </value>
   </data>
 </root>

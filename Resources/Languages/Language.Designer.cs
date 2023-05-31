@@ -79,6 +79,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to connected.
+        /// </summary>
+        internal static string Connected {
+            get {
+                return ResourceManager.GetString("Connected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creation.
         /// </summary>
         internal static string Creation {
@@ -93,6 +102,15 @@ namespace MauiAuth0App.Resources.Languages {
         internal static string Dashboards {
             get {
                 return ResourceManager.GetString("Dashboards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date: .
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
@@ -187,6 +205,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to not connected.
+        /// </summary>
+        internal static string NotConnected {
+            get {
+                return ResourceManager.GetString("NotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Organizations.
         /// </summary>
         internal static string Organizations {
@@ -228,6 +255,15 @@ namespace MauiAuth0App.Resources.Languages {
         internal static string Teachers {
             get {
                 return ResourceManager.GetString("Teachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value: .
+        /// </summary>
+        internal static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
             }
         }
     }

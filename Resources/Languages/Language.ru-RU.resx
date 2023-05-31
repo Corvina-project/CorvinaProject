@@ -123,11 +123,17 @@
   <data name="Alarms" xml:space="preserve">
     <value>Dobavit' znacheniye</value>
   </data>
+  <data name="Connected" xml:space="preserve">
+    <value>svyazannyy</value>
+  </data>
   <data name="Creation" xml:space="preserve">
     <value>Sozdaniye</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Paneli monitoringa</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Proyekt vypolnen chetvertym kursom instituta IISS Greppi Monticello v sotrudnichestve s Corvina cloud.</value>
@@ -159,6 +165,9 @@
   <data name="Name" xml:space="preserve">
     <value>Imya:</value>
   </data>
+  <data name="NotConnected" xml:space="preserve">
+    <value>ne podklyuchen</value>
+  </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizatsii</value>
   </data>
@@ -173,5 +182,8 @@
   </data>
   <data name="Teachers" xml:space="preserve">
     <value>Uchitel':</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Tsenit': </value>
   </data>
 </root>

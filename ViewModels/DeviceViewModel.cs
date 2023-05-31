@@ -10,9 +10,9 @@ public partial class DeviceViewModel : ObservableObject
 {
     [ObservableProperty] private Device deviceModel;
     [ObservableProperty] private DeviceType deviceType;
-    private HttpClient client;
     [ObservableProperty] private bool? isConnected;
     [ObservableProperty] private string isVpnConnected;
+    private HttpClient client;
 
     public DeviceViewModel(Device deviceModel, DeviceType deviceType, HttpClient client)
     {
@@ -23,10 +23,10 @@ public partial class DeviceViewModel : ObservableObject
         switch (deviceModel.Attributes.VpnConnected)
         {
             case true:
-                IsVpnConnected = "connected";
+                IsVpnConnected = Resources.Languages.Language.Connected;
                 break;
             case false:
-                IsVpnConnected = "not connected";
+                IsVpnConnected = Resources.Languages.Language.NotConnected;
                 break;
         }
     }
