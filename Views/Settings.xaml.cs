@@ -1,4 +1,4 @@
-using MauiAuth0App.Resources.Languages;
+﻿using MauiAuth0App.Resources.Languages;
 using System.Globalization;
 
 namespace MauiAuth0App.Views;
@@ -24,14 +24,23 @@ public partial class Settings : ContentPage
 
     private void CambiaLinguaClicked(object sender, EventArgs e)
     {
-        string Cinfo = "it";
+        string Cinfo = "it-IT";
         switch (PickerLanguage.SelectedItem.ToString())
         {
-            case "Italiano":
-                Cinfo = "it";
+            case "Italiano 🇮🇹":
+                Cinfo = "it-IT";
                 break;
-            case "Inglese":
+            case "English 🇬🇧 🇺🇸":
                 Cinfo = "en-Us";
+                break;
+            case "Deutsch 🇩🇪":
+                Cinfo = "de-DE";
+                break;
+            case "Earabiun 🇦🇪":
+                Cinfo = "ar-AR";
+                break;
+            case "Zhōngguó rén 🇨🇳":
+                Cinfo = "zh-ZH";
                 break;
         }
         //var switchToCulture = Language.Culture.TwoLetterISOLanguageName

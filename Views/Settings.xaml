@@ -17,14 +17,17 @@
                             FontFamily="attributes_font">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
-                                <x:String>Italiano</x:String>
-                                <x:String>Inglese</x:String>
+                                <x:String>Italiano 🇮🇹</x:String>
+                                <x:String>English 🇬🇧 🇺🇸</x:String>
+                                <x:String>Deutsch 🇩🇪</x:String>
+                                <x:String>Earabiun 🇦🇪</x:String>
+                                <x:String>Zhōngguó rén 🇨🇳</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>
                 </VerticalStackLayout>
             </Frame>
-            <Label Text="Credits" FontFamily="corvina_font" FontSize="30" Margin="10" HorizontalOptions="Center"></Label>
+            <Label Text="Credits" FontFamily="corvina_font" FontSize="30" Margin="0,0,0,40" HorizontalOptions="Center"></Label>
             <!--<Button Text="{extensions:Translate Name=TextButton}"
                     Clicked="CambiaLinguaClicked"
                     x:Name="CambiaLinguaButton"
