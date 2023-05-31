@@ -118,63 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddValue" xml:space="preserve">
-    <value>Aggiungi valore</value>
+    <value>Añadir valor</value>
   </data>
   <data name="Alarms" xml:space="preserve">
-    <value>Allarmi</value>
+    <value>Alarmas</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Creazione</value>
+    <value>Creación</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
-    <value>Pannelli</value>
+    <value>Tableros</value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Progetto a cura del quarto anno dell'istituto IISS Greppi Monticello, in collaborazione con corvina cloud.</value>
+    <value>Proyecto realizado por el cuarto grado del instituto IISS Greppi Monticello, en colaboración con corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:</value>
+    <value>El proyecto se desarrolló utilizando .NET MAUI y utiliza algunas bibliotecas adicionales:</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
-    <value>Id dispositivo:</value>
+    <value>ID dispositivo:</value>
   </data>
   <data name="Devices" xml:space="preserve">
-    <value>Dispositivi</value>
+    <value>Dispositivos</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentazione:</value>
+    <value>Documentación:</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>ESCI</value>
+    <value>SALIDA</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Etichetta:</value>
+    <value>Etiqueta:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
-    <value>Ultimo update</value>
+    <value>Última actualización</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>ACCESSO</value>
+    <value>ACCESO</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nome:</value>
+    <value>Nombre:</value>
   </data>
   <data name="Organizations" xml:space="preserve">
-    <value>Organizzazioni</value>
+    <value>Organizaciones</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Stato:</value>
+    <value>Estudiantes:</value>
   </data>
   <data name="Students" xml:space="preserve">
-    <value>Alunni:</value>
+    <value>Students:</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
-    <value>Dettagli Tag</value>
+    <value>Atributos de etiqueta</value>
   </data>
   <data name="Teachers" xml:space="preserve">
-    <value>Professori:</value>
-  </data>
-  <data name="TextButton" xml:space="preserve">
-    <value>Cambia a inglese</value>
+    <value>Profesores:</value>
   </data>
 </root>

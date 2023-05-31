@@ -64,8 +64,10 @@ public partial class LoginPage : ContentPage {
             }
             await Navigation.PushAsync(new OrganizationsPage(client, service));    
         } catch (Exception ex) {
+            await Navigation.PopAsync();
             await DisplayAlert("Errore interno", ex.Source + ": " + ex.Message, "OK");
         } finally {
+            isBusy = false;
             //LoginBtn.IsVisible = true;
         }
     }
