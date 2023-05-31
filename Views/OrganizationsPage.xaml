@@ -22,7 +22,8 @@
                                     VerticalOptions="Start">
                 <ImageButton Source="impostazioni.png"
                          Command="{Binding GoToCreditsCommand}"
-                         HeightRequest="25"
+                         HeightRequest="30"
+                             WidthRequest="30"
                          HorizontalOptions="End"
                          VerticalOptions="Start"
                          Margin="20"/>
