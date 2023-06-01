@@ -16,38 +16,38 @@
 
     <VerticalStackLayout Margin="20">
         <Label Text="{extensions:Translate Name=Devices}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+
         <CollectionView ItemsSource="{Binding Devices}"
-                        Margin="20"                        
+                        Margin="15"                        
                         x:Name="DevicesView">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical"
+                <LinearItemsLayout Orientation="Horizontal"
                                    ItemSpacing="10" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Device">
-                <Frame HorizontalOptions="Center"
+                    <Frame HorizontalOptions="Center"
                             VerticalOptions="Center"
-                            Grid.Column="1"
                             Margin="5">
-                        <HorizontalStackLayout Spacing="20">
+                        <VerticalStackLayout Spacing="20">
                             <Image Source="device_icon.png" 
                                    HeightRequest="30"></Image>
                             <VerticalStackLayout HorizontalOptions="Center" 
                                                  VerticalOptions="Center"
-                                                 WidthRequest="220"
-                                                 Grid.Column="1">
+                                                 WidthRequest="117">
                                 <Label Text="{Binding Label, StringFormat='Label: {0}'}" HorizontalOptions="Start" />
                                 <Label Text="{Binding Connected, StringFormat='Connected: {0}'}" HorizontalOptions="Start" />
                             </VerticalStackLayout>
-                        </HorizontalStackLayout>
+                        </VerticalStackLayout>
                         <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                    </Frame.GestureRecognizers>
-                </Frame>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="{extensions:Translate Name=Alarms}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" />
+
+        <Label Text="{extensions:Translate Name=Alarms}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Margin="0,30,0,0"/>
         <CollectionView ItemsSource="{Binding Alarms}"
                         Margin="20"
                         x:Name="AlarmsView">
@@ -76,7 +76,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="{extensions:Translate Name=Dashboards}"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"/>
+
+        <Label Text="{extensions:Translate Name=Dashboards}"  TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Margin="0,30,0,0"/>
         <CollectionView ItemsSource="{Binding DashBoards.Data}"
                         Margin="20">
             <CollectionView.ItemsLayout>
