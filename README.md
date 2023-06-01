@@ -48,15 +48,15 @@ From the application it is possible to create, modify, delete and view the vario
 
 ### Available languages 🌍
 * **Italian**
-* English 🇬🇧
-* French 🇫🇷
-* German 🇩🇪
-* Spanish 🇪🇸
-* Portoguese 🇵🇹
-* Arabic 🇦🇪
-* Hindi (Indian) 🇮🇳
-* Chinese (Simplified) 🇨🇳
-* Russian 🇷🇺
+* **English**
+* **French**
+* **German**
+* **Spanish**
+* **Portoguese**
+* **Arabic**
+* **Hindi (Indian)**
+* **Chinese (Simplified)**
+* **Russian**
 
 ## Common issues and errors <a name="cie"></a>
 
