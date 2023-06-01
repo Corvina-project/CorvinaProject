@@ -136,7 +136,7 @@
     <value>Lawhat alqiada</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Fi makaniki: </value>
+    <value>tarikh</value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Mashrue min 'iiedad alsafi alraabie limaehad IISS Greppi Monticello , bialtaeawun mae corvina cloud.</value>
@@ -151,22 +151,22 @@
     <value>Al'ajhiza</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Tawthiqu:</value>
+    <value>tawthiq</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>khuruuj</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Milsaq:</value>
+    <value>mulsaq</value>
   </data>
   <data name="LanguageApp" xml:space="preserve">
-    <value>Altatbiqi. Allugha:</value>
+    <value>allugha</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Akhir Tahdith</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>TASJIL ALDUKHUL</value>
+    <value>TASJIL </value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Asma:</value>
@@ -178,13 +178,13 @@
     <value>Almunazamat</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Albahth ean ealama ...</value>
+    <value>baḥṯu</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Halatun:</value>
+    <value>Haala</value>
   </data>
   <data name="Students" xml:space="preserve">
-    <value>Tulaabi:</value>
+    <value>tilmīthan</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
     <value>Simat Alealaama</value>
