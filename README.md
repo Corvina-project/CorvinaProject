@@ -70,6 +70,7 @@ From the application it is possible to create, modify, delete and view the vario
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
 - giorgio.citterio@issgreppi.it
+- alessandro.bevilacqua@issgreppi.it
+- alex.arosio@issgreppi.it
 
 ## Future Updates <a name="fu"></a>
-
