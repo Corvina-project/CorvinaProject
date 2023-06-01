@@ -139,7 +139,7 @@
     <value>Datum: </value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Projekt der vierten Klasse des Instituts IISS Greppi Monticello, in Zusammenarbeit mit corvina cloud.</value>
+    <value>Projekt der vierten Klasse des Instituts IISS Greppi Monticello, in Zusammenarbeit mit Corvina Cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
     <value>Das Projekt wurde mit .NET MAUI entwickelt und verwendet einige zusätzliche Bibliotheken:</value>
@@ -172,7 +172,7 @@
     <value>Name:</value>
   </data>
   <data name="NotConnected" xml:space="preserve">
-    <value>nicht verbunden</value>
+    <value>nicht verbundet</value>
   </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organisationen</value>
