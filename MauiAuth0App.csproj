@@ -119,10 +119,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Language.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Languages\Language.ua-UA.Designer.cs">
+	  <Compile Update="Resources\Languages\Language.uk-UA.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Language.ua-UA.resx</DependentUpon>
+	    <DependentUpon>Language.uk-UA.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Settings.xaml.cs">
 	    <DependentUpon>Settings.xaml</DependentUpon>
@@ -174,9 +174,9 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Language.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Languages\Language.ua-UA.resx">
+	  <EmbeddedResource Update="Resources\Languages\Language.uk-UA.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Language.ua-UA.Designer.cs</LastGenOutput>
+	    <LastGenOutput>Language.uk-UA.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

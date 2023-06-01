@@ -61,7 +61,7 @@ public partial class Settings : ContentPage
                 cultureInfo = "ru-RU";
                 break;
             case "Ukrainian 🇺🇦":
-                cultureInfo = "ua-UA";
+                cultureInfo = "uk-UA";
                 break;
             default:
                 cultureInfo = "en-Us";
@@ -114,7 +114,7 @@ public partial class Settings : ContentPage
             case "ru-RU":
                 PickerLanguage.SelectedItem = "Russian 🇷🇺";
                 break;
-            case "ua-UA":
+            case "uk-UA":
                 PickerLanguage.SelectedItem = "Ukrainian 🇺🇦";
                 break;
             default:
