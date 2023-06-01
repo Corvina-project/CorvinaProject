@@ -120,8 +120,14 @@
   <data name="AddValue" xml:space="preserve">
     <value>Aggiungi valore</value>
   </data>
+  <data name="AddValueDesc" xml:space="preserve">
+    <value>Inserisci il valore che il tag dovrebbe assumere</value>
+  </data>
   <data name="Alarms" xml:space="preserve">
     <value>Allarmi</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Conferma</value>
   </data>
   <data name="Connected" xml:space="preserve">
     <value>connessa</value>
@@ -153,8 +159,14 @@
   <data name="Documentation" xml:space="preserve">
     <value>Documentazione:</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Errore!</value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>ESCI</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>Il campo inserito non è valido</value>
   </data>
   <data name="Label" xml:space="preserve">
     <value>Etichetta:</value>
@@ -167,6 +179,9 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nome:</value>
+  </data>
+  <data name="NoIntConn" xml:space="preserve">
+    <value>Connessione a internet assente</value>
   </data>
   <data name="NotConnected" xml:space="preserve">
     <value>non connessa</value>

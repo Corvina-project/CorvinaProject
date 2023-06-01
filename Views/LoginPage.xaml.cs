@@ -3,6 +3,7 @@ using System.Text.Json;
 using IdentityModel.OidcClient;
 using MauiAuth0App.Extensions;
 using Microsoft.Extensions.Hosting;
+using MauiAuth0App.Resources.Languages;
 
 namespace MauiAuth0App.Views;
 
@@ -65,7 +66,7 @@ public partial class LoginPage : ContentPage {
             await Navigation.PushAsync(new OrganizationsPage(client, service));    
         } catch (Exception ex) {
             await Navigation.PopAsync();
-            await DisplayAlert("Errore interno", ex.Source + ": " + ex.Message, "OK");
+            await DisplayAlert(Language.Error, ex.Source + ": " + ex.Message, "OK");
         } finally {
             isBusy = false;
             //LoginBtn.IsVisible = true;

@@ -13,6 +13,7 @@ using MauiAuth0App.Models;
 using SkiaSharp;
 using Device = MauiAuth0App.Models.Device;
 using MauiAuth0App.Converter;
+using MauiAuth0App.Resources.Languages;
 
 namespace MauiAuth0App.ViewModels
 {
@@ -44,28 +45,28 @@ namespace MauiAuth0App.ViewModels
         private async Task SelectItem()
         {
             string tagName = TagItem.modelPath;
-            string newTagValueString = await Application.Current.MainPage.DisplayPromptAsync("Inserisci il valore", "Inserisci il valore che il tag dovrebbe assumere");
+            string newTagValueString = await Application.Current.MainPage.DisplayPromptAsync(Language.AddValue, Language.AddValueDesc);
             if (newTagValueString == null)
                 return;
             var success = int.TryParse(newTagValueString, out int newtagValue);
             if (!success)
             {
-                await Application.Current.MainPage.DisplayAlert("Errore", "Il campo inserito non è valido", "Ok");
+                await Application.Current.MainPage.DisplayAlert(Language.Error, Language.InvalidValue, "Ok");
                 return;
             }
             if (tagName == null)
             {
-                await Application.Current.MainPage.DisplayAlert("Errore", "Potresti non essere connesso ", "Ok");
+                await Application.Current.MainPage.DisplayAlert(Language.Error, Language.NoIntConn, "Ok");
                 return;
             }
             bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
             if (response)
             {
-                await Application.Current.MainPage.DisplayAlert("Conferma", $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
+                await Application.Current.MainPage.DisplayAlert(Language.Confirm, $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Errore", "Connessione a internet assente", "Ok");
+                await Application.Current.MainPage.DisplayAlert(Language.Error, Language.NoIntConn, "Ok");
             }
             #region Visualizza valori
             /*
@@ -153,7 +154,7 @@ namespace MauiAuth0App.ViewModels
                 LabelsRotation = 20,
                 UnitWidth = TimeSpan.FromSeconds(1).Ticks,
                 MinStep = TimeSpan.FromSeconds(1).Ticks,
-                Name = "Orario",
+                Name = "Hour",
                 NamePaint = new SolidColorPaint(SKColors.White),
                 LabelsPaint = new SolidColorPaint(SKColors.White)
             }
@@ -161,7 +162,7 @@ namespace MauiAuth0App.ViewModels
 
         public Axis[] YAxes { get; set; } = {
             new Axis() {
-                Name = "Valore",
+                Name = "Value",
                 NamePaint = new SolidColorPaint(SKColors.White),
                 LabelsPaint = new SolidColorPaint(SKColors.White)
 

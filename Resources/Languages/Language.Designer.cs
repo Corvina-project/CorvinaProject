@@ -70,11 +70,29 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter the value that the tag should take.
+        /// </summary>
+        internal static string AddValueDesc {
+            get {
+                return ResourceManager.GetString("AddValueDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alarms.
         /// </summary>
         internal static string Alarms {
             get {
                 return ResourceManager.GetString("Alarms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        internal static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         
@@ -169,11 +187,29 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EXIT.
         /// </summary>
         internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The entered value is not valid.
+        /// </summary>
+        internal static string InvalidValue {
+            get {
+                return ResourceManager.GetString("InvalidValue", resourceCulture);
             }
         }
         
@@ -210,6 +246,15 @@ namespace MauiAuth0App.Resources.Languages {
         internal static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No internet connection.
+        /// </summary>
+        internal static string NoIntConn {
+            get {
+                return ResourceManager.GetString("NoIntConn", resourceCulture);
             }
         }
         
