@@ -8,7 +8,7 @@
 -  <a  href="#ii"> Installation Instructions </a>
 -  <a  href="#sr"> System Requirements </a>
 
-III. Using the Application
+### III. Using the Application
 -  <a  href="#ui"> User Interface</a>
 -  <a  href="#kfaf"> Key Features and Functionalities </a>
 
@@ -45,8 +45,7 @@ Each element can be clicked to be directed to the page of the selected element w
 ## Key Features and Functionalities <a name="kfaf"></a>
 From the application it is possible to create, modify, delete and view the various user tags via the smartphone in an intuitive and user-friendly way.
 
-
-### Available languages 🌍
+## Available languages 🌍
 * **Italian**
 * **English**
 * **French**
@@ -57,6 +56,7 @@ From the application it is possible to create, modify, delete and view the vario
 * **Hindi (Indian)**
 * **Chinese (Simplified)**
 * **Russian**
+* **Ukranian**
 
 ## Common issues and errors <a name="cie"></a>
 
@@ -74,5 +74,7 @@ Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti
 - alex.arosio@issgreppi.it
 
 ## Last Updates <a name="la"></a>
+- Notifications
 
 ## Future Updates <a name="fu"></a>
+- Remote Machine Control

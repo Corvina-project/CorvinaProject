@@ -22,13 +22,11 @@
 -  <a  href="#lu"> Ultimi Aggiornamenti </a>
 -  <a  href="#fu"> Futuri Aggiornamenti </a>
 
-
 ## Overview dell'Applicazione <a name="ao"></a>
 L'applicazione Corvina Project è un tool volto all'interfacciamento con il portale di Corvina.  
 Le tecnologie su cui si basa il progetto sono:
 * .NET MAUI per lo sviluppo dell'UI
 * C# per la parte back-end
-
 
 ## Guida all'Installazione <a name="ii"></a>
 
@@ -47,7 +45,6 @@ Cliccando su una, verrano caricati
 
 Ogni elemento può essere cliccato per essere diretti alla pagina dell'elemento selezionato in cui è possibile successivamente accedere ai TAG desiderati.
 
-
 ## Caratteristiche e Funzionalità Principali <a name="kfaf"></a>
 Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i vari tag dell'utente tramite lo smartphone in maniera intuitiva e user-friendly.
   
@@ -62,6 +59,7 @@ Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i va
 * **Hindi (Indiano)**
 * **Cinese (Semplificato)**
 * **Russo**
+* **Ucraino**
 
 ## Problemi ed Errori Comuni <a name="cie"></a>
 
@@ -82,3 +80,4 @@ Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti
 - Notifiche
 
 ## Futuri Aggiornamenti <a name="fu"></a>
+- Controllo da remoto della macchina
