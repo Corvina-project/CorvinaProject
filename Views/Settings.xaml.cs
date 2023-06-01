@@ -114,7 +114,7 @@ public partial class Settings : ContentPage
             case "ru-RU":
                 PickerLanguage.SelectedItem = "Russian 🇷🇺";
                 break;
-            case "ua":
+            case "ua-UA":
                 PickerLanguage.SelectedItem = "Ukrainian 🇺🇦";
                 break;
             default:
