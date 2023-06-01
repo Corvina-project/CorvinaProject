@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddValue" xml:space="preserve">
-    <value>Agregar valor</value>
+    <value>Ajouter de la valeur</value>
   </data>
   <data name="Alarms" xml:space="preserve">
     <value>Alarmes</value>
   </data>
   <data name="Connected" xml:space="preserve">
-    <value>conectado</value>
+    <value>connecté</value>
   </data>
   <data name="Creation" xml:space="preserve">
-    <value>Criação</value>
+    <value>Création</value>
   </data>
   <data name="Credits" xml:space="preserve">
-    <value>Créditos</value>
+    <value>Crédits</value>
   </data>
   <data name="Dashboards" xml:space="preserve">
-    <value>Painéis</value>
+    <value>Tableaux de bord</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>Data: </value>
+    <value>Date: </value>
   </data>
   <data name="Description1" xml:space="preserve">
-    <value>Projeto realizado pelo quarto ano do instituto IISS Greppi Monticello, em colaboração com a Corvina cloud.</value>
+    <value>Projet réalisé par la quatrième année de l'institut IISS Greppi Monticello, en collaboration avec corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>O projecto foi desenvolvido usando .NET MAUI, e utiliza algumas bibliotecas adicionais:</value>
+    <value>Le projet a été développé à l'aide de .NET MAUI et utilise des bibliothèques supplémentaires :</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
-    <value>ID de dispositivo:</value>
+    <value>Reference de l'appareil: </value>
   </data>
   <data name="Devices" xml:space="preserve">
-    <value>Dispositivos</value>
+    <value>Dispositifs</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentação:</value>
+    <value>Documentation:</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>SAIDA</value>
+    <value>SORTIE</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Rótulo:</value>
+    <value>Étiqueter:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
-    <value>Última atualização</value>
+    <value>Dernière mise à jour</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>LOGIN</value>
+    <value>CONNEXION</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nome:</value>
+    <value>Nom: </value>
   </data>
   <data name="NotConnected" xml:space="preserve">
-    <value>não conectado</value>
+    <value>pas connecté</value>
   </data>
   <data name="Organizations" xml:space="preserve">
-    <value>Organizações</value>
+    <value>Organisations</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Pesquisar uma etiqueta...</value>
+    <value>Rechercher une balise...</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status:</value>
+    <value>Statut: </value>
   </data>
   <data name="Students" xml:space="preserve">
-    <value>Alunos:</value>
+    <value>Étudiants:</value>
   </data>
   <data name="TagAttributes" xml:space="preserve">
-    <value>Tag Atributos</value>
+    <value>Attributs de balise</value>
   </data>
   <data name="Teachers" xml:space="preserve">
-    <value>Teachers:</value>
+    <value>Enseignants:</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Valor: </value>
+    <value>Valeur: </value>
   </data>
 </root>

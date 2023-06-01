@@ -27,15 +27,15 @@ public partial class Settings : ContentPage
         string cultureInfo = "it-IT";
         switch (PickerLanguage.SelectedItem.ToString())
         {
-            case "Italiano 🇮🇹":
+            case "Italian 🇮🇹":
                 cultureInfo = "it-IT";
                 break;
             case "English 🇬🇧 🇺🇸":
                 cultureInfo = "en-Us";
                 break;
-            //TODO: french case "French 🇫🇷":
-            //    cultureInfo = "fr-FR";
-            //    break;
+            case "French 🇫🇷":
+                cultureInfo = "fr-FR";
+                break;
             case "Spanish 🇪🇸":
                 cultureInfo = "es-ES";
                 break;
