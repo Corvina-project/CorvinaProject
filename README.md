@@ -47,7 +47,7 @@ From the application it is possible to create, modify, delete and view the vario
 
 
 ### Available languages 🌍
-* Italian 🇮🇹
+* **Italian**
 * English 🇬🇧
 * French 🇫🇷
 * German 🇩🇪
