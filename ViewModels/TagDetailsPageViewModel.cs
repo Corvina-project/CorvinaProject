@@ -62,7 +62,7 @@ namespace MauiAuth0App.ViewModels
             bool response = await AddDeviceTagValue(tagName, newtagValue, _device, _organizationId);
             if (response)
             {
-                await Application.Current.MainPage.DisplayAlert(Language.Confirm, $"Hai assegnato al tag: {tagName} il valore: {newTagValueString}", "Ok");
+                await Application.Current.MainPage.DisplayAlert(Language.Confirm, String.Format(Language.AddValueToTag,tagName, newtagValue), "Ok");
             }
             else
             {

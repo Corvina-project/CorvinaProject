@@ -123,6 +123,9 @@
   <data name="AddValueDesc" xml:space="preserve">
     <value>Inserisci il valore che il tag dovrebbe assumere</value>
   </data>
+  <data name="AddValueToTag" xml:space="preserve">
+    <value>Hai assegnato al tag: {0} il valore: {1}</value>
+  </data>
   <data name="Alarms" xml:space="preserve">
     <value>Allarmi</value>
   </data>

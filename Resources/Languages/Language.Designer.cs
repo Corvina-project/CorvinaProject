@@ -79,6 +79,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have assigned to the tag: {0} the value: {1}.
+        /// </summary>
+        internal static string AddValueToTag {
+            get {
+                return ResourceManager.GetString("AddValueToTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alarms.
         /// </summary>
         internal static string Alarms {
