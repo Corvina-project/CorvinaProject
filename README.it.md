@@ -51,16 +51,16 @@ Ogni elemento può essere cliccato per essere diretti alla pagina dell'elemento 
 Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i vari tag dell'utente tramite lo smartphone in maniera intuitiva e user-friendly.
   
 ### Lingue Disponibili 🌍
->* **Italiano**
->* **Inglese**
->* **Francese**
->* **Tedesco**
->* **Spagnolo**
->* **Portoghese**
->* **Arabo**
->* **Hindi (Indiano)**
->* **Cinese (Semplificato)**
->* **Russo**
+* **Italiano**
+* **Inglese**
+* **Francese**
+* **Tedesco**
+* **Spagnolo**
+* **Portoghese**
+* **Arabo**
+* **Hindi (Indiano)**
+* **Cinese (Semplificato)**
+* **Russo**
 
 ## Problemi ed Errori Comuni <a name="cie"></a>
 
