@@ -129,6 +129,9 @@
   <data name="Creation" xml:space="preserve">
     <value>Nirmaan</value>
   </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Kredit</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Daishabord</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="Organizations" xml:space="preserve">
     <value>Sangathanon</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Koee taig khojen...</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Darja:</value>

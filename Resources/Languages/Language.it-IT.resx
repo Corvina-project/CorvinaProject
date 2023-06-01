@@ -129,6 +129,9 @@
   <data name="Creation" xml:space="preserve">
     <value>Creazione</value>
   </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Crediti</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Pannelli</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="Organizations" xml:space="preserve">
     <value>Organizzazioni</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cerca un tag...</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Stato:</value>

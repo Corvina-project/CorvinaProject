@@ -129,11 +129,14 @@
   <data name="Creation" xml:space="preserve">
     <value>Khalq</value>
   </data>
+  <data name="Credits" xml:space="preserve">
+    <value>Aliaietimadat</value>
+  </data>
   <data name="Dashboards" xml:space="preserve">
     <value>Lawhat alqiada</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>fi makaniki: </value>
+    <value>Fi makaniki: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Mashrue min 'iiedad alsafi alraabie limaehad IISS Greppi Monticello , bialtaeawun mae corvina cloud.</value>
@@ -171,6 +174,9 @@
   <data name="Organizations" xml:space="preserve">
     <value>Almunazamat</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Albahth ean ealama ...</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Halatun:</value>
   </data>
@@ -181,6 +187,6 @@
     <value>Simat Alealaama</value>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>qimatun: </value>
+    <value>Qimatun: </value>
   </data>
 </root>
