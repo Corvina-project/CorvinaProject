@@ -67,7 +67,7 @@ public partial class Settings : ContentPage
  
         var switchToCulture = new CultureInfo(cultureInfo);
         LocalizationResourceManager.Instance.SetCulture(switchToCulture);
-        Preferences.Default.Set("language", switchToCulture.TwoLetterISOLanguageName);
+        Preferences.Default.Set("language", switchToCulture.Name);
 
         //var switchToCulture = Language.Culture.TwoLetterISOLanguageName
         //    .Equals("it", StringComparison.InvariantCultureIgnoreCase) ?
@@ -81,34 +81,34 @@ public partial class Settings : ContentPage
         string s = Preferences.Default.Get("language", "it-IT");
         switch (s)
         {
-            case "it":
+            case "it-IT":
                 PickerLanguage.SelectedItem = "Italiano 🇮🇹";
                 break;
-            case "en":
+            case "en-Us":
                 PickerLanguage.SelectedItem = "English 🇬🇧 🇺🇸";
                 break;
-            case "es":
+            case "es-ES":
                 PickerLanguage.SelectedItem = "Spanish 🇪🇸";
                 break;
-            case "fr":
+            case "fr-FR":
                 PickerLanguage.SelectedItem = "French 🇫🇷";
                 break;
-            case "pt":
+            case "pt-PT":
                 PickerLanguage.SelectedItem = "Portuguese 🇵🇹";
                 break;
-            case "de":
+            case "de-DE":
                 PickerLanguage.SelectedItem = "Deutsch 🇩🇪";
                 break;
             case "ar":
                 PickerLanguage.SelectedItem = "Arabic 🇦🇪";
                 break;
-            case "zh":
+            case "zh-CN":
                 PickerLanguage.SelectedItem = "Chinese 🇨🇳";
                 break;
             case "hi":
                 PickerLanguage.SelectedItem = "Hindi 🇮🇳";
                 break;
-            case "ru":
+            case "ru-RU":
                 PickerLanguage.SelectedItem = "Russian 🇷🇺";
                 break;
             default:
