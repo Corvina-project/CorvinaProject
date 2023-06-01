@@ -142,7 +142,7 @@
     <value>Projet réalisé par la quatrième année de l'institut IISS Greppi Monticello, en collaboration avec corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>Le projet a été développé à l'aide de .NET MAUI et utilise des bibliothèques supplémentaires :</value>
+    <value>Le projet a été développé à l'aide de .NET MAUI et utilise des logithèques supplémentaires :</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
     <value>Reference de l'appareil: </value>
@@ -158,6 +158,9 @@
   </data>
   <data name="Label" xml:space="preserve">
     <value>Étiqueter:</value>
+  </data>
+  <data name="LanguageApp" xml:space="preserve">
+    <value>Langue Applications:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Dernière mise à jour</value>

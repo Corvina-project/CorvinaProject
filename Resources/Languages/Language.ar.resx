@@ -159,6 +159,9 @@
   <data name="Label" xml:space="preserve">
     <value>Milsaq:</value>
   </data>
+  <data name="LanguageApp" xml:space="preserve">
+    <value>Altatbiqi. Allugha:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Akhir Tahdith</value>
   </data>

@@ -159,6 +159,9 @@
   <data name="Label" xml:space="preserve">
     <value>Rótulo:</value>
   </data>
+  <data name="LanguageApp" xml:space="preserve">
+    <value>Idioma Aplicativo:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Última atualização</value>
   </data>

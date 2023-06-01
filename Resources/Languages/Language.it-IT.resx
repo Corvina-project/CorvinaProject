@@ -151,7 +151,7 @@
     <value>Progetto a cura del quarto anno dell'istituto IISS Greppi Monticello, in collaborazione con corvina cloud.</value>
   </data>
   <data name="Description2" xml:space="preserve">
-    <value>Il progetto è stato sviluppando utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:</value>
+    <value>Il progetto è stato sviluppato utilizzando .NET MAUI, e fa utilizzo di alcune librerie supplementari:</value>
   </data>
   <data name="DeviceId" xml:space="preserve">
     <value>Id dispositivo:</value>
@@ -173,6 +173,9 @@
   </data>
   <data name="Label" xml:space="preserve">
     <value>Etichetta:</value>
+  </data>
+  <data name="LanguageApp" xml:space="preserve">
+    <value>Lingua Applicazione:</value>
   </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Ultimo update</value>

@@ -159,6 +159,9 @@
   <data name="Label" xml:space="preserve">
     <value>Yarlyki:</value>
   </data>
+  <data name="LanguageApp" xml:space="preserve">
+    <value>Yazyk Prilozheniya:</value>
+  </data>
   <data name="LastUpdate" xml:space="preserve">
     <value>Posledneye obnovleniye</value>
   </data>

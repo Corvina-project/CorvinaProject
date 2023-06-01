@@ -7,7 +7,7 @@
         <VerticalStackLayout>
             <Frame Margin="25,0,25,50" HeightRequest="105">
                 <VerticalStackLayout>
-                    <Label Text="LINGUA APP:" FontFamily="corvina_font" FontSize="20" HorizontalOptions="Center"></Label>
+                    <Label Text="{extensions:Translate Name=LanguageApp}" FontFamily="corvina_font" FontSize="20" HorizontalOptions="Center"></Label>
                     <Picker Title="Lingua"
                             TextColor="White"
                             SelectedIndexChanged="CambiaLinguaClicked"

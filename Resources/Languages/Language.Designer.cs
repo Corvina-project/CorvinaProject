@@ -232,6 +232,15 @@ namespace MauiAuth0App.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to App Language:.
+        /// </summary>
+        internal static string LanguageApp {
+            get {
+                return ResourceManager.GetString("LanguageApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last update.
         /// </summary>
         internal static string LastUpdate {
