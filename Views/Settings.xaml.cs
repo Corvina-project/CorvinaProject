@@ -9,6 +9,54 @@ public partial class Settings : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        string s = null;
+        s = Preferences.Default.Get("language", "it-IT");
+        switch (s)
+        {
+            case "it":
+            case "it-IT":
+                PickerLanguage.SelectedItem = "Italiano 🇮🇹";
+                break;
+            case "en":
+            case "en-Us":
+                PickerLanguage.SelectedItem = "English 🇬🇧 🇺🇸";
+                break;
+            //TODO: french case "French 🇫🇷":
+            //    cultureInfo = "fr-FR";
+            //    break;
+            case "es":
+                PickerLanguage.SelectedItem = "Spanish 🇪🇸";
+                break;
+            case "fr":
+                PickerLanguage.SelectedItem = "French 🇫🇷";
+                break;
+            case "pt":
+                PickerLanguage.SelectedItem = "Portuguese 🇵🇹";
+                break;
+            case "de":
+                PickerLanguage.SelectedItem = "Deutsch 🇩🇪";
+                break;
+            case "ar":
+                PickerLanguage.SelectedItem = "Arabic 🇦🇪";
+                break;
+            case "zh":
+                PickerLanguage.SelectedItem = "Chinese 🇨🇳";
+                break;
+            case "hi":
+                PickerLanguage.SelectedItem = "Hindi 🇮🇳";
+                break;
+            case "ru":
+                PickerLanguage.SelectedItem = "Russian 🇷🇺";
+                break;
+            default:
+                PickerLanguage.SelectedItem = "English 🇬🇧 🇺🇸";
+                break;
+        }
+    }
+
     private async void OpenVillaGreppi(object sender, EventArgs e)
     {
         await Launcher.OpenAsync("https://www.istitutogreppi.edu.it/");
