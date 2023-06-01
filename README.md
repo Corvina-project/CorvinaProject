@@ -73,4 +73,6 @@ Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti
 - alessandro.bevilacqua@issgreppi.it
 - alex.arosio@issgreppi.it
 
+## Last Updates <a name="la"></a>
+
 ## Future Updates <a name="fu"></a>
