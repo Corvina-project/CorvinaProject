@@ -45,6 +45,19 @@ Each element can be clicked to be directed to the page of the selected element w
 ## Key Features and Functionalities <a name="kfaf"></a>
 From the application it is possible to create, modify, delete and view the various user tags via the smartphone in an intuitive and user-friendly way.
 
+
+### Available languages 🌍
+* Italian 🇮🇹
+* English 🇬🇧
+* French 🇫🇷
+* German 🇩🇪
+* Spanish 🇪🇸
+* Portoguese 🇵🇹
+* Arabic 🇦🇪
+* Hindi (Indian) 🇮🇳
+* Chinese (Simplified) 🇨🇳
+* Russian 🇷🇺
+
 ## Common issues and errors <a name="cie"></a>
 
 ## How to troubleshoot them <a name="httt"></a>
@@ -56,6 +69,7 @@ From the application it is possible to create, modify, delete and view the vario
 ## Support <a name="s"></a>
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
+- giorgio.citterio@issgreppi.it
 
 ## Future Updates <a name="fu"></a>
-- Notifications
+
