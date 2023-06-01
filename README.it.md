@@ -19,7 +19,8 @@
 ### V. Conclusioni 
 -  <a  href="#ar"> Risorse Aggiuntive </a>
 -  <a  href="#s"> Supporto </a>
--  <a  href="#fu"> Futuri Updates </a>
+-  <a  href="#lu"> Ultimi Aggiornamenti </a>
+-  <a  href="#fu"> Futuri Aggiornamenti </a>
 
 
 ## Overview dell'Applicazione <a name="ao"></a>
@@ -51,16 +52,16 @@ Ogni elemento può essere cliccato per essere diretti alla pagina dell'elemento 
 Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i vari tag dell'utente tramite lo smartphone in maniera intuitiva e user-friendly.
   
 ### Lingue Disponibili 🌍
->* Italiano 🇮🇹
->* Inglese 🇬🇧
->* Francese 🇫🇷
->* Tedesco 🇩🇪
->* Spagnolo 🇪🇸
->* Portoghese 🇵🇹
->* Arabo 🇦🇪
->* Hindi (Indiano) 🇮🇳
->* Cinese (Semplificato) 🇨🇳
->* Russo 🇷🇺
+* **Italiano**
+* **Inglese**
+* **Francese**
+* **Tedesco**
+* **Spagnolo**
+* **Portoghese**
+* **Arabo**
+* **Hindi (Indiano)**
+* **Cinese (Semplificato)**
+* **Russo**
 
 ## Problemi ed Errori Comuni <a name="cie"></a>
 
@@ -73,6 +74,11 @@ Dall'applicazione è possibile creare, modificare, eliminare e visualizzare i va
 ## Supporto <a name="s"></a>
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
+- giorgio.citterio@issgreppi.it
+- alessandro.bevilacqua@issgreppi.it
+- alex.arosio@issgreppi.it
 
-## Futuri Updates <a name="fu"></a>
+## Ultimi Aggiornamenti <a name="lu"></a>
 - Notifiche
+
+## Futuri Aggiornamenti <a name="fu"></a>

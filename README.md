@@ -47,16 +47,16 @@ From the application it is possible to create, modify, delete and view the vario
 
 
 ### Available languages 🌍
-* Italian 🇮🇹
-* English 🇬🇧
-* French 🇫🇷
-* German 🇩🇪
-* Spanish 🇪🇸
-* Portoguese 🇵🇹
-* Arabic 🇦🇪
-* Hindi (Indian) 🇮🇳
-* Chinese (Simplified) 🇨🇳
-* Russian 🇷🇺
+* **Italian**
+* **English**
+* **French**
+* **German**
+* **Spanish**
+* **Portoguese**
+* **Arabic**
+* **Hindi (Indian)**
+* **Chinese (Simplified)**
+* **Russian**
 
 ## Common issues and errors <a name="cie"></a>
 
@@ -70,6 +70,9 @@ From the application it is possible to create, modify, delete and view the vario
 Per segnalare problemi o chiedere assistenza inviare una mail a uno dei seguenti indirizzi:
 - carlo.cecchetti@issgreppi.it
 - giorgio.citterio@issgreppi.it
+- alessandro.bevilacqua@issgreppi.it
+- alex.arosio@issgreppi.it
+
+## Last Updates <a name="la"></a>
 
 ## Future Updates <a name="fu"></a>
-
