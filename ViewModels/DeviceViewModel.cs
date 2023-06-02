@@ -20,15 +20,7 @@ public partial class DeviceViewModel : ObservableObject
         this.deviceType = deviceType;
         this.client = client;
         IsConnected = deviceModel.Connected;
-        switch (deviceModel.Attributes.VpnConnected)
-        {
-            case true:
-                IsVpnConnected = Resources.Languages.Language.Connected;
-                break;
-            case false:
-                IsVpnConnected = Resources.Languages.Language.NotConnected;
-                break;
-        }
+        IsVpnConnected = deviceModel.Attributes.VpnConnected ? Resources.Languages.Language.Connected : Resources.Languages.Language.NotConnected;
     }
 
     [RelayCommand]

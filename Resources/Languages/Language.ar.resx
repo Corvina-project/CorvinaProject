@@ -136,7 +136,7 @@
     <value>Lawhat alqiada</value>
   </data>
   <data name="Date" xml:space="preserve">
-    <value>tarikh</value>
+    <value>Tarikh: </value>
   </data>
   <data name="Description1" xml:space="preserve">
     <value>Mashrue min 'iiedad alsafi alraabie limaehad IISS Greppi Monticello , bialtaeawun mae corvina cloud.</value>
@@ -178,7 +178,7 @@
     <value>Almunazamat</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>baḥṯu</value>
+    <value>albahth ean ealama</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Haala</value>
