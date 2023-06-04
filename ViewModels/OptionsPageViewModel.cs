@@ -39,7 +39,7 @@ namespace MauiAuth0App.ViewModels {
         }
 
         public async Task LoadAlarms() {
-            string richiesta = $"\"data\":\"(status != \\\"CLEARED\\\" and ( status == \\\"ACTIVE\\\" or ack == \\\"REQUIRED\\\" or reset == \\\"REQUIRED\\\" ) )\", \"orderDir\":\"asc\", \"page\":0, \"scopedOrganization\":\"{TokenHolder.ResourceId}\"";
+            string richiesta = $"\"data\":\"(status~= \\\".*\\\")\",\"orderDir\":\"asc\",\"page\":{0},\"scopedOrganization\":\"{Organization.ResourceId}\"";
             richiesta = '{' + richiesta + '}';
 
             var alarm = await TokenHandler.ExecuteWithPermissionToken(client,
