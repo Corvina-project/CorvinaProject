@@ -86,6 +86,7 @@ public partial class Settings : ContentPage
         {
             case "it-IT":
                 PickerLanguage.SelectedItem = "Italiano 🇮🇹";
+                PickerLanguage.SelectedIndex = 0;
                 break;
             case "en-Us":
                 PickerLanguage.SelectedItem = "English 🇬🇧 🇺🇸";
