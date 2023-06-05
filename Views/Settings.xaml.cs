@@ -27,7 +27,7 @@ public partial class Settings : ContentPage
 
     private void CambiaLinguaClicked(object sender, EventArgs e)
     {
-        string cultureInfo = "it-IT";
+        string cultureInfo = "en-US";
         switch (PickerLanguage.SelectedItem.ToString())
         {
             case "Italian 🇮🇹":
