@@ -8,7 +8,7 @@
             <Frame Margin="25,0,25,50" HeightRequest="115">
                 <VerticalStackLayout>
                     <Label Text="{extensions:Translate Name=LanguageApp}" FontFamily="corvina_font" FontSize="20" HorizontalOptions="Center"></Label>
-                    <Picker Title="Lingua"
+                    <Picker Title="Language"
                             TextColor="White"
                             SelectedIndexChanged="CambiaLinguaClicked"
                             x:Name="PickerLanguage"
@@ -33,147 +33,99 @@
                     </Picker>
                 </VerticalStackLayout>
             </Frame>
-            
-            
-            
-            
+
+
             <Label Text="{extensions:Translate Name=Credits}" FontFamily="corvina_font" FontSize="40" Margin="0,0,0,40" HorizontalOptions="Center"></Label>
-            <!--<Button Text="{extensions:Translate Name=TextButton}"
-                    Clicked="CambiaLinguaClicked"
-                    x:Name="CambiaLinguaButton"
-                    SemanticProperties.Hint="Cambia lingua"
-                    Margin="0, 0, 0, 30"
-                    WidthRequest="200"
-                    CornerRadius="25"/>--><!--
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Margin="0,0,0,30">
-                <Frame BackgroundColor="White"
-                       CornerRadius="100"
-                       Margin="0,0,20,0">
-                    <ImageButton Source="villagreppi.png"
-                             Clicked="OpenVillaGreppi"
-                             HeightRequest="90"
-                             WidthRequest="90"/>
-                </Frame>
-                <Frame BackgroundColor="White"
-                        CornerRadius="100">
-                    <ImageButton Source="cloud.png"
-                             Clicked="OpenCorvinaCloud"
-                             HeightRequest="90"
-                             WidthRequest="90"/>
-                </Frame>
-            </HorizontalStackLayout>
-            <Label Text="{extensions:Translate Name=Description1}" 
-                   Margin="0,0,0,20"/>
-            <Label Text="{extensions:Translate Name=Students}"
-                   HorizontalOptions="Center"/>
-
-            <Grid Margin="0,0,0,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <VerticalStackLayout Grid.Column="0">
-                    <Label Text="4IA"
-                           HorizontalOptions="Center"/>
-                    <Label Text="Alessandro Bevilacqua"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Tommaso Caglio"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Carlo Cechetti"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Walid Lakraidi"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Daniele Sala"
-                           HorizontalOptions="Start"/>
-                </VerticalStackLayout>
-
-                <VerticalStackLayout Grid.Column="1">
-                    <Label Text="4IB"
-                           HorizontalOptions="Center"/>
-                    <Label Text="Alex Arosio"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Giorgio Citterio"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Umberto Colombo"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Daniele Galimberti"
-                           HorizontalOptions="Start"/>
-                    <Label Text="Pietro Giovanni Panzeri"
-                           HorizontalOptions="Start"/>
-                </VerticalStackLayout>
-            </Grid>
-
-            <VerticalStackLayout Margin="0,0,0,20">
-                <Label Text="{extensions:Translate Name=Teachers}"
-                           HorizontalOptions="Center"/>
-                <Label Text="Gennaro Malafronte"
-                           HorizontalOptions="Start"/>
-                <Label Text="Emilio Pennati"
-                           HorizontalOptions="Start"/>
-                <Label Text="Vincenzo Villa"
-                           HorizontalOptions="Start"/>
-                <Label Text="Pietro Petracca"
-                           HorizontalOptions="Start"/>
-                <Label Text="Luca Melcarne"
-                           HorizontalOptions="Start"/>
-            </VerticalStackLayout>
-
-            <HorizontalStackLayout Margin="0,0,0,20">
-                <Label Text="{extensions:Translate Name=Documentation} "
-                       HorizontalOptions="Start"
-                       VerticalOptions="Center"/>
-                <ImageButton Source="github.svg"
-                             Clicked="OpenGitHub"
-                             VerticalOptions="Center"
-                             HeightRequest="20"/>
-            </HorizontalStackLayout>
-
-            <Label Text="{extensions:Translate Name=Description2}" Margin="0,0,0,10"/>
-            <VerticalStackLayout Margin="20,0,0,0">
-                <Label Text="CommunityToolkit.Mvvm"
-                       HorizontalOptions="Start"/>
-                <Label Text="IdentityModel.OidcClient"
-                       HorizontalOptions="Start"/>
-                <Label Text="LiveChartsCore.SkiaSharpView.Maui"
-                       HorizontalOptions="Start"/>
-                <Label Text="Microsoft.Extensions.Hosting.Abstractions"
-                       HorizontalOptions="Start"/>
-                <Label Text="Microsoft.Extensions.Http"
-                       HorizontalOptions="Start"/>
-                <Label Text="Microsoft.Extensions.Logging.Debug"
-                       HorizontalOptions="Start"/>
-                <Label Text="SkiaSharp.Extended.UI.Maui"
-                       HorizontalOptions="Start"/>
-                <Label Text="Plugin.LocalNotification"
-                       HorizontalOptions="Start"/>
-            </VerticalStackLayout>-->
 
             <Frame HeightRequest="600" BackgroundColor="#1fffffff" >
-                <VerticalStackLayout>
-                    <Label Text="{extensions:Translate Name=Description1}" 
+                <ScrollView>
+                    <VerticalStackLayout>
+                        <Label Text="{extensions:Translate Name=Description1}" 
                            Margin="0,0,0,20" FontFamily="attributes_font" HorizontalOptions="Center"/>
-                    
-                    <Label Text="{extensions:Translate Name=Students}" Margin="20"
+
+                        <Label Text="{extensions:Translate Name=Students}" Margin="15"
+                           HorizontalOptions="Center" FontSize="20" FontFamily="attributes_font"/>
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                                <Label Text="4IA"
+                                   FontAttributes="Bold" FontSize="17"
                            HorizontalOptions="Center"/>
-                    <Grid ColumnDefinitions="*,*">
-                        <VerticalStackLayout Grid.Column="0">
-                            <Label Text="4IA"
+                                <Label Text="Alessandro Bevilacqua"
                            HorizontalOptions="Center"/>
-                            <Label Text="Alessandro Bevilacqua"
-                           HorizontalOptions="Start"/>
-                            <Label Text="Tommaso Caglio"
-                           HorizontalOptions="Start"/>
-                            <Label Text="Carlo Cechetti"
-                           HorizontalOptions="Start"/>
-                            <Label Text="Walid Lakraidi"
-                           HorizontalOptions="Start"/>
-                            <Label Text="Daniele Sala"
-                           HorizontalOptions="Start"/>
+                                <Label Text="Tommaso Caglio"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Carlo Cechetti"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Walid Lakraidi"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Daniele Sala"
+                           HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                                <Label Text="4IB"
+                                   FontAttributes="Bold" FontSize="17"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Alex Arosio"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Giorgio Citterio"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Umberto Colombo"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Daniele Galimberti"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Pietro Giovanni Panzeri"
+                           HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Margin="20" Grid.ColumnSpan="2" Grid.Row="1">
+                                <Label Text="{extensions:Translate Name=Teachers}" 
+                                   FontFamily="attributes_font" FontSize="20" Margin="5"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Gennaro Malafronte"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Emilio Pennati"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Vincenzo Villa"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Pietro Petracca"
+                           HorizontalOptions="Center"/>
+                                <Label Text="Luca Melcarne"
+                           HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <HorizontalStackLayout Margin="0,50,0,0">
+                            <Label Text="{extensions:Translate Name=Documentation}"
+                               FontSize="16"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"/>
+                            <ImageButton Source="github.svg"
+                             Clicked="OpenGitHub"
+                             VerticalOptions="Center"
+                             HeightRequest="25"/>
+                        </HorizontalStackLayout>
+
+                        <Label Text="{extensions:Translate Name=Description2}" Margin="0,35,0,0"
+                               HorizontalOptions="Center" FontFamily="attributes_font"/>
+
+                        <VerticalStackLayout Margin="10">
+                            <Label Text="CommunityToolkit.Mvvm"
+                       HorizontalOptions="Start"/>
+                            <Label Text="IdentityModel.OidcClient"
+                       HorizontalOptions="Start"/>
+                            <Label Text="LiveChartsCore.SkiaSharpView.Maui"
+                       HorizontalOptions="Start"/>
+                            <Label Text="Microsoft.Extensions.Hosting.Abstractions"
+                       HorizontalOptions="Start"/>
+                            <Label Text="Microsoft.Extensions.Http"
+                       HorizontalOptions="Start"/>
+                            <Label Text="Microsoft.Extensions.Logging.Debug"
+                       HorizontalOptions="Start"/>
+                            <Label Text="SkiaSharp.Extended.UI.Maui"
+                       HorizontalOptions="Start"/>
+                            <Label Text="Plugin.LocalNotification"
+                       HorizontalOptions="Start"/>
                         </VerticalStackLayout>
-                    </Grid>
-                </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </ScrollView>
             </Frame>
         </VerticalStackLayout>
     </ScrollView>
