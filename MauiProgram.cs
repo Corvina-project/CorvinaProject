@@ -52,7 +52,7 @@ public static class MauiProgram
             sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("DemoAPI")
         );
 
-        var culture = new CultureInfo(Preferences.Default.Get("language", "it-IT"));
+        var culture = new CultureInfo(Preferences.Default.Get("language", "en-US"));
         LocalizationResourceManager.Instance.SetCulture(culture);
 
         return builder.Build();

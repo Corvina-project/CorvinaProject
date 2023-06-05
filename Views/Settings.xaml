@@ -10,6 +10,7 @@
                     <Label Text="{extensions:Translate Name=LanguageApp}" FontFamily="corvina_font" FontSize="20" HorizontalOptions="Center"></Label>
                     <Picker Title="Language"
                             TextColor="White"
+                            TitleColor="White"
                             SelectedIndexChanged="CambiaLinguaClicked"
                             x:Name="PickerLanguage"
                             HorizontalOptions="Center"

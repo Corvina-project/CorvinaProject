@@ -52,7 +52,9 @@
         <Label Text="{extensions:Translate Name=Alarms}" TextColor="WhiteSmoke" FontFamily="corvina_font" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Margin="0,30,0,0"/>
         <CollectionView ItemsSource="{Binding Alarms}"
                         Margin="20"
-                        x:Name="AlarmsView">
+                        x:Name="AlarmsView"
+                        VerticalScrollBarVisibility="Always"
+                        HeightRequest="220">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical"
                                    ItemSpacing="10" />
